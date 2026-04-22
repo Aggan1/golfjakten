@@ -1,6 +1,6 @@
 const url =
 
-    "https://smapi.lnu.se/api/?api_key=EB72AuVs&controller=activity&method=getall&descriptions=golfbana";
+    "https://smapi.lnu.se/api/?api_key=EB72AuVs&controller=establishment&method=getall&descriptions=golfbana";
 
 const golfList = document.getElementById("golf-list");
 
@@ -50,11 +50,15 @@ function renderGolfCourses(courses) {
 
       <h3>${course.name}</h3>
 
-      <p>${course.description}</p>
+      <p>${course.city}, ${course.municipality}</p>
+
+      <p>Prisintervall: ${course.price_range}</p>
 
       <p>Betyg: ${course.rating}</p>
 
       <p>Antal recensioner: ${course.num_reviews}</p>
+
+      <p>${course.abstract || "Ingen kort beskrivning tillgänglig."}</p>
 
     `;
 
