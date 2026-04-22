@@ -1,0 +1,24 @@
+[
+  {
+    "smapi_id": "59",
+    "greenfee_weekday": "350 kr",
+    "greenfee_weekend": "450 kr",
+    "course_condition": "Bra skick",
+    "driving_range": true,
+    "restaurant": true,
+    "kiosk": true,
+    "golf_cart": false,
+    "charging_station": false
+  },
+  {
+    "smapi_id": "60",
+    "greenfee_weekday": "300 kr",
+    "greenfee_weekend": "400 kr",
+    "course_condition": "Medel",
+    "driving_range": true,
+    "restaurant": false,
+    "kiosk": true,
+    "golf_cart": true,
+    "charging_station": false
+  }
+]
