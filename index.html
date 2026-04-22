@@ -3,14 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Golfjakten</title>
+
+    <script src="script.js"></script>
 </head>
 <body>
+    <header>
+<h1>Golfjakten</h1>
+<p>Hitta nya Golfbanor</p>
+<nav>
+    <ul>
+        <li> <a href="index.html">start sida</a></li>
+        <li> <a href="Golfbanor.html">Golfbanor</a></li>
+        <li> <a href="jamfor.html">Jämför</a></li>
+        <li> <a href="kontakt.html">Kontakta oss</a></li>
+    </ul>
+</nav>
+   </header>
 
-    <h1>golf</h1>
-    <p>Välkommen till vår sida!</p>
+   <section id="start">
+    <h2>Hitta nya golfbanor</h2>
 
-    <nav>lalala</nav>
-    <nav>test</nav>
+    <p>
+        Upptäck golfbanor i Småland och på Öland
+    </p>
+   </section>
+
+   <section>
+    <h2> Sök golfbana </h2>
+
+    <form>
+    <label for="area">Område:</label>
+        <select id="area">
+            <option>Alla</option>
+            <option>Småland</option>
+            <option>Öland</option>
+         </form>
+   </section>
+
+   <section>
+    <h2> Golfbanor</h2>
+
+    <div id="list"></div>
+   </section>
+
+   <section>
+    <h2>PLanera Rundor</h2>
+
+    <div id="planner"></div>
+   </section>
+
+   <footer>
+    <p>Golfjakten 2026</p>
+   </footer>
 </body>
 </html>
