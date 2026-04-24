@@ -2,6 +2,7 @@ const url =
     "https://smapi.lnu.se/api/?api_key=EB72AuVs&controller=establishment&method=getall&descriptions=golfbana";
 
 const golfList = document.getElementById("golf-list");
+const golfDetails = document.getElementById("golf-details");
 
 // Hämtar golfbanorna från smapi
 function getGolfCourses() {
@@ -56,39 +57,52 @@ function mergeGolfData(smapiCourses, extraCourses) {
 
 // Lägger in golfbanorna på sidan
 function renderGolfCourses(courses) {
-    golfList.innerHTML = "";
+  golfList.innerHTML = "";
 
-    courses.forEach(function (course) {
-        const card = document.createElement("article");
-        card.classList.add("golf-card");
+  courses.forEach(function (course) {
+    const card = document.createElement("article");
+    card.classList.add("golf-card");
 
-        let extraInfo = "<p>Ingen extra golfdata tillgänglig.</p>";
-
-        if (course.extra) {
-            extraInfo = `
-        <p>Greenfee vardag: ${course.extra.greenfee_weekday}</p>
-        <p>Greenfee helg: ${course.extra.greenfee_weekend}</p>
-        <p>Skick: ${course.extra.course_condition}</p>
-        <p>Driving range: ${course.extra.driving_range ? "Ja" : "Nej"}</p>
-        <p>Restaurang: ${course.extra.restaurant ? "Ja" : "Nej"}</p>
-        <p>Kiosk: ${course.extra.kiosk ? "Ja" : "Nej"}</p>
-        <p>Golfbil: ${course.extra.golf_cart ? "Ja" : "Nej"}</p>
-        <p>Laddplats: ${course.extra.charging_station ? "Ja" : "Nej"}</p>
-      `;
-        }
-
-        card.innerHTML = `
+    card.innerHTML = `
       <h3>${course.name}</h3>
       <p>${course.city}, ${course.municipality}</p>
-      <p>Prisintervall: ${course.price_range}</p>
       <p>Betyg: ${course.rating}</p>
-      <p>Antal recensioner: ${course.num_reviews}</p>
-      <p>${course.abstract || "Ingen kort beskrivning tillgänglig."}</p>
-      ${extraInfo}
     `;
 
-        golfList.appendChild(card);
+    card.addEventListener("click", function () {
+      showGolfDetails(course);
     });
+
+    golfList.appendChild(card);
+  });
+}
+
+function showGolfDetails(course) {
+  let extraInfo = "<p>Ingen extra golfdata tillgänglig.</p>";
+
+  if (course.extra) {
+    extraInfo = `
+      <p>Greenfee vardag: ${course.extra.greenfee_weekday}</p>
+      <p>Greenfee helg: ${course.extra.greenfee_weekend}</p>
+      <p>Skick: ${course.extra.course_condition}</p>
+      <p>Driving range: ${course.extra.driving_range ? "Ja" : "Nej"}</p>
+      <p>Restaurang: ${course.extra.restaurant ? "Ja" : "Nej"}</p>
+      <p>Kiosk: ${course.extra.kiosk ? "Ja" : "Nej"}</p>
+      <p>Golfbil: ${course.extra.golf_cart ? "Ja" : "Nej"}</p>
+      <p>Laddplats: ${course.extra.charging_station ? "Ja" : "Nej"}</p>
+    `;
+  }
+
+  golfDetails.innerHTML = `
+    <h3>${course.name}</h3>
+    <p><strong>Plats:</strong> ${course.city}, ${course.municipality}</p>
+    <p><strong>Adress:</strong> ${course.address || "Saknas"}</p>
+    <p><strong>Prisintervall:</strong> ${course.price_range || "Saknas"}</p>
+    <p><strong>Betyg:</strong> ${course.rating}</p>
+    <p><strong>Antal recensioner:</strong> ${course.num_reviews}</p>
+    <p>${course.abstract || "Ingen beskrivning tillgänglig."}</p>
+    ${extraInfo}
+  `;
 }
 
 // Startar hela processen
