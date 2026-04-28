@@ -1,62 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>GOLFJAKTEN</title>
-  <script src="js/script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golfjakten</title>
   <link rel="stylesheet" href="style.css">
-  
 </head>
 <body>
-    <header class="toppbar">
-<div class="logo">GOLFJAKTEN</div>
-<p>Hitta nya Golfbanor</p>
-<nav class="nav">
-        <a href="index.html">Golfbanor</a>
-        <a href="Golfresor.html">Golfresor</a>
-        <a href="om.html">Om oss</a>
-         <a href="kontakt.html">Kontakta oss</a>
-</nav>
+  <header class="meny" >
+    <h1>GOLFJAKTEN</h1>
+    <nav>
+      <a href="index.html">Golfbanor</a>
+      <a href="Golfresor.html">Golfresor</a>
+      <a href="om.html">Om oss</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a href="boka.html" class="btn">Boka</a>
+    </nav>
+  </header>
 
-<a href="boka.html" class="btn"> Boka golfresor</a>
-   </header>
-
-   <main>
+  <main>
     <section class="hero">
-        <div class="hero-text">
-            <p class="small-text"> Alla golf banor på en och samma plats</p>
-            <h1>Småland & Ölands Bästa golfupplevelse</h1>
-        </div>
-        <p>Upptäck, jämför och bästa golfbanor & golfresor i hela Småland</p>
-
-        <a href="boka.html" class="btn">UPPTÄCK GOLFBANOR </a>
-        
-        <div class="img">
-    <div class="img-one">bild</div>
-   </div>
-
+      <div>
+        <h2>Boka din golfresa</h2>
+        <p class="section-p">Boka den perfekta golfresan i Småland och pa öland.</p> 
+         <p class="btn-1">Boka golfresa</p>
+      </div>
+      
     </section>
-   </main>
 
-  
-   
-   <section>
-    <h2> Golfbanor</h2>
+    <section class="steps">
+      <div>Resan</div>
+      <div>Banor</div>
+      <div>Boende</div>
+      <div>Tillval</div>
+      <div>Oversikt</div>
+    </section>
 
+    <section class="booking">
+      <div class="details">
+        <h3>Resedetaljer</h3>
+        <div class="form-row">
+         <form>
 
-    <div id="golf-list"></div>
-   </section>
+            <label for="datum">Välj start datum:</label>
+            <input type="date" id="datum" name="datum"> </form>
+            
+        <form>  
+            <label for="datum">Välj slut datum:</label>
+            <input type="date" id="datum" name="datum">
+       </form>
 
-   <section>
-    <h2>Planera Rundor</h2>
-
-    <div id="planner"></div>
-   </section>
-
-   <footer>
-    <p>Golfjakten 2026</p>
-   </footer>
+          <select>
+            <option>1 personer</option>
+            <option>2 personer</option>
+            <option>3 personer</option>
+            <option>4 personer</option>
+          </select>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
