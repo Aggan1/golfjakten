@@ -1,21 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOLFJAKTEN</title>
+
+    <title>Golfbanor | Golfjakten</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="golfbanor.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 </head>
+
 <body>
     <header class="toppbar">
         <div class="logo">GOLFJAKTEN</div>
+
         <nav class="nav">
-                <a href="index.html">Start sida</a>
-                <a href="golfbanor.html">Golfbanor</a>
-                <a href="Golfresor.html">Golfresor</a>
-                <a href="om.html">Om oss</a>
-                 <a href="kontakt.html">Kontakta oss</a>
+            <a href="index.html">Startsida</a>
+            <a href="golfbanor.html">Golfbanor</a>
+            <a href="Golfresor.html">Golfresor</a>
+            <a href="om.html">Om oss</a>
+            <a href="kontakt.html">Kontakta oss</a>
         </nav>
     </header>
-    
+
+    <main class="golfbanor-sida">
+        <section class="golfbanor-hero">
+            <p class="small-text">Utforska golfbanor</p>
+            <h1>Hitta din nästa golfbana</h1>
+            <p>Jämför golfbanor i Småland och på Öland utifrån plats, pris och upplevelse.</p>
+        </section>
+
+        <section class="golfbanor-layout">
+            <aside class="filter">
+                <h2>Filtrera</h2>
+
+                <label for="search">Sök golfbana</label>
+                <input type="text" id="search" placeholder="Sök namn eller stad">
+
+                <label for="prisFilter">Prisintervall</label>
+                <select id="prisFilter">
+                    <option value="all">Alla priser</option>
+                    <option value="100-250">100–250 kr</option>
+                    <option value="250-500">250–500 kr</option>
+                </select>
+
+                <label for="landskapFilter">Område</label>
+                <select id="landskapFilter">
+                    <option value="all">Alla områden</option>
+                    <option value="Småland">Småland</option>
+                    <option value="Öland">Öland</option>
+                </select>
+
+                <button id="reset">Rensa filter</button>
+            </aside>
+
+            <section class="lista-section">
+                <h2>Golfbanor</h2>
+                <div id="golf-list"></div>
+            </section>
+
+            <section class="karta-section">
+                <h2>Karta</h2>
+                <div id="map"></div>
+
+                <div id="golf-detaljer">
+                    <p>Klicka på en golfbana för att visa mer information.</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>Golfjakten 2026</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="js/golfbanor.js"></script>
 </body>
+
 </html>
