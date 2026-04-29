@@ -1,0 +1,94 @@
+.golfbanor-sida {
+    background-color: #f4f1e8;
+    color: #123c2c;
+}
+
+.golfbanor-hero {
+    padding: 4rem 8%;
+    background-color: #0b3d2e;
+    color: white;
+}
+
+.golfbanor-hero h1 {
+    font-size: 3rem;
+    margin: 0.5rem 0;
+}
+
+.golfbanor-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr 420px;
+    gap: 1.5rem;
+    padding: 2rem 8%;
+}
+
+.filter,
+.lista-section,
+.karta-section {
+    background-color: white;
+    border-radius: 18px;
+    padding: 1.5rem;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.filter input,
+.filter select,
+.filter button {
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.filter button {
+    background-color: #0b3d2e;
+    color: white;
+    cursor: pointer;
+}
+
+#golf-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.golf-card {
+    border: 1px solid #ddd;
+    border-radius: 14px;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: #fafafa;
+}
+
+.golf-card:hover {
+    border-color: #0b3d2e;
+}
+
+.golf-card.active {
+    border: 2px solid #0b3d2e;
+    background-color: #eef6ef;
+}
+
+#map {
+    height: 360px;
+    border-radius: 14px;
+    margin-bottom: 1rem;
+}
+
+#golf-detaljer {
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+}
+
+@media (max-width: 1000px) {
+    .golfbanor-layout {
+        grid-template-columns: 1fr;
+    }
+
+    #map {
+        height: 300px;
+    }
+}
