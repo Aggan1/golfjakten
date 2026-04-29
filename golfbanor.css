@@ -1,94 +1,287 @@
 .golfbanor-sida {
-    background-color: #f4f1e8;
-    color: #123c2c;
+    background-color: #f3efe7;
+    color: #2f332b;
+    min-height: 100vh;
 }
 
+/* Header på denna sida */
+.toppbar {
+    height: 86px;
+    padding: 0 42px;
+    background-color: #f3efe7;
+    border-bottom: 1px solid #cfc6b7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 1.8rem;
+    letter-spacing: 0.12em;
+    color: #68714b;
+}
+
+.nav {
+    display: flex;
+    gap: 42px;
+}
+
+.nav a {
+    color: #2f332b;
+    text-decoration: none;
+    font-family: Georgia, serif;
+    font-size: 1rem;
+}
+
+.nav a:hover {
+    border-bottom: 1px solid #2f332b;
+}
+
+.header-btn {
+    border: 1px solid #b8ad9d;
+    color: #2f332b;
+    padding: 14px 22px;
+    text-decoration: none;
+    font-family: Georgia, serif;
+}
+
+/* Hero */
 .golfbanor-hero {
-    padding: 4rem 8%;
-    background-color: #0b3d2e;
-    color: white;
+    padding: 34px 42px 26px;
+    background-color: #f3efe7;
+    color: #2f332b;
+}
+
+.golfbanor-hero .small-text {
+    display: none;
 }
 
 .golfbanor-hero h1 {
-    font-size: 3rem;
-    margin: 0.5rem 0;
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin: 0 0 14px;
+    text-transform: uppercase;
 }
 
+.golfbanor-hero p {
+    font-family: Georgia, serif;
+    font-size: 1.05rem;
+    color: #555348;
+}
+
+/* Huvudlayout */
 .golfbanor-layout {
     display: grid;
-    grid-template-columns: 260px 1fr 420px;
-    gap: 1.5rem;
-    padding: 2rem 8%;
+    grid-template-columns: 280px 1fr 42%;
+    gap: 28px;
+    padding: 28px 42px 40px;
 }
 
+/* Paneler */
 .filter,
 .lista-section,
 .karta-section {
-    background-color: white;
-    border-radius: 18px;
-    padding: 1.5rem;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
 }
 
+/* Filterpanel */
 .filter {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+    border: 1px solid #c8bfaf;
+    padding: 28px 24px;
+    min-height: 640px;
+}
+
+.filter h2 {
+    font-family: Georgia, serif;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+}
+
+.filter label {
+    font-family: Georgia, serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin-top: 18px;
+    color: #4f4d43;
 }
 
 .filter input,
-.filter select,
-.filter button {
-    padding: 0.8rem;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+.filter select {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #bdb4a5;
+    border-radius: 0;
+    padding: 12px 0;
+    font-family: Georgia, serif;
+    font-size: 0.95rem;
+    color: #2f332b;
+}
+
+.filter input:focus,
+.filter select:focus {
+    outline: none;
+    border-bottom-color: #68714b;
 }
 
 .filter button {
-    background-color: #0b3d2e;
+    margin-top: 32px;
+    padding: 16px;
+    border: none;
+    border-radius: 0;
+    background-color: #68714b;
     color: white;
+    font-family: Georgia, serif;
+    text-transform: uppercase;
     cursor: pointer;
+}
+
+/* Lista */
+.lista-section h2 {
+    display: none;
 }
 
 #golf-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    border-top: 1px solid #c8bfaf;
 }
 
+/* Tillfälliga kort innan JS fyller listan */
 .golf-card {
-    border: 1px solid #ddd;
-    border-radius: 14px;
-    padding: 1rem;
+    display: grid;
+    grid-template-columns: 180px 1fr 30px;
+    gap: 22px;
+    align-items: center;
+    min-height: 124px;
+    border: 1px solid #c8bfaf;
+    border-top: none;
+    border-radius: 0;
+    padding: 12px;
+    background-color: transparent;
     cursor: pointer;
-    background-color: #fafafa;
 }
 
 .golf-card:hover {
-    border-color: #0b3d2e;
+    background-color: #ebe5da;
+    border-color: #9f967f;
 }
 
 .golf-card.active {
-    border: 2px solid #0b3d2e;
-    background-color: #eef6ef;
+    border: 1px solid #68714b;
+    background-color: #ebe5da;
+}
+
+.golf-card h3 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.golf-card p {
+    font-family: Georgia, serif;
+    font-size: 0.9rem;
+    color: #504d43;
+    margin: 4px 0;
+}
+
+/* Karta */
+.karta-section {
+    position: relative;
+    border-left: 1px solid #c8bfaf;
+    padding-left: 28px;
+}
+
+.karta-section h2 {
+    display: none;
 }
 
 #map {
-    height: 360px;
-    border-radius: 14px;
-    margin-bottom: 1rem;
+    height: 520px;
+    border-radius: 0;
+    border: 1px solid #c8bfaf;
+    margin-bottom: 0;
+    background-color: #e6e1d6;
 }
 
+/* Detaljruta */
 #golf-detaljer {
-    border-top: 1px solid #ddd;
-    padding-top: 1rem;
+    position: absolute;
+    right: 36px;
+    bottom: 36px;
+    width: 360px;
+    background-color: #f3efe7;
+    border: 1px solid #c8bfaf;
+    padding: 26px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
 }
 
-@media (max-width: 1000px) {
+#golf-detaljer h3 {
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+#golf-detaljer p {
+    font-family: Georgia, serif;
+    font-size: 0.9rem;
+    color: #504d43;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    background-color: #f3efe7;
+    border-top: 1px solid #c8bfaf;
+    padding: 28px 42px;
+    font-family: Georgia, serif;
+    color: #504d43;
+}
+
+.course-img {
+    height: 96px;
+    background: linear-gradient(135deg, #68714b, #d8d0bd);
+}
+
+.course-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.course-arrow {
+    font-size: 2rem;
+    color: #68714b;
+}
+
+/* Responsiv */
+@media (max-width: 1100px) {
     .golfbanor-layout {
         grid-template-columns: 1fr;
     }
 
+    .karta-section {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    #golf-detaljer {
+        position: static;
+        width: auto;
+        margin-top: 20px;
+    }
+
     #map {
-        height: 300px;
+        height: 360px;
     }
 }
