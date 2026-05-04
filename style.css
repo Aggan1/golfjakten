@@ -5,173 +5,240 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  color: #292626;
-  background: #b0c2b68c;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #536641;
+  background: #f2f0ec;
 }
 
-header,
-.hero,
-.steps,
-.booking {
-  background: #ffffff;
-}
-
-.meny{
-    background-color: rgb(187, 187, 187);
+a{
+    text-decoration: none;
+    color: inherit;
 }
 
 header {
+  height: 90px;
+  padding: 0 8%;
+  background: f7f3eb;
   display: flex;
+  align-items: center;
+  justify-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  border-bottom: 1px solid #ddd;
 }
 
-header h1 {
+.intro {
+    min-height: 430px;
+    background:
+      linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+      url("bilder/hero.jpg") center/cover;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    color: white;
+  }
+  
+  .intro-inne {
+    max-width: 650px;
+  }
+  
+  .intro h1 {
+    font-size: 46px;
+    line-height: 1.15;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  
+  .intro p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+.meny{
   font-size: 28px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  color: #ffffff;
+  letter-spacing: 1px;
 }
 
-header nav {
+
+ nav {
   display: flex;
-  gap: 20px;
-  align-items: center;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  color: #ffffff;
+  gap: 45px;
+ font-size: 13px;
+ font-weight: bold;
 }
-header a {
-  text-decoration: none;
-  color: #222;
+
+nav a:first-child{
+    border-bottom: 2px solid #30352b;
+    padding: 6px;
 }
+
 .section-p{
     padding-bottom: 10px;
 }
 
-.btn {
-  padding: 10px 15px;
-  background: rgb(49, 78, 49);
-  color: #fff;
-  border-radius: 4px;
+.btn-boka{
+    display: inline-block;
+  padding: 16px 28px;
+  background: rgba(244,240,232,.75);
+  color: #30352b;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
 }
 
-.btn-1{
-    padding: 10px 15px;
-    background: rgb(49, 78, 49);
-    color: #fff;
-    border-radius: 4px;
-    width: 130px;
+.btn-om{
+    background: #303d2e;
+    color: white;
 }
 
-.hero{
-padding-top: 50px ;
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: center;
-background-position: center;
-height: 700px;
-  background-image: url(ChatGPT\ Image\ Apr\ 27\,\ 2026\ at\ 01_57_59\ PM.png);
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  color: #ffffff;
+.btn-kontakt{
+    background: transparent;
+    border: 1px solid #f4f0e8;
+    color: #f4f0e8;
 
 }
 
-.hero h2 {
-  font-size: 48px;
-
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  padding: 15px;
-  margin-bottom: 20px;
-}
-
-.steps div,
-.details,
-.summary {
-  border: 1px solid #ddd;
-  padding: 15px;
-}
-
-h3 {
-  margin-bottom: 10px;
-  text-align: center;
-  padding: 20px;
-}
-.form{
-    display: flex;
+.om-oss{
+    padding: 75px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
     align-items: center;
-    justify-content: space-between;
-
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-
-    margin: 30px auto;
-    width: 80%;
-
-   
 }
 
-.form-item {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 0 15px;
-    border: #222 1px;
-    padding: 20px;
+section img{
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
 }
 
-.form-item :last-child {
-    border-right: 1px solid #ddd;
+.oss-text span{
+text-transform: uppercase;
+font-size: 13px;
+font-weight: bold;
 }
 
-.form-item select,
-.form-item input {
-    border: none;
-    outline: none;
+.om-oss h2, 
+.top-lista h2,
+.kontakt h2{
+    font-size: 36px;
+    line-height: 1.2;
+    margin: 15px 0 25px;
+}
+
+.oss-text p{
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.top-lista{
+    background: #283526;
+    color: #f4f0e8;
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.top-lista-kort{
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 35px;
+    margin-top: 35px;
+}
+
+.korts{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.kort{
+    background: #eee8dd;
+    color: #30352b;
+    text-align: left;
+}
+
+.kort img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.kort div{
+    padding: 18px;
+}
+
+.kort h3{
     font-size: 16px;
-    margin-top: 5px;
-    
+    text-transform: uppercase;
 }
 
+.kort p,
+.kort span{
+    font-size: 13px;
+    text-transform: uppercase;
+}
 
-.form-btn button {
-    background: rgb(205, 205, 205);
-    padding: 20px;
-    border-radius: 20px;
-    border: 20px;
-    color:rgb(32, 91, 66);
-    font-weight: bold;
-    cursor: pointer;
+.kort span{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+}
+
+.karta{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.se-allt{
+    display: inline-block;
+    margin-top: 35px;
+    text-transform: uppercase;
     font-size: 14px;
-    
+    letter-spacing: 1px;
 }
 
-input,
-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background: #fff;
-  
+.btn-om,
+.btn-kontakt {
+  display: inline-block;
+  padding: 16px 28px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: bold;
 }
+
+
+.om-oss-sektion{
+    grid-template-columns: 1fr 1fr;
+}
+
+.kontakt{
+    background: #303d2e;
+    color: #f4f0e8;
+    text-align: center;
+    padding: 55px 8%;
+}
+
+.kontakt p {
+    margin-bottom: 25px;
+}
+
 
 footer{
-    padding: 30px;
-    width: 100px;
-    font-size: medium;
-    
+    padding: 45px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+   background: #f7f3eb;
 }
 
+footer h4 {
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
 
+footer p {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
 
 @media (max-width: 800px) {
   header {
@@ -186,10 +253,4 @@ footer{
     flex-wrap: wrap;
   }
 
-  .hero,
-  .booking,
-  .steps,
-  .form-row {
-    grid-template-columns: 1fr;
-  }
 }
