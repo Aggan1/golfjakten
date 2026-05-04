@@ -6,8 +6,8 @@
 
 body {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  color: #536641;
-  background: #f2f0ec;
+  color: white;
+  background: #ffeacf;
 }
 
 a{
@@ -18,7 +18,7 @@ a{
 header {
   height: 90px;
   padding: 0 8%;
-  background: f7f3eb;
+  background: #f7f3eb;
   display: flex;
   align-items: center;
   justify-items: center;
@@ -29,7 +29,7 @@ header {
     min-height: 430px;
     background:
       linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
-      url("bilder/hero.jpg") center/cover;
+      url("ChatGPT\ Image\ Apr\ 27\,\ 2026\ at\ 01_57_59\ PM.png") center/cover;
     display: flex;
     align-items: center;
     padding: 0 8%;
@@ -54,6 +54,7 @@ header {
 .meny{
   font-size: 28px;
   letter-spacing: 1px;
+  background-color: #162214;
 }
 
 
@@ -101,6 +102,7 @@ nav a:first-child{
     grid-template-columns: 1fr 1.4fr;
     gap: 80px;
     align-items: center;
+    color: #162214;
 }
 
 section img{
@@ -129,7 +131,7 @@ font-weight: bold;
 }
 
 .top-lista{
-    background: #283526;
+    background: #294123;
     color: #f4f0e8;
     padding: 60px 8%;
     text-align: center;
@@ -210,7 +212,7 @@ font-weight: bold;
 }
 
 .kontakt{
-    background: #303d2e;
+    background: #294123;
     color: #f4f0e8;
     text-align: center;
     padding: 55px 8%;
@@ -226,7 +228,7 @@ footer{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-   background: #f7f3eb;
+    background-color: #162214;
 }
 
 footer h4 {
