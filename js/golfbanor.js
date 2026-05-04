@@ -3,9 +3,13 @@ const url =
 
 const golfList = document.getElementById("golf-list");
 const golfDetails = document.getElementById("golf-detaljer");
+const visaFlerKnapp = document.getElementById("visa-fler");
+
+let allaGolfbanor = [];
+let antalVisade = 6;
 
 // Hämta SMAPI
-function getGolfCourses() {
+function hamtaGolfbanor() {
     return fetch(url)
         .then(function (response) {
             return response.json();
@@ -24,7 +28,7 @@ function getGolfCourses() {
 }
 
 // Hämta egen JSON
-function getExtraGolfData() {
+function hamtaExtraData() {
     return fetch("data/golf-data.json")
         .then(function (response) {
             return response.json();
@@ -36,83 +40,113 @@ function getExtraGolfData() {
 }
 
 // Slå ihop data
-function mergeGolfData(smapiCourses, extraCourses) {
-    return smapiCourses.map(function (course) {
-        const extraMatch = extraCourses.find(function (extra) {
-            return extra.smapi_id === course.id;
+function slaIhopData(smapiData, extraData) {
+    return smapiData.map(function (bana) {
+        const extraMatch = extraData.find(function (extra) {
+            return extra.smapi_id === bana.id;
         });
 
         return {
-            ...course,
+            ...bana,
             extra: extraMatch || null
         };
     });
 }
 
 // Render lista
-function renderGolfCourses(courses) {
+function skrivUtGolfbanor(golfbanor) {
     golfList.innerHTML = "";
 
-    courses.forEach(function (course) {
-        const card = document.createElement("article");
-        card.classList.add("golf-card");
+    const banorAttVisa = golfbanor.slice(0, antalVisade);
 
-        card.innerHTML = `
+    banorAttVisa.forEach(function (bana) {
+        const kort = document.createElement("article");
+        kort.classList.add("golf-card");
+
+        let antalHal = "18 hål";
+        let bantyp = "Golfbana";
+
+        if (bana.extra) {
+            if (bana.extra.holes) {
+                antalHal = bana.extra.holes;
+            }
+
+            if (bana.extra.course_type) {
+                bantyp = bana.extra.course_type;
+            }
+        }
+
+        kort.innerHTML = `
             <div class="course-img"></div>
 
             <div class="course-info">
-                <h3>${course.name}</h3>
-                <p>${course.city}, ${course.province}</p>
-                <p>${course.extra?.holes || "18 hål"}</p>
-                <p>${course.price_range || "Pris saknas"} · ${course.extra?.course_type || "Golfbana"}</p>
+                <h3>${bana.name}</h3>
+                <p>${bana.city}, ${bana.province}</p>
+                <p>${antalHal}</p>
+                <p>${bana.price_range || "Pris saknas"} · ${bantyp}</p>
             </div>
 
             <span class="course-arrow">›</span>
         `;
 
-        card.addEventListener("click", function () {
-            showGolfDetails(course);
+        kort.addEventListener("click", function () {
+            visaDetaljer(bana);
 
-            document.querySelectorAll(".golf-card").forEach(function (c) {
-                c.classList.remove("active");
+            document.querySelectorAll(".golf-card").forEach(function (cardItem) {
+                cardItem.classList.remove("active");
             });
 
-            card.classList.add("active");
+            kort.classList.add("active");
         });
 
-        golfList.appendChild(card);
+        golfList.appendChild(kort);
     });
+
+    if (antalVisade >= golfbanor.length) {
+        visaFlerKnapp.style.display = "none";
+    } else {
+        visaFlerKnapp.style.display = "block";
+    }
 }
 
 // Visa detaljer
-function showGolfDetails(course) {
+function visaDetaljer(bana) {
     let extraInfo = "<p>Ingen extra info.</p>";
 
-    if (course.extra) {
+    if (bana.extra) {
         extraInfo = `
-            <p>Greenfee vardag: ${course.extra.greenfee_weekday || "-"}</p>
-            <p>Greenfee helg: ${course.extra.greenfee_weekend || "-"}</p>
-            <p>Skick: ${course.extra.course_condition || "-"}</p>
-            <p>Driving range: ${course.extra.driving_range ? "Ja" : "Nej"}</p>
-            <p>Restaurang: ${course.extra.restaurant ? "Ja" : "Nej"}</p>
+            <p><strong>Greenfee vardag:</strong> ${bana.extra.greenfee_weekday || "-"}</p>
+            <p><strong>Greenfee helg:</strong> ${bana.extra.greenfee_weekend || "-"}</p>
+            <p><strong>Skick:</strong> ${bana.extra.course_condition || "-"}</p>
+            <p><strong>Driving range:</strong> ${bana.extra.driving_range ? "Ja" : "Nej"}</p>
+            <p><strong>Restaurang:</strong> ${bana.extra.restaurant ? "Ja" : "Nej"}</p>
         `;
     }
 
     golfDetails.innerHTML = `
-        <h3>${course.name}</h3>
-        <p>${course.city}, ${course.municipality}</p>
-        <p>${course.abstract || "Ingen beskrivning"}</p>
+        <h3>${bana.name}</h3>
+        <p>${bana.city}, ${bana.municipality}</p>
+        <p>${bana.abstract || "Ingen beskrivning"}</p>
         ${extraInfo}
     `;
 }
 
+// Visa fler golfbanor
+function visaFlerGolfbanor() {
+    antalVisade = antalVisade + 6;
+    skrivUtGolfbanor(allaGolfbanor);
+}
+
 // Init
 function init() {
-    Promise.all([getGolfCourses(), getExtraGolfData()])
-        .then(function (results) {
-            const merged = mergeGolfData(results[0], results[1]);
-            renderGolfCourses(merged);
+    Promise.all([hamtaGolfbanor(), hamtaExtraData()])
+        .then(function (resultat) {
+            const merged = slaIhopData(resultat[0], resultat[1]);
+            allaGolfbanor = merged;
+            skrivUtGolfbanor(allaGolfbanor);
         });
+
+    visaFlerKnapp.addEventListener("click", visaFlerGolfbanor);
 }
 
 init();
