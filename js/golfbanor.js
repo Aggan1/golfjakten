@@ -39,34 +39,40 @@ function hamtaExtraData() {
         });
 }
 
-// Slå ihop data
+// Slå ihop datan från smapi och json
 function mergaGolfdata(smapiData, extraData) {
-    return smapiData.map(function (bana) {
-        const extraMatch = extraData.find(function (extra) {
-            return extra.smapi_id === bana.id;
-        });
+    const resultat = [];
 
-        return {
-            ...bana,
-            extra: extraMatch || null
-        };
-    });
+    for (let i = 0; i < smapiData.length; i++) {
+        const bana = smapiData[i];
+        let extraInfo = null;
+
+        for (let j = 0; j < extraData.length; j++) {
+            if (extraData[j].smapi_id === bana.id) {
+                extraInfo = extraData[j];
+            }
+        }
+        bana.extra = extraInfo;
+        resultat.push(bana);
+    }
+
+    return resultat;
 }
 
 // Render lista
-function skrivUtGolfbanor(golfbanor) {
+function visaGolfbanor(golfbanor) {
     golfList.innerHTML = "";
 
-    const banorAttVisa = golfbanor.slice(0, antalVisade);
+    for (let i = 0; i < antalVisade && i < golfbanor.length; i++) {
+        const bana = golfbanor[i];
 
-    banorAttVisa.forEach(function (bana) {
         const kort = document.createElement("article");
         kort.classList.add("golf-card");
 
         let antalHal = "18 hål";
         let bantyp = "Golfbana";
 
-        if (bana.extra) {
+        if (bana.extra !== null) {
             if (bana.extra.holes) {
                 antalHal = bana.extra.holes;
             }
@@ -92,15 +98,17 @@ function skrivUtGolfbanor(golfbanor) {
         kort.addEventListener("click", function () {
             visaDetaljer(bana);
 
-            document.querySelectorAll(".golf-card").forEach(function (cardItem) {
-                cardItem.classList.remove("active");
-            });
+            const allaKort = document.querySelectorAll(".golf-card");
+
+            for (let k = 0; k < allaKort.length; k++) {
+                allaKort[k].classList.remove("active");
+            }
 
             kort.classList.add("active");
         });
 
         golfList.appendChild(kort);
-    });
+    }
 
     if (antalVisade >= golfbanor.length) {
         visaFlerKnapp.style.display = "none";
@@ -134,7 +142,7 @@ function visaDetaljer(bana) {
 // Visa fler golfbanor
 function visaFlerGolfbanor() {
     antalVisade = antalVisade + 6;
-    skrivUtGolfbanor(allaGolfbanor);
+    visaGolfbanor(allaGolfbanor);
 }
 
 // Init
@@ -143,7 +151,7 @@ function init() {
         .then(function (resultat) {
             const merged = mergaGolfdata(resultat[0], resultat[1]);
             allaGolfbanor = merged;
-            skrivUtGolfbanor(allaGolfbanor);
+            visaGolfbanor(allaGolfbanor);
         });
 
     visaFlerKnapp.addEventListener("click", visaFlerGolfbanor);
