@@ -40,7 +40,7 @@ function hamtaExtraData() {
 }
 
 // Slå ihop data
-function slaIhopData(smapiData, extraData) {
+function mergaGolfdata(smapiData, extraData) {
     return smapiData.map(function (bana) {
         const extraMatch = extraData.find(function (extra) {
             return extra.smapi_id === bana.id;
@@ -141,7 +141,7 @@ function visaFlerGolfbanor() {
 function init() {
     Promise.all([hamtaGolfbanor(), hamtaExtraData()])
         .then(function (resultat) {
-            const merged = slaIhopData(resultat[0], resultat[1]);
+            const merged = mergaGolfdata(resultat[0], resultat[1]);
             allaGolfbanor = merged;
             skrivUtGolfbanor(allaGolfbanor);
         });
