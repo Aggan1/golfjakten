@@ -3,13 +3,14 @@ const url =
 
 const golfList = document.getElementById("golf-list");
 const golfDetails = document.getElementById("golf-detaljer");
-const visaFlerKnapp = document.getElementById("visa-fler");
+const showButton = document.getElementById("visa-fler");
+const hideButton = document.getElementById("hide");
 
-let allaGolfbanor = [];
-let antalVisade = 6;
+let courses = [];
+let visibleCount = 6;
 
-// Hämta SMAPI
-function hamtaGolfbanor() {
+// Hämtar golfbanorna från SMAPI
+function getGolfbanor() {
     return fetch(url)
         .then(function (response) {
             return response.json();
@@ -27,8 +28,8 @@ function hamtaGolfbanor() {
         });
 }
 
-// Hämta egen JSON
-function hamtaExtraData() {
+// Hämta extra data från JSON fil
+function getExtraData() {
     return fetch("data/golf-data.json")
         .then(function (response) {
             return response.json();
@@ -39,7 +40,7 @@ function hamtaExtraData() {
         });
 }
 
-// Slå ihop datan från smapi och json
+// Mergar datan från SMAPI och JSON så att det kombineras och läggs till för id:t
 function mergaGolfdata(smapiData, extraData) {
     const resultat = [];
 
@@ -52,6 +53,7 @@ function mergaGolfdata(smapiData, extraData) {
                 extraInfo = extraData[j];
             }
         }
+
         bana.extra = extraInfo;
         resultat.push(bana);
     }
@@ -59,11 +61,11 @@ function mergaGolfdata(smapiData, extraData) {
     return resultat;
 }
 
-// Render lista
-function visaGolfbanor(golfbanor) {
+// Visar golfbanorna på sidan
+function showCourses(golfbanor) {
     golfList.innerHTML = "";
 
-    for (let i = 0; i < antalVisade && i < golfbanor.length; i++) {
+    for (let i = 0; i < visibleCount && i < golfbanor.length; i++) {
         const bana = golfbanor[i];
 
         const kort = document.createElement("article");
@@ -96,7 +98,7 @@ function visaGolfbanor(golfbanor) {
         `;
 
         kort.addEventListener("click", function () {
-            visaDetaljer(bana);
+            showDetails(bana);
 
             const allaKort = document.querySelectorAll(".golf-card");
 
@@ -110,18 +112,25 @@ function visaGolfbanor(golfbanor) {
         golfList.appendChild(kort);
     }
 
-    if (antalVisade >= golfbanor.length) {
-        visaFlerKnapp.style.display = "none";
+    if (golfbanor.length <= 6) {
+        showButton.style.display = "none";
+        hideButton.style.display = "none";
     } else {
-        visaFlerKnapp.style.display = "block";
+        showButton.style.display = "block";
+
+        if (visibleCount > 6) {
+            hideButton.style.display = "block";
+        } else {
+            hideButton.style.display = "none";
+        }
     }
 }
 
-// Visa detaljer
-function visaDetaljer(bana) {
+// Visa detaljer för golfbana när man klickar på den i listan
+function showDetails(bana) {
     let extraInfo = "<p>Ingen extra info.</p>";
 
-    if (bana.extra) {
+    if (bana.extra !== null) {
         extraInfo = `
             <p><strong>Greenfee vardag:</strong> ${bana.extra.greenfee_weekday || "-"}</p>
             <p><strong>Greenfee helg:</strong> ${bana.extra.greenfee_weekend || "-"}</p>
@@ -139,22 +148,27 @@ function visaDetaljer(bana) {
     `;
 }
 
-// Visa fler golfbanor
-function visaFlerGolfbanor() {
-    antalVisade = antalVisade + 6;
-    visaGolfbanor(allaGolfbanor);
+function showMore() {
+    visibleCount = visibleCount + 6;
+    showCourses(courses);
 }
 
-// Init
+function hideCourses() {
+    visibleCount = 6;
+    showCourses(courses);
+}
+
+// Startar själva sidan
 function init() {
-    Promise.all([hamtaGolfbanor(), hamtaExtraData()])
+    Promise.all([getGolfbanor(), getExtraData()])
         .then(function (resultat) {
             const merged = mergaGolfdata(resultat[0], resultat[1]);
-            allaGolfbanor = merged;
-            visaGolfbanor(allaGolfbanor);
+            courses = merged;
+            showCourses(courses);
         });
 
-    visaFlerKnapp.addEventListener("click", visaFlerGolfbanor);
+    showButton.addEventListener("click", showMore);
+    hideButton.addEventListener("click", hideCourses);
 }
 
 init();
