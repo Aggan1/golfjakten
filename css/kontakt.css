@@ -1,0 +1,39 @@
+/* Kontakt sida */
+
+.kontakt-sida {
+    padding: 60px 8%;
+}
+
+.kontakt-sida h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.kontakt-sida p {
+    margin-bottom: 10px;
+}
+
+
+/* Formulär */
+
+.kontakt-form {
+    max-width: 500px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.kontakt-form input,
+.kontakt-form textarea {
+    margin-bottom: 12px;
+    padding: 10px;
+    border: 1px solid #c8bfaf;
+}
+
+.kontakt-form button {
+    padding: 12px;
+    background-color: #68714b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

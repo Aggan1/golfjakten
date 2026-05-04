@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3efe7;
+    color: #2f332b;
+}
+
+/* Typografi */
+h1, h2, h3, .logo {
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+/* HEADER */
+.toppbar {
+    height: 86px;
+    padding: 0 42px;
+    background-color: #f3efe7;
+    border-bottom: 1px solid #cfc6b7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.8rem;
+    letter-spacing: 0.12em;
+    color: #68714b;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    gap: 42px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #2f332b;
+    font-size: 1rem;
+}
+
+.nav a:hover {
+    border-bottom: 1px solid #2f332b;
+}
+
+/* HEADER BUTTON */
+.header-btn {
+    border: 1px solid #b8ad9d;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #2f332b;
+    font-size: 0.9rem;
+}
+
+/* FOOTER */
+footer {
+    background-color: #f3efe7;
+    border-top: 1px solid #c8bfaf;
+    padding: 28px 42px;
+    color: #504d43;
+    text-align: center;
+}

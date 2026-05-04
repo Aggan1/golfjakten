@@ -1,0 +1,81 @@
+/* Hero sektion */
+
+.intro {
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    color: white;
+    background: #68714b;
+}
+
+.intro-inne {
+    max-width: 650px;
+}
+
+.intro h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.intro p {
+    font-size: 18px;
+}
+
+
+/* Info sektion */
+
+.om-info {
+    padding: 60px 8%;
+    color: #162214;
+    text-align: center;
+}
+
+.om-info h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.om-info p {
+    margin-bottom: 10px;
+}
+
+
+/* Till sektion */
+
+.till-lag {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0 auto 80px;
+    max-width: 850px;
+}
+
+.ikon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e0dbd5;
+}
+
+.ikon img {
+    width: 100px;
+}
+
+.txt {
+    max-width: 500px;
+}
+
+.txt h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #3c5238;
+}
+
+.txt p {
+    font-size: 16px;
+    color: #162214;
+}
