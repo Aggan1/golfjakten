@@ -14,8 +14,16 @@ body {
 }
 
 /* Typografi */
-h1, h2, h3, .logo {
+h1, h2, h3 {
     font-family: "Playfair Display", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+.logo {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: 0.12em;
 }
 
 /* HEADER */
