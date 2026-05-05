@@ -1,12 +1,8 @@
-/* Sida */
-
 .golfbanor-sida {
     min-height: 100vh;
 }
 
-
 /* Hero sektion */
-
 .golfbanor-hero {
     padding: 34px 42px 26px;
 }
@@ -24,9 +20,7 @@
     color: #555348;
 }
 
-
 /* Layout */
-
 .golfbanor-layout {
     display: grid;
     grid-template-columns: 280px 1fr 42%;
@@ -34,9 +28,7 @@
     padding: 28px 42px 40px;
 }
 
-
-/* Filter */
-
+/* Filter delen */
 .filter {
     min-height: 640px;
     padding: 28px 24px;
@@ -75,9 +67,7 @@
     cursor: pointer;
 }
 
-
 /* Lista */
-
 #golf-list {
     display: flex;
     flex-direction: column;
@@ -133,9 +123,7 @@
     color: #68714b;
 }
 
-
 /* Knappar */
-
 .knappar {
     display: flex;
     gap: 12px;
@@ -169,9 +157,7 @@
     background-color: #ebe5da;
 }
 
-
 /* Karta */
-
 .karta-section {
     border-left: 1px solid #c8bfaf;
     padding-left: 28px;
@@ -200,9 +186,7 @@
     line-height: 1.5;
 }
 
-
 /* Responsiv */
-
 @media (max-width: 1100px) {
     .golfbanor-layout {
         grid-template-columns: 1fr;
