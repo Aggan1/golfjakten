@@ -33,8 +33,8 @@
 .btn-boka {
     display: inline-block;
     padding: 16px 28px;
-    background: rgba(244,240,232,.75);
-    color: #30352b;
+    background: #68714b;
+    color: white;
     text-transform: uppercase;
     font-size: 13px;
     font-weight: bold;
@@ -43,7 +43,7 @@
 .btn-om {
     display: inline-block;
     padding: 16px 28px;
-    background: #303d2e;
+    background: #68714b;
     color: white;
     text-transform: uppercase;
     font-size: 13px;
@@ -99,7 +99,7 @@
 /* Top lista */
 
 .top-lista {
-    background: #294123;
+    background: #68714b;
     color: #f4f0e8;
     padding: 60px 8%;
     text-align: center;
@@ -207,7 +207,7 @@
 /* Kontakt */
 
 .kontakt {
-    background: #294123;
+    background: #68714b;
     color: #f4f0e8;
     text-align: center;
     padding: 55px 8%;

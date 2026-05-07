@@ -1,0 +1,247 @@
+*{
+    box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  color: #162214;
+}
+
+.kontakt {
+  padding: 72px 8% 48px;
+}
+
+.kontakt-div {
+  max-width: 760px;
+}
+
+.kontakt-div p:first-child,
+.skicka-div p:first-child {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+.kontakt-div h1,
+.skicka-div h1 {
+  font-size: 48px;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.kontakt-div p:last-child,
+.skicka-div p:nth-child(3) {
+  max-width: 620px;
+  line-height: 1.7;
+}
+
+.skicka {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  padding: 60px 8%;
+  align-items: start;
+}
+
+.skicka-div,
+.info,
+.samarbete {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 30px;
+  background-color: rgb(226, 226, 226);
+}
+
+.skicka-div form {
+  margin-top: 28px;
+}
+
+
+
+.skicka input,
+.skicka textarea,
+.skicka button {
+  width: 100%;
+  font: inherit;
+}
+
+.skicka input,
+.skicka textarea {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 14px 16px;
+  background: transparent;
+  margin-bottom: 20px;
+}
+
+.skicka textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.skicka button {
+  border: 0;
+  padding: 14px 16px;
+  cursor: pointer;
+  background-color: #68714b;
+  color: white;
+}
+
+.kontakt-sidebar {
+  display: grid;
+  gap: 24px;
+}
+.kontakt-sidebar h3{
+    width: 250px;
+    margin-bottom: 26px;
+}
+
+.info p {
+  margin-bottom: 30px;
+}
+
+.info p:last-child,
+.samarbete p:last-of-type {
+  margin-bottom: 0;
+}
+
+.samarbete {
+  display: grid;
+  gap: 16px;
+  background-color: #a3a887 ;
+  color: #212809;
+  
+}
+
+.samarbete .ikon {
+  margin: 8px 0 0;
+}
+
+.till-section {
+  padding: 60px 8%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.till-section h1 {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.till-section .till-lag {
+  display: grid;
+  gap: 16px;
+  text-align: center;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.ikon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0dbd5;
+  margin: 0 auto 20px;
+}
+
+
+.ikon-1 img {
+    width: 100px;
+  height: 100px;
+  object-fit: contain;
+
+}
+
+.ikon img {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+}
+
+.txt {
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.txt h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.txt p {
+  font-size: 16px;
+}
+
+.skickat-text {
+    margin-top: 20px;
+    color: green;
+    font-weight: bold;
+  }
+
+/* Mobil */
+@media (max-width: 1000px) {
+  .skicka{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .kontakt-sidebar{
+    grid-template-columns:  1fr ;
+
+  }
+
+  .till-section{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+
+    .kontakt{
+        padding: 48px 6% 32px;
+    }
+
+    .skicka, .till-section{
+        padding: 46px 6%;
+    }
+
+    .kontakt-sidebar, .formular, .till-section{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+
+    .skicka-div, .info, .samarbete{
+        padding: 22px;
+    }
+    
+    .kontakt-div h1, .skicka-div h1{
+        font-size: 36px;
+    } 
+
+    .kontakt-sidebar h3{
+        max-width: none;
+    }
+
+    footer{
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .ikon{
+        width: 75px;
+        height: 75px;
+    }
+
+    .ikon img{
+        width: 45px;
+        height: 45px;
+    }
+    
+}
