@@ -1,3 +1,8 @@
+*{
+    box-sizing: border-box;
+}
+
+
 body {
   margin: 0;
   color: #162214;
@@ -45,11 +50,13 @@ body {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 30px;
+  background-color: rgb(226, 226, 226);
 }
 
 .skicka-div form {
   margin-top: 28px;
 }
+
 
 
 .skicka input,
@@ -172,19 +179,69 @@ body {
   font-size: 16px;
 }
 
+.skickat-text {
+    margin-top: 20px;
+    color: green;
+    font-weight: bold;
+  }
+
 /* Mobil */
-@media (max-width: 800px) {
-  .skicka,
-  .till-section {
-    grid-template-columns: 1fr;
+@media (max-width: 1000px) {
+  .skicka{
+    grid-template-columns: 1fr 1fr;
   }
 
-  .kontakt-div h1,
-  .skicka-div h1 {
-    font-size: 36px;
+  .kontakt-sidebar{
+    grid-template-columns:  1fr ;
+
   }
 
-  .formular {
-    grid-template-columns: 1fr;
+  .till-section{
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+
+@media (max-width: 700px) {
+
+    .kontakt{
+        padding: 48px 6% 32px;
+    }
+
+    .skicka, .till-section{
+        padding: 46px 6%;
+    }
+
+    .kontakt-sidebar, .formular, .till-section{
+        grid-template-columns: 1fr 1fr;
+    }
+    
+
+    .skicka-div, .info, .samarbete{
+        padding: 22px;
+    }
+    
+    .kontakt-div h1, .skicka-div h1{
+        font-size: 36px;
+    } 
+
+    .kontakt-sidebar h3{
+        max-width: none;
+    }
+
+    footer{
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .ikon{
+        width: 75px;
+        height: 75px;
+    }
+
+    .ikon img{
+        width: 45px;
+        height: 45px;
+    }
+    
 }
