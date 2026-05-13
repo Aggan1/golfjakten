@@ -67,7 +67,7 @@ function init() {
         .then(function (resultat) {
             const merged = mergaGolfdata(resultat[0], resultat[1]);
             courses = merged;
-            renderCourses();
+            showCourses(courses);
         });
 
     showButton.addEventListener("click", showMore);

@@ -130,6 +130,7 @@
     background: #eee8dd;
     color: #30352b;
     text-align: left;
+    cursor: pointer;
 }
 
 .kort img {
@@ -220,14 +221,83 @@
 
 /* Responsivitet */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .om-oss,
     .top-lista-kort,
     .om-oss-sektion {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
 
-    .intro h1 {
-        font-size: 32px;
+    .korts{
+        grid-template-columns: repeat(2, 1fr);
     }
+
+    .intro {
+        font-size:  40px;
+    }
+
+    .text-omoss, .oss-text{
+        text-align: center;
+    }
+
+    .karta{
+        height: 300px;
+    }
+}
+
+@media (max-width: 700px){
+    .intro{
+        min-height: 300px;
+        padding: 40px 6%;
+    }
+
+    .intro h1{
+        font-size: 30px;
+
+    }
+
+    .intro p {
+        font-size: 16px;
+
+    }
+    .om-oss,
+    .top-lista-kort, .om-oss-sektion,
+    .korts{
+        grid-template-columns: 1fr;
+    
+    }
+
+    .om-oss, .om-oss-sektion, .top-lista, .kontakt{
+        padding: 40px, 6%;
+    }
+
+    .om-oss img, .om-oss-sektion img{
+        height: 240px;
+    }
+
+    .top-lista, .text-omoss .oss-text{
+        font-size: 28px;
+    }
+
+
+.kort img {
+    height: 180px;
+}
+
+.btn-boka, .btn-kontakt, .btn-om{
+
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+footer{
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 40px 6%;
+}
+
+    
 }
