@@ -1,140 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOLFJAKTEN</title>
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/golfresor.css">
-    <script type="module" src="js/golfresor.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GOLFJAKTEN</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/golfresor.css">
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script type="module" src="js/golfresor.js" defer></script>
 </head>
+
 <body>
-    <header class="toppbar">
-        <div class="logo">GOLFJAKTEN</div>
 
-        <nav class="nav">
-            <a href="index.html">Hem</a>
-            <a href="golfbanor.html">Golfbanor</a>
-            <a href="om.html">Om oss</a>
-            <a href="kontakt.html">Kontakt</a>
-        </nav>
+  <header class="toppbar">
+    <div class="logo">GOLFJAKTEN</div>
 
-        <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
-    </header>
+    <nav class="nav">
+      <a href="index.html">Hem</a>
+      <a href="golfbanor.html">Golfbanor</a>
+      <a href="om.html">Om oss</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
 
+    <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
+  </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Planera din golfresa</h1>
-            <p>Skapa din egen golfrunda - hitta banor längst vägen baserat på pris, avstånd och upplevelse.</p>
-            <a href="#" class="hero-btn">Planera runda</a>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Planera din golfresa</h1>
+      <p>Skapa din egen golfrunda - hitta banor längst vägen baserat på pris, avstånd och upplevelse.</p>
+      <a href="#planner" class="hero-btn">Planera runda</a>
+    </div>
+  </section>
+
+  <main id="planner" class="planner-layout">
+
+    <aside class="filter-box">
+      <h2>Planera din runda</h2>
+
+      <label for="start">Startplats eller hemmaklubb</label>
+      <input id="start" type="text" value="Växjö GK">
+
+      <label for="price">Max pris green fee</label>
+
+      <div class="price-wrapper">
+        <div class="price-current">
+          <span id="price-value">0 kr</span>
         </div>
+
+        <input
+          id="price"
+          type="range"
+          min="0"
+          max="1500"
+          value="0"
+          step="50"
+        >
+
+        <div class="price-labels">
+          <span>0 kr</span>
+          <span>1500 kr</span>
+        </div>
+      </div>
+
+      <label for="time">Max avstånd max restid</label>
+      <select id="time">
+        <option value="1" selected>1 timme</option>
+        <option value="2">2 timmar</option>
+        <option value="3">3 timmar</option>
+        <option value="4">4 timmar</option>
+        <option value="5">5 timmar</option>
+      </select>
+
+      <label for="players">Antal spelare</label>
+      <select id="players">
+        <option value="1" selected >1 spelare</option>
+        <option value="2">2 spelare</option>
+        <option value="3">3 spelare</option>
+        <option value="4">4 spelare</option>
+        <option value="5">5 spelare</option>
+        <option value="6">6 spelare</option>
+        <option value="7">7 spelare</option>
+        <option value="8">8 spelare</option>
+        <option value="9">9 spelare</option>
+        <option value="10">10 spelare</option>
+      </select>
+
+      <label>Tillgång</label>
+
+      <label class="check-option">
+        <input type="checkbox">
+        Restaurang
+      </label>
+
+      <label class="check-option">
+        <input type="checkbox">
+        Kiosk
+      </label>
+
+      <label class="check-option">
+        <input type="checkbox">
+        Driving range
+      </label>
+
+      <label class="check-option">
+        <input type="checkbox">
+        Putting green
+      </label>
+
+      <label class="check-option">
+        <input type="checkbox">
+        Laddplats
+      </label>
+
+      <label class="check-option">
+        <input type="checkbox">
+        Alkoholfritt
+      </label>
+
+      <label for="date">Önskat datum</label>
+      <input id="date" type="date">
+
+      <button class="generate-btn" type="button">Generera golfutflykt</button>
+    </aside>
+
+    <section class="route-section">
+      <div class="map-box">
+        <h2>Din planerade rutt baserat på dina krav</h2>
+        <p>Här visas din golfresa när du har valt dina önskemål.</p>
+
+        <div id="map"></div>
+      </div>
     </section>
 
-<main id ="planner" class="page">  
-    <aside class="filter-box">
-  <h2>Planera din runda</h2>
+  </main>
 
-  <label for="start">Startplats eller hemmaklubb</label>
-  <input id="start" type="text" value="Växjö GK">
-
-<label for="price">Max pris green fee</label>
-
-<div class="price-wrapper">
-
-  <div class="price-current">
-    <span id="price-value">0 kr</span>
-  </div>
-
-  <input
-    id="price"
-    type="range"
-    min="0"
-    max="1500"
-    value="0"
-    step="50"
-  >
-
-  <div class="price-labels">
-    <span>0 kr</span>
-    <span>1500 kr</span>
-  </div>
-
-</div>
-
-</div>
-  <label for="time">Max avstånd max restid</label>
-  <select id="time">
-    <option value="1" selected >1 timme</option>
-    <option value="2">2 timmar</option>
-    <option value="3">3 timmar</option>
-    <option value="4">4 timmar</option>
-    <option value="5">5 timmar</option>
-  </select>
-
-  <label for="players">Antal spelare</label>
-
-<select id="players">
-  <option value="1">1 spelare</option>
-  <option value="2" selected>2 spelare</option>
-  <option value="3">3 spelare</option>
-  <option value="4">4 spelare</option>
-  <option value="5">5 spelare</option>
-  <option value="6">6 spelare</option>
-  <option value="7">7 spelare</option>
-  <option value="8">8 spelare</option>
-  <option value="9">9 spelare</option>
-  <option value="10">10 spelare</option>
-</select>
-
-  <label>Tillgång</label>
-
-  <label class="check-option">
-    <input type="checkbox">
-    Restaurang
-  </label>
-
-  <label class="check-option">
-    <input type="checkbox">
-    Kiosk
-  </label>
-
-  <label class="check-option">
-    <input type="checkbox">
-    Driving range
-  </label>
-
-  <label class="check-option">
-    <input type="checkbox">
-    Putting green
-  </label>
-
-  <label class="check-option">
-    <input type="checkbox">
-    Laddplats
-  </label>
-
-  <label class="check-option">
-    <input type="checkbox">
-    Alkoholfritt
-  </label>
-
-  <label for="date">Önskat datum</label>
-  <input id="date" type="date">
-
-  <button class="generate-btn" type="button">Generera golfutflykt</button>
-</aside>
-</main>
   <footer>
-            <div>
-                <h2>GOLFJAKTEN</h2>
-            </div>
+    <div>
+      <h2>GOLFJAKTEN</h2>
+    </div>
 
-            <div>
-                <h4>kontakt</h4>
-                <p>Nummer...</p>
-                <p>Mail..</p>
-            </div>
-        </footer>
+    <div>
+      <h4>Kontakt</h4>
+      <p>Nummer...</p>
+      <p>Mail...</p>
+    </div>
+  </footer>
+
 </body>
 </html>
