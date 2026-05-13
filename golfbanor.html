@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Golfbanor | Golfjakten</title>
 
     <link rel="stylesheet" href="css/global.css">
@@ -29,7 +28,19 @@
     <main class="golfbanor-sida">
         <section class="golfbanor-hero">
             <h1>Golfbanor</h1>
-            <p>En lista och karta för alla golfbanor i småland och öland för att lätt hitta den som passar dig.</p>
+            <p>En lista och karta för alla golfbanor i Småland och Öland för att lätt hitta den som passar dig.</p>
+        </section>
+
+        <section class="golfbanor-top">
+            <p><span id="antal-golfbanor">0</span> golfbanor</p>
+
+            <div class="sortering">
+                <label for="sortering">Sortera</label>
+                <select id="sortering">
+                    <option value="az">A–Ö</option>
+                    <option value="za">Ö–A</option>
+                </select>
+            </div>
         </section>
 
         <section class="golfbanor-layout">
@@ -57,7 +68,6 @@
             </aside>
 
             <section class="lista-section">
-
                 <div id="golf-list"></div>
 
                 <div class="knappar">
@@ -67,7 +77,6 @@
             </section>
 
             <section class="karta-section">
-
                 <div id="map"></div>
 
                 <div id="golf-detaljer">
@@ -77,17 +86,17 @@
         </section>
     </main>
 
-        <footer>
-            <div>
-                <h2>GOLFJAKTEN</h2>
-            </div>
+    <footer>
+        <div>
+            <h2>GOLFJAKTEN</h2>
+        </div>
 
-            <div>
-                <h4>kontakt</h4>
-                <p>Nummer...</p>
-                <p>Mail..</p>
-            </div>
-        </footer>
+        <div>
+            <h4>kontakt</h4>
+            <p>Nummer...</p>
+            <p>Mail..</p>
+        </div>
+    </footer>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="js/golfbanor.js"></script>
