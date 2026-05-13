@@ -1,0 +1,216 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  background: #f4f1ea;
+  color: #2f3328;
+}
+
+.hero {
+  height: 320px;
+  background:
+    linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.35)),
+    url("https://images.unsplash.com/photo-1535131749006-b7f58c99034b");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding-left: 70px;
+  color: white;
+}
+
+.hero-content {
+  max-width: 430px;
+}
+
+.hero h1 {
+  font-size: 46px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+
+.hero p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: white;
+  color: #2f3328;
+}
+
+button {
+  border: none;
+  background: #3d4b32;
+  color: white;
+  padding: 13px 24px;
+  text-transform: uppercase;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 35px;
+  padding: 35px 70px;
+}
+
+.filter-box,
+.results {
+  background: #f8f6f0;
+}
+
+.filter-box {
+  border: 1px solid #d4cfc3;
+  padding: 25px;
+}
+
+h2 {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 20px 0 8px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cfc8ba;
+  background: #fdfbf6;
+}
+
+.players {
+  display: flex;
+  align-items: center;
+  width: 130px;
+  border: 1px solid #cfc8ba;
+}
+
+.players button {
+  background: transparent;
+  color: #2f3328;
+  padding: 10px 14px;
+}
+
+.players span {
+  flex: 1;
+  text-align: center;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.generate-btn {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.map-placeholder {
+  height: 260px;
+  background: #ddd8c8;
+  border: 1px solid #cfc8ba;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  color: #686858;
+}
+
+.course-card {
+  display: flex;
+  gap: 18px;
+  background: #fffdf8;
+  border: 1px solid #d8d2c5;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.course-card img {
+  width: 160px;
+  height: 90px;
+  object-fit: cover;
+}
+
+.course-card h3 {
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.course-card p {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.price-wrapper {
+  width: 100%;
+}
+
+.price-current {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.price-current span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2f3328;
+}
+
+#price {
+  width: 100%;
+  cursor: pointer;
+}
+
+.price-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #666;
+}
+
+.check-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 9px 0;
+  font-size: 15px;
+  text-transform: none;
+  cursor: pointer;
+}
+
+.check-option input {
+  width: auto;
+}
