@@ -68,17 +68,6 @@ function init() {
             const merged = mergaGolfdata(resultat[0], resultat[1]);
             courses = merged;
             showCourses(courses);
-            const params = new URLSearchParams(window.location.search);
-            const id = params.get("id");
-
-            if (id) {
-                for (let i = 0; i < courses.length; i++) {
-                    if (String(courses[i].id) === String(id)) {
-                        showDetails(courses[i]);
-                        break;
-                    }
-                }
-            }
         });
 
     showButton.addEventListener("click", showMore);
