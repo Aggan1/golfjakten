@@ -10,3 +10,4 @@ const priceValue = document.getElementById("price-value");
 price.addEventListener("input", function () {
   priceValue.textContent = price.value + " kr";
 });
+

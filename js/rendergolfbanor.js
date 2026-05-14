@@ -30,7 +30,7 @@ export function showCourses(golfbanor, visibleCount, golfList, showButton, hideB
                 <p>${bana.price_range || "Pris saknas"} · ${bantyp}</p>
             </div>
 
-            <span class="course-arrow">›</span>
+            <span class="course-arrow"></span>
         `;
 
         kort.addEventListener("click", function () {
