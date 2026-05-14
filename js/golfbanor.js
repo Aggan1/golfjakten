@@ -4,26 +4,13 @@ import { showCourses, showDetails } from "./renderGolfbanor.js";
 
 const golfList = document.getElementById("golf-list");
 const golfDetails = document.getElementById("golf-detaljer");
-const showButton = document.getElementById("visa-fler");
-const hideButton = document.getElementById("hide");
 
 let courses = [];
-let visibleCount = 6;
 
 function renderCourses() {
-    showCourses(courses, visibleCount, golfList, showButton, hideButton, function (bana) {
+    showCourses(courses, golfList, function (bana) {
         showDetails(bana, golfDetails);
     });
-}
-
-function showMore() {
-    visibleCount = visibleCount + 6;
-    renderCourses();
-}
-
-function hideCourses() {
-    visibleCount = 6;
-    renderCourses();
 }
 
 // Startar själva sidan
@@ -37,8 +24,6 @@ function init() {
             courses = merged;
             renderCourses();
         });
-    showButton.addEventListener("click", showMore);
-    hideButton.addEventListener("click", hideCourses);
 }
 
 init();

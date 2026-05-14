@@ -31,19 +31,29 @@
             <p>En lista och karta för alla golfbanor i småland och öland för att lätt hitta den som passar dig </p>
         </section>
 
+<section class="golfbanor-top">
+    <p><span id="antal-golfbanor">0</span> golfbanor</p>
+
+    <div class="sortering">
+        <label for="sortering">Sortera</label>
+
+        <select id="sortering">
+            <option value="az">A–Ö</option>
+            <option value="za">Ö–A</option>
+        </select>
+    </div>
+
+</section>
+
         <section class="golfbanor-layout">
             <aside class="filter">
-                <h2>Filtrera</h2>
+                <div class="filter-top">
+                    <h2>Filtrera</h2>
+                    <button id="reset" class="reset-filter" type="button">Rensa filter</button>
+                </div>
 
                 <label for="search">Sök golfbana</label>
                 <input type="text" id="search" placeholder="Sök namn eller stad">
-
-                <label for="prisFilter">Prisintervall</label>
-                <select id="prisFilter">
-                    <option value="all">Alla priser</option>
-                    <option value="100-250">100–250 kr</option>
-                    <option value="250-500">250–500 kr</option>
-                </select>
 
                 <label for="landskapFilter">Område</label>
                 <select id="landskapFilter">
@@ -52,16 +62,51 @@
                     <option value="Öland">Öland</option>
                 </select>
 
-                <button id="reset">Rensa filter</button>
+                <label for="prisFilter">Maxpris greenfee</label>
+                <input type="range" id="prisFilter" min="300" max="1500" step="50" value="1500">
+
+                <div class="pris-rad">
+                    <span>300 kr</span>
+                    <span><span id="pris-varde">1500</span> kr</span>
+                </div>
+
+                <label for="halFilter">Antal hål</label>
+                <select id="halFilter">
+                    <option value="all">Alla</option>
+                    <option value="9">9 hål</option>
+                    <option value="18">18 hål</option>
+                </select>
+
+                <h3>Faciliteter</h3>
+
+                <label class="check-rad">
+                    <input type="checkbox" id="drivingRange">
+                    Driving range
+                </label>
+
+                <label class="check-rad">
+                    <input type="checkbox" id="restaurant">
+                    Restaurang
+                </label>
+
+                <label class="check-rad">
+                    <input type="checkbox" id="kiosk">
+                    Kiosk
+                </label>
+
+                <label class="check-rad">
+                    <input type="checkbox" id="chargingStation">
+                    Laddplats
+                </label>
+
+                <label class="check-rad">
+                    <input type="checkbox" id="puttingGreen">
+                    Putting green
+                </label>
             </aside>
 
             <section class="lista-section">
                 <div id="golf-list"></div>
-
-                <div class="knappar">
-                    <button id="visa-fler" class="visa-fler">Visa fler golfbanor</button>
-                    <button id="hide" class="hide">Visa färre</button>
-                </div>
             </section>
 
             <section class="karta-section">
