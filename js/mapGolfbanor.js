@@ -1,0 +1,1 @@
+// Här kommer funktioner för Leaflet-kartan ligga senare.
