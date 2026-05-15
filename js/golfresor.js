@@ -24,17 +24,65 @@ function uppdateraPris (){
 
 }
 
+function hamtaPris(prisText){
+
+  if(prisText === null){
+    return null;
+  }
+
+  if (prisText.includes("PERMANENT")){
+    return null;
+  }
+
+  if (prisText.includes("Har ej")){
+    return null;
+  }
+
+  if (prisText.includes("-")){
+    const delar = prisText.split("-");
+    return Number(delar[0]);
+  }
+  return Number(prisText);
+}
+
+
+
 function filtreraGolfbanor () {
   const sokText = startInput.value.toLowerCase ();
   const maxPris = Number(priceInput.value);
 
   const filtreraGolfbanor = golfbanor.filter(function (golfbana){
-    return golfbana.name.toLowerCase().includes(sokText)
+    
+    const matcharNamn =
+     golfbana.name.toLowerCase().includes(sokText);
+
+     let pris = null; 
+     
+     if (golfbana.extraData) {
+   pris = hamtaPris(golfbana.extraData.greenfee_weekday_18); 
+
+   }
+   
+   let matcharPris = true;
+
+    if (maxPris > 0) {
+      matcharPris = pris !== null && pris <= maxPris;
+    }
+  
+
+  console.log(golfbana.name, pris);
+
+  return matcharNamn && matcharPris;
+
   });
 
   console.log("Sökning:", sokText);
   console.log("Maxpris:", maxPris);
   console.log("Filtrerade golfbanor:", filtreraGolfbanor);
+
+  
+
+ 
 }
 
 function start (){
@@ -61,11 +109,13 @@ function hamtaGolfbanor() {
 
     console.log("Alla golfbanor:", golfbanor);
 
+    kopplaData();
     filtreraGolfbanor();
+   
   });
 }
 
-function golfData (){
+function getGolfData (){
   return fetch ("data/golf-data.json")
 
   .then(function (response) {
@@ -79,8 +129,23 @@ function golfData (){
   });
 }
 
+function kopplaData (){
+  
+  for (let i = 0; i < golfbanor.length; i ++){
+    for (let j = 0; j < golfData.length; j ++){
+      if(golfbanor [i].id === golfData[j].smapi_id){
+        golfbanor[i].extraData = golfData[j];
+      }
+    }
+  }
+  console.log ("Golfbanor med extra data:", golfbanor);
+}
+
 uppdateraPris();
 start();
-hamtaGolfbanor();
+
+getGolfData().then(function (){
+  hamtaGolfbanor();
+});
 
 
