@@ -16,6 +16,8 @@ const playersInput = document.getElementById("players");
 const checkboxes = document.querySelectorAll(".check-option input");
 
 let golfbanor = [];
+let golfData = [];
+
 
 function uppdateraPris (){
   priceValue.textContent = priceInput.value + " kr";
@@ -60,6 +62,20 @@ function hamtaGolfbanor() {
     console.log("Alla golfbanor:", golfbanor);
 
     filtreraGolfbanor();
+  });
+}
+
+function golfData (){
+  return fetch ("data/golf-data.json")
+
+  .then(function (response) {
+    return response.json ();
+  })
+
+  .then (function (data){
+    golfData = data;
+
+    console.log("Golf-data från json:", golfData);
   });
 }
 
