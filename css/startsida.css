@@ -58,23 +58,20 @@ body {
     color:#eee6d8;
     border:1px solid #68714b;
     padding:14px 30px;
+    border-radius:4px;
     font-family:Arial,sans-serif;
     font-size:11px;
     font-weight:500;
     text-transform:uppercase;
     letter-spacing:1px;
     text-decoration:none;
-    transition:all 0.3s ease;
     cursor:pointer;
+    transition:0.3s ease;
 }
 
 .btn-boka:hover{
-    background:#7c865a; /* lite ljusare */
+    background:#7c865a;
     border-color:#7c865a;
-    color:#ffffff;
-}
-
-.btn-boka:visited{
     color:#ffffff;
 }
 
@@ -267,7 +264,7 @@ color:#4a4a4a;
 }
 
 .kort {
-    position: relative;
+    position: center;
     background: #e9e2d4;
     border-radius: 4px;
     overflow: hidden;
@@ -351,7 +348,7 @@ color:#4a4a4a;
 }
 
 .se-allt:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
