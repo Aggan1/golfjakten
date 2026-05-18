@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,15 +14,12 @@
 </head>
 
 <body>
-
   <header class="toppbar">
-    <div class="logo">GOLFJAKTEN</div>
+    <a href="index.html" class="logo">GOLFJAKTEN</a>
 
     <nav class="nav">
-      <a href="index.html">Hem</a>
       <a href="golfbanor.html">Golfbanor</a>
-      <a href="om.html">Om oss</a>
-      <a href="kontakt.html">Kontakt</a>
+      <a href="favoriter.html">Favoriter</a>
     </nav>
 
     <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
@@ -50,14 +48,7 @@
           <span id="price-value">0 kr</span>
         </div>
 
-        <input
-          id="price"
-          type="range"
-          min="0"
-          max="1500"
-          value="0"
-          step="50"
-        >
+        <input id="price" type="range" min="0" max="1500" value="0" step="50">
 
         <div class="price-labels">
           <span>0 kr</span>
@@ -76,7 +67,7 @@
 
       <label for="players">Antal spelare</label>
       <select id="players">
-        <option value="1" selected >1 spelare</option>
+        <option value="1" selected>1 spelare</option>
         <option value="2">2 spelare</option>
         <option value="3">3 spelare</option>
         <option value="4">4 spelare</option>
@@ -90,22 +81,22 @@
 
       <label>Tillgång</label>
 
-    <label class="check-option">
-      <input type="checkbox" value="restaurang">Restaurang</label>
+      <label class="check-option">
+        <input type="checkbox" value="restaurang">Restaurang</label>
 
-     <label class="check-option">
-      <input type="checkbox" value="Kiosk"> Kiosk 
-     </label>
+      <label class="check-option">
+        <input type="checkbox" value="Kiosk"> Kiosk
+      </label>
 
-     <label class="check-option">
-      <input type="checkbox" value="Driving_range"> Driving range </label>
+      <label class="check-option">
+        <input type="checkbox" value="Driving_range"> Driving range </label>
 
-    <label class="check-option">
-      <input type="checkbox" value="Putting_green"> Putting green
-    </label>
+      <label class="check-option">
+        <input type="checkbox" value="Putting_green"> Putting green
+      </label>
 
-    <label class="check-option">
-      <input type="checkbox" value="Laddplats"> Laddplats</label>
+      <label class="check-option">
+        <input type="checkbox" value="Laddplats"> Laddplats</label>
 
       <label for="date">Önskat datum</label>
       <input id="date" type="date">
@@ -125,17 +116,36 @@
 
   </main>
 
-  <footer>
-    <div>
+  <footer class="footer">
+
+    <div class="footer-logo">
       <h2>GOLFJAKTEN</h2>
+      <p>Golfupplevelser i Småland och på Öland.</p>
     </div>
 
-    <div>
-      <p>Nummer: 0771-123456</p>
-      <p>Mail: info@golfjakten.se</p>
-      <h4>© 2026 GOLFJAKTEN. Alla rättigheter förbehållna.</h4>
+    <div class="footer-links">
+      <h4>NAVIGATION</h4>
+      <a href="golfbanor.html">Golfbanor</a>
+      <a href="Golfresor.html">Golfresor</a>
+      <a href="">Favoriter</a>
+      <a href="om.html">Om oss</a>
+      <a href="kontakt.html">Kontakt</a>
     </div>
+
+    <div class="footer-kontakt">
+      <h4>KONTAKT</h4>
+
+      <p> Tele: 070 - 123 45 67</p>
+      <p> Mail: info@golfjakten.se</p>
+      <p> Vart: Småland & Öland, Sverige</p>
+    </div>
+
   </footer>
 
+  <div class="footer-bottom">
+    <p>© 2026 Golfjakten</p>
+  </div>
+
 </body>
+
 </html>
