@@ -115,5 +115,9 @@ export function showDetails(bana, golfDetails) {
 
     closeButton.addEventListener("click", function () {
         golfDetails.classList.remove("visible");
+        const allaKort = document.querySelectorAll(".golf-card");
+        for (let i = 0; i < allaKort.length; i++) {
+            allaKort[i].classList.remove("active");
+        }
     });
 }

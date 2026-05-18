@@ -2,7 +2,7 @@ let map;
 let markers = [];
 
 export function initMap() {
-    map = L.map("map").setView([56.75, 15.6], 8);
+    map = L.map("map").setView([57.0, 14.9], 7);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "© OpenStreetMap"
