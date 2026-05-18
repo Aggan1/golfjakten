@@ -6,6 +6,7 @@ export function showCourses(golfbanor, golfList, showDetails) {
 
         const kort = document.createElement("article");
         kort.classList.add("golf-card");
+        kort.dataset.id = bana.id;
 
         let antalHal = "18 hål";
         let bantyp = "Golfbana";
@@ -120,4 +121,18 @@ export function showDetails(bana, golfDetails) {
             allaKort[i].classList.remove("active");
         }
     });
+}
+
+export function markActiveCourse(bana) {
+    const allaKort = document.querySelectorAll(".golf-card");
+    for (let i = 0; i < allaKort.length; i++) {
+        allaKort[i].classList.remove("active");
+
+        if (allaKort[i].dataset.id === bana.id) {
+            allaKort[i].classList.add("active");
+            allaKort[i].scrollIntoView({
+                block: "nearest"
+            });
+        }
+    }
 }
