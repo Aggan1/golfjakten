@@ -10,46 +10,45 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f3efe7;
     color: #2f332b;
-    padding-top: 92px;
 }
 
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: "Playfair Display", Georgia, serif;
     font-weight: 400;
     letter-spacing: 0.02em;
 }
 
+/* navigation */
+.toppbar {
+    width: 100%;
+    height: 78px;
+    padding: 0 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #f4f0e8;
+    border-bottom: 1px solid #d8cebc;
+}
+
 .logo {
     font-family: "Playfair Display", Georgia, serif;
     font-weight: 400;
-    font-size: 1.8rem;
-    letter-spacing: 0.12em;
+    font-size: 1.65rem;
+    letter-spacing: 0.14em;
     color: #68714b;
     text-decoration: none;
-}
-
-.toppbar {
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 24px 42px;
-    background: #f4f0e8;
-    border-bottom: 1px solid #d8cebc;
 }
 
 .nav {
     display: flex;
     align-items: center;
     margin-left: auto;
-    padding-right: 10px;
-    gap: 26px;
+    gap: 38px;
 }
 
 .nav a {
@@ -57,39 +56,43 @@ h1, h2, h3 {
     color: #25301f;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 15px;
-    text-transform: uppercase;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.01em;
     transition: 0.3s ease;
     position: relative;
 }
 
 .nav a:hover {
-    color: #6c745f;
+    color: #68714b;
 }
 
 .nav a.active {
-    color: #6c745f;
+    color: #68714b;
 }
 
 .nav a.active::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -6px;
+    bottom: -8px;
     width: 100%;
     height: 1px;
-    background: #6c745f;
+    background: #68714b;
 }
 
 .header-btn {
     background: #25301f;
     color: #f4f0e8;
-    padding: 14px 26px;
+    padding: 10px 20px;
     text-decoration: none;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     border: 1px solid #25301f;
-    margin-left: 35px;
+    margin-left: 36px;
     position: relative;
     transition: 0.3s ease;
 }
@@ -97,11 +100,11 @@ h1, h2, h3 {
 .header-btn::before {
     content: "";
     position: absolute;
-    left: -27px;
+    left: -22px;
     top: 50%;
     transform: translateY(-50%);
-    width: 1.3px;
-    height: 28px;
+    width: 1px;
+    height: 32px;
     background: #bab5af;
 }
 
@@ -113,7 +116,8 @@ h1, h2, h3 {
     background: #f4f0e8;
     padding: 55px 8% 35px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* lika stora kolumner */
+    grid-template-columns: repeat(3, 1fr);
+    /* lika stora kolumner */
     gap: 60px;
     border-top: 1px solid #ddd3c1;
     align-items: start;
