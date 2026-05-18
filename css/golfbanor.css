@@ -1,7 +1,6 @@
 .golfbanor-sida {
     background-color: #f3efe7;
     color: #2f332b;
-    min-height: 100vh;
 }
 
 /* Hero sektion */
@@ -25,16 +24,16 @@
 /* Layout */
 .golfbanor-layout {
     display: grid;
-    grid-template-columns: 315px 1.15fr 38%;
-    gap: 28px;
-    padding: 0 42px 32px;
+    grid-template-columns: 285px 1.15fr 38%;
+    gap: 18px;
+    padding: 0 42px 28px;
 }
 
 /* Sortering och antal */
 .golfbanor-top {
     display: grid;
     grid-template-columns: 315px 1.15fr 38%;
-    gap: 28px;
+    gap: 18px;
     padding: 0 42px 14px;
     align-items: center;
 }
@@ -81,14 +80,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 14px;
+    margin-bottom: 8px;
 }
 
 .filter h2 {
     font-size: 0.9rem;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.12em;
 }
 
 .reset-filter {
@@ -105,9 +104,9 @@
     font-size: 0.72rem;
     font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-top: 8px;
-    margin-bottom: 5px;
+    letter-spacing: 0.05em;
+    margin-top: 10px;
+    margin-bottom: 4.5px;
     color: #4f4d43;
 }
 
@@ -116,7 +115,7 @@
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #bdb4a5;
-    padding: 7px 0;
+    padding: 9px 0;
     font-size: 0.85rem;
     color: #2f332b;
 }
@@ -129,8 +128,10 @@
 
 .filter input[type="range"] {
     width: 100%;
-    margin-top: 5px;
+    margin-top: 10px;
     accent-color: #68714b;
+    height: 4px;
+    cursor: pointer;
 }
 
 .pris-rad {
@@ -138,23 +139,24 @@
     justify-content: space-between;
     font-size: 0.78rem;
     color: #504d43;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 .check-rad {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 7px;
     text-transform: none;
     letter-spacing: 0;
-    margin-top: 3px;
-    margin-bottom: 2px;
-    font-size: 0.82rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 0.78rem;
+    line-height: 1.1;
 }
 
 .check-rad input {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     accent-color: #68714b;
 }
 
@@ -224,6 +226,7 @@
     font-weight: 400;
     text-transform: uppercase;
     margin-bottom: 5px;
+    letter-spacing: 0.04em;
 }
 
 .golf-card p {
@@ -260,7 +263,7 @@
     padding: 28px;
     background-color: #f3efe7;
     border: 1px solid #c8bfaf;
-    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
     z-index: 500;
 }
 
@@ -346,7 +349,7 @@
     background-color: #68714b;
     border: 2px solid #f3efe7;
     border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
 }
 
 /* Responsiv */
