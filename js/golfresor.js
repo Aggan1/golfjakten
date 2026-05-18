@@ -18,10 +18,7 @@ const resultat = document.getElementById("resultat");
 
 let golfbanor = [];
 let golfData = [];
-
-
-
-
+let markers = [];
 
 function uppdateraPris (){
   priceValue.textContent = priceInput.value + " kr";
@@ -33,6 +30,8 @@ function hamtaPris(prisText){
   if(prisText === null){
     return null;
   }
+
+  prisText = String(prisText);
 
   if (prisText.includes("PERMANENT")){
     return null;
@@ -49,11 +48,17 @@ function hamtaPris(prisText){
   return Number(prisText);
 }
 
-
-
 function filtreraGolfbanor () {
   const sokText = startInput.value.toLowerCase ();
   const maxPris = Number(priceInput.value);
+
+  const valdaTillganger = [];
+
+  for (let i = 0; i < checkboxes.length; i++){
+    if (checkboxes[i].checked){
+      valdaTillganger.push(checkboxes[i].value);
+    }
+  }
 
   const filtreradeGolfbanor = golfbanor.filter(function (golfbana){
     
@@ -72,11 +77,23 @@ function filtreraGolfbanor () {
     if (maxPris > 0) {
       matcharPris = pris !== null && pris <= maxPris;
     }
-  
+
+    let matcharTillgangar = true;
+    
+    for (let i = 0; i < valdaTillganger.length; i++){
+      const tillgang = valdaTillganger[i];
+
+     
+  if (!golfbana.extraData || golfbana.extraData[tillgang] !== true){
+    matcharTillgangar = false;
+      }
+    }
+
+
 
   console.log(golfbana.name, pris);
 
-  return matcharNamn && matcharPris;
+  return matcharNamn && matcharPris && matcharTillgangar;
 
   });
 
@@ -84,10 +101,9 @@ function filtreraGolfbanor () {
   console.log("Maxpris:", maxPris);
   console.log("Filtrerade golfbanor:", filtreradeGolfbanor);
   
-  visaGolfbanor(filtreraGolfbanor);
+  visaGolfbanor(filtreradeGolfbanor);
 
-  
-
+  visaGolfbanorPaKarta(filtreradeGolfbanor)
  
 }
 
@@ -95,7 +111,7 @@ function visaGolfbanor (lista){
   resultat.innerHTML = "";
 
   if (lista.length === 0) {
-    resultat.innerHTML = "<p>Inga golfbanor hittades!<p>";
+    resultat.innerHTML = "<p>Inga golfbanor hittades!</p>";
     return;
   }
 
@@ -112,16 +128,31 @@ function visaGolfbanor (lista){
   }
 }
 
+function visaGolfbanorPaKarta(lista) {
 
+  for (let i = 0; i < markers.length; i++) {
+    map.removeLayer(markers[i]);
+  }
+  markers = [];
 
+  for (let i = 0; i < lista.length; i++) {
 
+    const golfbana = lista[i];
 
+    if (golfbana.lat && golfbana.lng){
 
+      const marker = L.marker([
+        golfbana.lat, 
+        golfbana.lng
+      ]).addTo(map);
 
+      marker.bindPopup(` 
+        <h3> ${golfbana.name}</h3>`);
 
-
-
-
+        markers.push(marker);
+    }
+  }
+}
 
 function start (){
 
@@ -178,6 +209,7 @@ function kopplaData (){
   }
   console.log ("Golfbanor med extra data:", golfbanor);
 }
+
 
 uppdateraPris();
 start();

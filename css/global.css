@@ -26,49 +26,77 @@ h1, h2, h3 {
     letter-spacing: 0.12em;
 }
 
-/* HEADER */
-.toppbar {
-    height: 86px;
-    padding: 0 42px;
-    background-color: #f3efe7;
-    border-bottom: 1px solid #cfc6b7;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
 .logo {
     font-size: 1.8rem;
     letter-spacing: 0.12em;
     color: #68714b;
+    text-decoration: none;
 }
 
-/* NAV */
+.toppbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 5%;
+    background: #f4f0e8;
+    border: 1px solid #d8cebc;
+}
+
+
+
 .nav {
     display: flex;
-    gap: 42px;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 10px;
+    gap: 26px;
 }
+
 
 .nav a {
     text-decoration: none;
-    color: #2f332b;
-    font-size: 1rem;
+    color: #25301f;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
 }
 
 .nav a:hover {
-    border-bottom: 1px solid #2f332b;
+    color: #6c745f;
 }
 
-/* HEADER BUTTON */
 .header-btn {
-    border: 1px solid #b8ad9d;
-    padding: 12px 20px;
+    background: #25301f;
+    color: #f4f0e8;
+    padding: 14px 26px;
     text-decoration: none;
-    color: #2f332b;
-    font-size: 0.9rem;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    border: 1px solid #25301f;
+    margin-left: 35px;
+    position: relative;
+    transition: 0.3s ease;
 }
 
-/* FOOTER */
+.header-btn::before {
+    content: "";
+    position: absolute;
+    left: -27px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.3px;
+    height: 28px;
+    background: #bab5af;
+}
+
+.header-btn:hover {
+    background: #374332;
+}
+
+
 footer {
     background-color: #f3efe7;
     border-top: 1px solid #c8bfaf;

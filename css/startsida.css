@@ -35,10 +35,7 @@ body {
     margin-bottom: 22px;
 }
 
-
-.btn-boka,
-.btn-om,
-.btn-kontakt {
+.btn-om {
     display: inline-block;
     padding: 12px 24px;
     text-transform: uppercase;
@@ -52,35 +49,83 @@ body {
     visibility: visible;
 }
 
+.btn-boka{
+display:inline-block;
+background:transparent;
+color:#ffffff;
+border:1px solid rgba(255,255,255,0.8);
+padding:14px 30px;
+font-family:Arial,sans-serif;
+font-size:11px;
+font-weight:bold;
+text-transform:uppercase;
+letter-spacing:1px;
+text-decoration:none;
+transition:all 0.3s ease;
+cursor:pointer;
+}
+
+.btn-boka:hover{
+background:rgba(255,255,255,0.10);
+border-color:#ffffff;
+color:#ffffff;
+transform:translateY(-2px);
+box-shadow:0 10px 24px rgba(0,0,0,0.12);
+}
+
+.btn-boka:visited{
+color:#ffffff;
+}
+
 .btn-boka,
-.btn-om {
-    background: #e8dfcf;
-    color: #25301f;
-    border: 1px solid #d8cebc;
-    font-family: Georgia, "Times New Roman", serif;
-    letter-spacing: 0;
-    transition: all 0.3s ease;
+.btn-kontakt{
+display:inline-block;
+padding:12px 24px;
+text-transform:uppercase;
+font-size:11px;
+font-weight:bold;
+color:#ffffff;
+letter-spacing:1.3px;
+text-decoration:none;
+cursor:pointer;
+transition:0.3s ease;
+opacity:1;
+visibility:visible;
 }
 
-.btn-boka:hover,
-.btn-om:hover {
-    background: #d8cebc;
-    color: #25301f;
-    border-color: #c8bda9;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+.btn-om{
+display:inline-block;
+background:#68714b;
+color:#ffffff;
+border:1px solid #68714b;
+padding:14px 30px;
+font-family:Arial,sans-serif;
+font-size:11px;
+font-weight:bold;
+text-transform:uppercase;
+letter-spacing:1px;
+text-decoration:none;
+transition:all 0.3s ease;
+cursor:pointer;
 }
 
-.btn-boka:visited,
-.btn-om:visited {
-    color: #25301f;
+.btn-om:hover{
+background:#7a8460;
+border-color:#7a8460;
+color:#ffffff;
+transform:translateY(-2px);
+box-shadow:0 10px 24px rgba(0,0,0,0.08);
+}
+
+.btn-om:visited,
+.btn-kontakt:visited{
+color:#ffffff;
 }
 
 
 .btn-kontakt {
-    font-family: "Playfair Display", Georgia, serif;
     background: transparent;
-    color: #f4f0e8;
+    color: #68714b;
     border: 1px solid #d8cebc;
     padding: 14px 28px;
     text-transform: uppercase;
@@ -91,7 +136,7 @@ body {
 }
 
 .btn-kontakt:hover {
-    background: rgba(244, 240, 232, 0.12);
+    background: #68714b;
     border: 1px solid #e4dac8;
     color: #f4f0e8;
 }
@@ -102,7 +147,7 @@ body {
 
 .om-oss {
     background: #f4f0e8;
-    color: #25301f;
+    color: #3c5238;
     padding: 52px 8%;
     display: grid;
     grid-template-columns: 0.9fr 1.35fr;
@@ -125,7 +170,7 @@ body {
     font-size: 31px;
     line-height: 1.15;
     font-weight: 500;
-    color: #25301f;
+    color: #3c5238;
     margin: 10px 0 18px;
 }
 
@@ -165,7 +210,7 @@ body {
 
 
 .top-lista {
-    background: #2f3828;
+    background: #68714b;
     color: #f4f0e8;
     padding: 48px 8%;
     text-align: center;
@@ -268,7 +313,6 @@ body {
 }
 
 .se-allt {
-    font-family: playfair display, georgia, serif;
     display: inline-block;
     margin-top: 28px;
     color: #f4f0e8;
@@ -307,7 +351,7 @@ body {
 
 
 .kontakt {
-    background: #2f3828;
+    background: #68714b;
     color: #f4f0e8;
     text-align: center;
     padding: 42px 8%;
@@ -332,7 +376,6 @@ body {
 }
 
 .kontakt p {
-    font-family: Georgia, "Times New Roman", serif;
     margin: 8px 0;
     font-size: 14px;
     word-spacing: 2px;
@@ -368,10 +411,10 @@ body {
 
 .footer-links h4,
 .footer-kontakt h4 {
-    font-size: 12px;
+    font-size: 15px;
     letter-spacing: 2px;
     color: #7b8268;
-    margin-bottom: 18px;
+    margin-bottom: 6px;
     text-transform: uppercase;
 }
 

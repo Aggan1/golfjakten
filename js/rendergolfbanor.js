@@ -12,7 +12,7 @@ export function showCourses(golfbanor, golfList, showDetails) {
 
         if (bana.extra !== null) {
             if (bana.extra.holes) {
-                antalHal = bana.extra.holes;
+                antalHal = bana.extra.holes + " hål";
             }
 
             if (bana.extra.course_type) {
@@ -50,22 +50,70 @@ export function showCourses(golfbanor, golfList, showDetails) {
 }
 
 export function showDetails(bana, golfDetails) {
-    let extraInfo = "<p>Ingen extra info.</p>";
+    let holes = "-";
+    let courseType = "Golfbana";
+    let weekdayPrice = "-";
+    let weekendPrice = "-";
+    let bookingUrl = "#";
 
     if (bana.extra !== null) {
-        extraInfo = `
-            <p><strong>Greenfee vardag:</strong> ${bana.extra.greenfee_weekday || "-"}</p>
-            <p><strong>Greenfee helg:</strong> ${bana.extra.greenfee_weekend || "-"}</p>
-            <p><strong>Skick:</strong> ${bana.extra.course_condition || "-"}</p>
-            <p><strong>Driving range:</strong> ${bana.extra.driving_range ? "Ja" : "Nej"}</p>
-            <p><strong>Restaurang:</strong> ${bana.extra.restaurant ? "Ja" : "Nej"}</p>
-        `;
+        if (bana.extra.holes) {
+            holes = bana.extra.holes + " hål";
+        }
+
+        if (bana.extra.course_type) {
+            courseType = bana.extra.course_type;
+        }
+
+        if (bana.extra.greenfee_weekday_18) {
+            weekdayPrice = bana.extra.greenfee_weekday_18;
+        }
+
+        if (bana.extra.greenfee_weekend_18) {
+            weekendPrice = bana.extra.greenfee_weekend_18;
+        }
+
+        if (bana.extra.booking_url) {
+            bookingUrl = bana.extra.booking_url;
+        }
     }
 
+    golfDetails.classList.add("visible");
+
     golfDetails.innerHTML = `
-        <h3>${bana.name}</h3>
-        <p>${bana.city}, ${bana.municipality}</p>
-        <p>${bana.abstract || "Ingen beskrivning"}</p>
-        ${extraInfo}
+        <div class="golf-popup-header">
+            <div>
+                <h3>${bana.name}</h3>
+                <p>${bana.city}, ${bana.province}</p>
+            </div>
+
+            <button class="close-popup" type="button">×</button>
+        </div>
+
+        <div class="popup-info">
+            <span>${holes}</span>
+            <span>${weekdayPrice} – ${weekendPrice}</span>
+            <span>${courseType}</span>
+        </div>
+
+        <p>${bana.abstract || "Ingen beskrivning finns tillgänglig."}</p>
+
+        <div class="popup-facilities">
+            <span>Driving range: ${bana.extra && bana.extra.driving_range ? "Ja" : "Nej"}</span>
+            <span>Restaurang: ${bana.extra && bana.extra.restaurant ? "Ja" : "Nej"}</span>
+            <span>Kiosk: ${bana.extra && bana.extra.kiosk ? "Ja" : "Nej"}</span>
+            <span>Putting green: ${bana.extra && bana.extra.putting_green ? "Ja" : "Nej"}</span>
+        </div>
+
+        <div class="popup-buttons">
+            <a href="${bana.website}" target="_blank">Läs mer</a>
+            <a href="${bookingUrl}" target="_blank" class="primary">Boka</a>
+        </div>
     `;
+
+    const closeButton = golfDetails.querySelector(".close-popup");
+
+    closeButton.addEventListener("click", function () {
+        golfDetails.classList.remove("visible");
+    });
 }
