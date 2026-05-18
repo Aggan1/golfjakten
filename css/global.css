@@ -13,7 +13,7 @@ body {
     padding-top: 92px;
 }
 
-/* Typografi */
+
 h1, h2, h3 {
     font-family: "Playfair Display", Georgia, serif;
     font-weight: 400;
@@ -29,9 +29,7 @@ h1, h2, h3 {
     text-decoration: none;
 }
 
-/* HEADER / NAVBAR */
 .toppbar {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -111,14 +109,19 @@ h1, h2, h3 {
     background: #374332;
 }
 
-/* FOOTER */
 .footer {
     background: #f4f0e8;
     padding: 55px 8% 35px;
     display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr); /* lika stora kolumner */
     gap: 60px;
     border-top: 1px solid #ddd3c1;
+    align-items: start;
+    text-align: center;
+}
+
+.footer-logo {
+    text-align: left;
 }
 
 .footer-logo h2 {
@@ -186,4 +189,14 @@ h1, h2, h3 {
 .footer-bottom p {
     font-size: 12px;
     color: #7b8268;
+}
+
+.footer-links,
+.footer-kontakt {
+    align-items: center;
+    text-align: center;
+}
+
+.footer {
+    align-items: start;
 }
