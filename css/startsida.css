@@ -1,303 +1,519 @@
-/* Herosektion */
+body {
+    background: #f4f0e8;
+}
 
 .intro {
-    min-height: 430px;
+    min-height: 390px;
     background:
-        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
-        url("../ChatGPT Image Apr 27, 2026 at 01_57_59 PM.png") center/cover;
+        linear-gradient(rgba(18, 28, 18, 0.42), rgba(18, 28, 18, 0.42)),
+        
+        center/cover no-repeat;
     display: flex;
     align-items: center;
     padding: 0 8%;
-    color: white;
+    color: #f7f1e7;
 }
 
 .intro-inne {
-    max-width: 650px;
+    max-width: 560px;
 }
 
 .intro h1 {
-    font-size: 46px;
-    line-height: 1.15;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40px;
+    line-height: 1.1;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-bottom: 18px;
 }
 
 .intro p {
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #eee6d8;
+    margin-bottom: 22px;
 }
 
 
-/* Knappar för startsida */
-
-.btn-boka {
-    display: inline-block;
-    padding: 16px 28px;
-    background: #68714b;
-    color: white;
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.btn-om {
-    display: inline-block;
-    padding: 16px 28px;
-    background: #68714b;
-    color: white;
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: bold;
-}
-
+.btn-boka,
+.btn-om,
 .btn-kontakt {
     display: inline-block;
-    padding: 16px 28px;
-    background: transparent;
-    border: 1px solid #f4f0e8;
-    color: #f4f0e8;
+    padding: 12px 24px;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: bold;
+    letter-spacing: 1.3px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn-boka,
+.btn-om {
+    background: #e8dfcf;
+    color: #25301f;
+    border: 1px solid #d8cebc;
+    font-family: Georgia, "Times New Roman", serif;
+    letter-spacing: 0;
+    transition: all 0.3s ease;
+}
+
+.btn-boka:hover,
+.btn-om:hover {
+    background: #d8cebc;
+    color: #25301f;
+    border-color: #c8bda9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.btn-boka:visited,
+.btn-om:visited {
+    color: #25301f;
 }
 
 
-/* Om oss sektion */
+.btn-kontakt {
+    font-family: "Playfair Display", Georgia, serif;
+    background: transparent;
+    color: #f4f0e8;
+    border: 1px solid #d8cebc;
+    padding: 14px 28px;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    font-size: 12px;
+    transition: 0.3s ease;
+    margin-top: 25px;
+}
+
+.btn-kontakt:hover {
+    background: rgba(244, 240, 232, 0.12);
+    border: 1px solid #e4dac8;
+    color: #f4f0e8;
+}
+
+.btn-kontakt:visited {
+    color: #f4f0e8;
+}
 
 .om-oss {
-    padding: 75px 8%;
+    background: #f4f0e8;
+    color: #25301f;
+    padding: 52px 8%;
     display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 80px;
+    grid-template-columns: 0.9fr 1.35fr;
+    gap: 55px;
     align-items: center;
-    color: #162214;
 }
 
-.oss-text span {
+.oss-text span,
+.text-omoss span {
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 10px;
+    letter-spacing: 1.6px;
+    color: #5f684f;
     font-weight: bold;
 }
 
-.oss-text h2 {
-    font-size: 36px;
-    margin: 15px 0 25px;
+.oss-text h2,
+.text-omoss h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31px;
+    line-height: 1.15;
+    font-weight: 500;
+    color: #25301f;
+    margin: 10px 0 18px;
 }
 
-.oss-text p {
+.oss-text p,
+.text-omoss p {
+    font-size: 14px;
     line-height: 1.8;
-    margin-bottom: 30px;
+    color: #465040;
+    margin-bottom: 22px;
 }
 
-.om-oss img {
+
+.om-oss img,
+.om-oss-sektion img,
+.kort img,
+.karta {
+    border: 3px solid #e4dbc9;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    transition: 0.3s ease;
+}
+
+.om-oss img:hover,
+.om-oss-sektion img:hover,
+.kort:hover img,
+.karta:hover {
+    border-color: #b9ad98;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.13);
+}
+
+.om-oss img,
+.om-oss-sektion img {
     width: 100%;
-    height: 330px;
+    height: 285px;
     object-fit: cover;
 }
 
 
-/* Top lista */
-
 .top-lista {
-    background: #68714b;
+    background: #2f3828;
     color: #f4f0e8;
-    padding: 60px 8%;
+    padding: 48px 8%;
     text-align: center;
 }
 
 .top-lista h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-family: playfair display, georgia, serif;
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 24px;
+    font-size: 32px;
 }
 
 .top-lista-kort {
     display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 35px;
-    margin-top: 35px;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+}
+
+.top-lista h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 50px;
 }
 
 
-/* Kort */
+.top-lista h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    width: 80px;
+    height: 1px;
+    background: #d8cebc;
+}
 
 .korts {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 14px;
 }
 
 .kort {
-    background: #eee8dd;
-    color: #30352b;
+    background: #e8dfcf;
+    color: #25301f;
     text-align: left;
+    overflow: hidden;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.kort:hover {
+    transform: translateY(-4px);
 }
 
 .kort img {
     width: 100%;
-    height: 150px;
+    height: 125px;
     object-fit: cover;
+    display: block;
 }
 
 .kort div {
-    padding: 18px;
+    padding: 14px;
 }
 
 .kort h3 {
-    font-size: 16px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    line-height: 1.25;
     text-transform: uppercase;
+    color: #25301f;
+    margin-bottom: 8px;
 }
 
 .kort p,
 .kort span {
-    font-size: 13px;
+    font-size: 10px;
     text-transform: uppercase;
+    color: #56604b;
 }
 
 .kort span {
     display: flex;
     justify-content: space-between;
-    margin-top: 18px;
+    margin-top: 14px;
 }
 
 
-/* Övrigt */
-
 .karta {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    min-height: 390px;
+    background: #d8d3c3;
+    color: #25301f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .se-allt {
+    font-family: playfair display, georgia, serif;
     display: inline-block;
-    margin-top: 35px;
+    margin-top: 28px;
+    color: #f4f0e8;
     text-transform: uppercase;
     font-size: 14px;
-    letter-spacing: 1px;
+    letter-spacing: 0;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.se-allt:hover {
+    color: #d8cebc;
+}
+
+.se-allt::after {
+    content: "⟶";
+    display: inline-block;
+    transform: scaleX(2.8);
+    margin-left: 19px;
+    transition: 0.3s ease;
+}
+
+.se-allt:hover::after {
+    margin-left: 16px;
 }
 
 
-/* Om oss */
-
 .om-oss-sektion {
+    background: #f4f0e8;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    padding: 60px 8%;
+    gap: 48px;
+    padding: 52px 8%;
     align-items: center;
 }
 
-.text-omoss span {
-    text-transform: uppercase;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.text-omoss h2 {
-    font-size: 36px;
-    margin: 15px 0 25px;
-}
-
-.text-omoss p {
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-
-/* Kontakt */
 
 .kontakt {
-    background: #68714b;
+    background: #2f3828;
     color: #f4f0e8;
     text-align: center;
-    padding: 55px 8%;
+    padding: 42px 8%;
 }
 
-.kontakt p {
+.kontakt h2 {
+    position: relative;
+    display: inline-block;
     margin-bottom: 25px;
 }
 
 
-/* Responsivitet */
+.kontakt h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -12px;
+    width: 70px;
+    height: 0.8px;
+    background: #d5d0c780;
+}
+
+.kontakt p {
+    font-family: Georgia, "Times New Roman", serif;
+    margin: 8px 0;
+    font-size: 14px;
+    word-spacing: 2px;
+}
+.footer {
+    background: #f4f0e8;
+    padding: 55px 8% 35px;
+
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 60px;
+
+    border-top: 1px solid #ddd3c1;
+}
+
+
+.footer-logo h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 34px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #5f6857;
+
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    color: #5f6857;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+.footer-links h4,
+.footer-kontakt h4 {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #7b8268;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+
+
+.footer-links {
+    font-family: "Playfair Display", Georgia, serif;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #25301f;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #68714b;
+}
+
+
+.footer-kontakt {
+    font-family: "Playfair Display", Georgia, serif;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+}
+
+.footer-kontakt p {
+    font-family: "Playfair Display", Georgia, serif;
+    color: #4e5748;
+    font-size: 14px;
+}
+
+.footer-bottom {
+    background: #f4f0e8;
+    border-top: 1px solid #ddd3c1;
+
+    text-align: center;
+
+    padding: 18px 8%;
+}
+
+.footer-bottom p {
+    font-size: 12px;
+    color: #7b8268;
+}
+
+
+@media (max-width: 850px) {
+
+    .footer {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        text-align: center;
+    }
+
+    .footer-links,
+    .footer-kontakt {
+        align-items: center;
+    }
+
+    .footer-logo h2 {
+        font-size: 28px;
+    }
+}
+
+/* RESPONSIV */
 
 @media (max-width: 1000px) {
     .om-oss,
     .top-lista-kort,
     .om-oss-sektion {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 35px;
     }
 
-    .korts{
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .intro {
-        font-size:  40px;
-    }
-
-    .text-omoss, .oss-text{
+    .oss-text,
+    .text-omoss {
         text-align: center;
     }
 
-    .karta{
-        height: 300px;
+    .karta {
+        min-height: 300px;
+    }
+
+    .intro h1 {
+        font-size: 34px;
     }
 }
 
-@media (max-width: 700px){
-    .intro{
-        min-height: 300px;
+@media (max-width: 700px) {
+    .intro {
+        min-height: 320px;
         padding: 40px 6%;
     }
 
-    .intro h1{
-        font-size: 30px;
-
-    }
-
-    .intro p {
-        font-size: 16px;
-
-    }
-    .om-oss,
-    .top-lista-kort, .om-oss-sektion,
-    .korts{
-        grid-template-columns: 1fr;
-    
-    }
-
-    .om-oss, .om-oss-sektion, .top-lista, .kontakt{
-        padding: 40px, 6%;
-    }
-
-    .om-oss img, .om-oss-sektion img{
-        height: 240px;
-    }
-
-    .top-lista, .text-omoss .oss-text{
+    .intro h1 {
         font-size: 28px;
     }
 
+    .intro p {
+        font-size: 13px;
+    }
 
-.kort img {
-    height: 180px;
-}
+    .om-oss,
+    .top-lista,
+    .om-oss-sektion,
+    .kontakt {
+        padding: 38px 6%;
+    }
 
-.btn-boka, .btn-kontakt, .btn-om{
+    .korts {
+        grid-template-columns: 1fr;
+    }
 
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
-}
+    .om-oss img,
+    .om-oss-sektion img {
+        height: 220px;
+    }
 
-footer{
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-    padding: 40px 6%;
-}
+    .kort img {
+        height: 170px;
+    }
 
-    
+    .top-lista h2,
+    .kontakt h2,
+    .oss-text h2,
+    .text-omoss h2 {
+        font-size: 24px;
+    }
+
+    .btn-boka,
+    .btn-om,
+    .btn-kontakt {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        margin-bottom: 10px;
+    }
 }
