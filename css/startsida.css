@@ -120,32 +120,33 @@ transform:translateY(-2px);
 box-shadow:0 10px 24px rgba(0,0,0,0.08);
 }
 
-.btn-om:visited,
-.btn-kontakt:visited{
+.btn-om:visited{
 color:#ffffff;
 }
 
+.btn-kontakt:visited{
+color:#4a4a4a;
+}
 
 .btn-kontakt {
-    background: transparent;
-    color: #68714b;
+    background: #ffffff;
+    color: #4a4a4a;
     border: 1px solid #d8cebc;
     padding: 14px 28px;
-    text-transform: uppercase;
-    letter-spacing: 0;
     font-size: 12px;
-    transition: 0.3s ease;
-    margin-top: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 20px;
 }
 
 .btn-kontakt:hover {
-    background: #68714b;
-    border: 1px solid #e4dac8;
-    color: #f4f0e8;
-}
-
-.btn-kontakt:visited {
-    color: #f4f0e8;
+    background: #7a8460;
+    color: #ffffff;
+    border-color: #7a8460;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10);
 }
 
 .om-oss {
@@ -162,7 +163,6 @@ color:#ffffff;
 .text-omoss span {
     text-transform: uppercase;
     font-size: 10px;
-    letter-spacing: 1.6px;
     color: #5f684f;
     font-weight: bold;
 }
