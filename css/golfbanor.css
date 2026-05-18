@@ -30,6 +30,16 @@
     padding: 10px 42px 40px;
 }
 
+/* Kartmarkörer */
+.golf-marker {
+    width: 18px;
+    height: 18px;
+    background-color: #68714b;
+    border: 2px solid #f3efe7;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
 /* Sortering och antal */
 .golfbanor-top {
     display: grid;

@@ -12,7 +12,7 @@ export function showCourses(golfbanor, golfList, showDetails) {
 
         if (bana.extra !== null) {
             if (bana.extra.holes) {
-                antalHal = bana.extra.holes;
+                antalHal = bana.extra.holes + " hål";
             }
 
             if (bana.extra.course_type) {
@@ -54,11 +54,16 @@ export function showDetails(bana, golfDetails) {
 
     if (bana.extra !== null) {
         extraInfo = `
-            <p><strong>Greenfee vardag:</strong> ${bana.extra.greenfee_weekday || "-"}</p>
-            <p><strong>Greenfee helg:</strong> ${bana.extra.greenfee_weekend || "-"}</p>
+            <p><strong>Greenfee 18 hål vardag:</strong> ${bana.extra.greenfee_weekday_18 || "-"}</p>
+            <p><strong>Greenfee 18 hål helg:</strong> ${bana.extra.greenfee_weekend_18 || "-"}</p>
+            <p><strong>Greenfee 9 hål vardag:</strong> ${bana.extra.greenfee_weekday_9 || "-"}</p>
+            <p><strong>Greenfee 9 hål helg:</strong> ${bana.extra.greenfee_weekend_9 || "-"}</p>
             <p><strong>Skick:</strong> ${bana.extra.course_condition || "-"}</p>
             <p><strong>Driving range:</strong> ${bana.extra.driving_range ? "Ja" : "Nej"}</p>
             <p><strong>Restaurang:</strong> ${bana.extra.restaurant ? "Ja" : "Nej"}</p>
+            <p><strong>Kiosk:</strong> ${bana.extra.kiosk ? "Ja" : "Nej"}</p>
+            <p><strong>Putting green:</strong> ${bana.extra.putting_green ? "Ja" : "Nej"}</p>
+            <p><strong>Laddplats:</strong> ${bana.extra.charging_station ? "Ja" : "Nej"}</p>
         `;
     }
 
