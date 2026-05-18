@@ -1,63 +1,71 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-
 body {
-  margin: 0;
   color: #162214;
+  background-color: #f6f3ee;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
 .kontakt {
-  padding: 72px 8% 48px;
+  padding: 90px 8% 55px;
+  background: linear-gradient(135deg, #eef0df, #f8f5ef);
 }
 
 .kontakt-div {
-  max-width: 760px;
+  max-width: 780px;
 }
 
 .kontakt-div p:first-child,
 .skicka-div p:first-child {
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   margin-bottom: 14px;
+  color: #68714b;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .kontakt-div h1,
 .skicka-div h1 {
-  font-size: 48px;
-  line-height: 1.1;
-  margin-bottom: 18px;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.08;
+  margin-bottom: 20px;
+  color: #162214;
 }
 
 .kontakt-div p:last-child,
 .skicka-div p:nth-child(3) {
-  max-width: 620px;
-  line-height: 1.7;
+  max-width: 640px;
+  line-height: 1.8;
+  color: #3f4a38;
 }
 
 .skicka {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 32px;
-  padding: 60px 8%;
+  gap: 34px;
+  padding: 70px 8%;
   align-items: start;
 }
 
 .skicka-div,
 .info,
 .samarbete {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 30px;
-  background-color: rgb(226, 226, 226);
+  border-radius: 18px;
+  padding: 34px;
+  background-color: #ffffff;
+  border: 1px solid rgba(22, 34, 20, 0.08);
+  box-shadow: 0 18px 45px rgba(22, 34, 20, 0.08);
 }
 
 .skicka-div form {
-  margin-top: 28px;
+  margin-top: 32px;
 }
-
-
 
 .skicka input,
 .skicka textarea,
@@ -68,37 +76,56 @@ body {
 
 .skicka input,
 .skicka textarea {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 14px 16px;
-  background: transparent;
-  margin-bottom: 20px;
+  border: 1px solid #d8d8cf;
+  border-radius: 12px;
+  padding: 15px 16px;
+  background-color: #fbfaf7;
+  margin-bottom: 18px;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+.skicka input:focus,
+.skicka textarea:focus {
+  border-color: #68714b;
+  box-shadow: 0 0 0 4px rgba(104, 113, 75, 0.14);
+  background-color: #ffffff;
 }
 
 .skicka textarea {
-  min-height: 160px;
+  min-height: 170px;
   resize: vertical;
 }
 
 .skicka button {
   border: 0;
-  padding: 14px 16px;
+  border-radius: 999px;
+  padding: 16px 20px;
   cursor: pointer;
   background-color: #68714b;
   color: white;
+  font-weight: 700;
+  transition: 0.25s ease;
+}
+
+.skicka button:hover {
+  background-color: #515939;
+  transform: translateY(-2px);
 }
 
 .kontakt-sidebar {
   display: grid;
   gap: 24px;
 }
-.kontakt-sidebar h3{
-    width: 250px;
-    margin-bottom: 26px;
+
+.kontakt-sidebar h3 {
+  margin-bottom: 18px;
+  font-size: 22px;
 }
 
 .info p {
-  margin-bottom: 30px;
+  margin-bottom: 24px;
+  color: #3f4a38;
 }
 
 .info p:last-child,
@@ -107,141 +134,148 @@ body {
 }
 
 .samarbete {
-  display: grid;
-  gap: 16px;
-  background-color: #a3a887 ;
+  background: linear-gradient(135deg, #a3a887, #7f885d);
   color: #212809;
-  
 }
 
 .samarbete .ikon {
-  margin: 8px 0 0;
+  margin: 8px 0 4px;
+  background-color: rgba(255, 255, 255, 0.35);
 }
 
 .till-section {
-  padding: 60px 8%;
+  padding: 75px 8%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  gap: 38px;
   align-items: start;
+  background-color: #fffaf3;
 }
 
 .till-section h1 {
   grid-column: 1 / -1;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
+  font-size: clamp(32px, 4vw, 46px);
 }
 
 .till-section .till-lag {
   display: grid;
   gap: 16px;
   text-align: center;
-  max-width: 260px;
+  max-width: 300px;
   margin: 0 auto;
+  padding: 30px 22px;
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 0 14px 35px rgba(22, 34, 20, 0.07);
+  transition: 0.25s ease;
+}
+
+.till-section .till-lag:hover {
+  transform: translateY(-6px);
 }
 
 .ikon {
-  width: 90px;
-  height: 90px;
+  width: 86px;
+  height: 86px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #e0dbd5;
-  margin: 0 auto 20px;
+  margin: 0 auto 18px;
 }
 
-
 .ikon-1 img {
-    width: 100px;
-  height: 100px;
+  width: 95px;
+  height: 95px;
   object-fit: contain;
-
 }
 
 .ikon img {
-  width: 55px;
-  height: 55px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
 }
 
 .txt {
-  max-width: 260px;
+  max-width: 270px;
   margin: 0 auto;
 }
 
 .txt h3 {
   font-size: 22px;
   margin-bottom: 10px;
+  color: #162214;
 }
 
 .txt p {
   font-size: 16px;
+  color: #4d5848;
 }
 
 .skickat-text {
-    margin-top: 20px;
-    color: green;
-    font-weight: bold;
-  }
+  margin-top: 20px;
+  color: #3f7d3a;
+  font-weight: bold;
+}
 
-/* Mobil */
+/* Tablet */
 @media (max-width: 1000px) {
-  .skicka{
-    grid-template-columns: 1fr 1fr;
+  .skicka {
+    grid-template-columns: 1fr;
   }
 
-  .kontakt-sidebar{
-    grid-template-columns:  1fr ;
-
+  .kontakt-sidebar {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .till-section{
+  .till-section {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 700px) {
+  .kontakt {
+    padding: 58px 6% 36px;
+  }
 
-    .kontakt{
-        padding: 48px 6% 32px;
-    }
+  .skicka,
+  .till-section {
+    padding: 46px 6%;
+  }
 
-    .skicka, .till-section{
-        padding: 46px 6%;
-    }
+  .kontakt-sidebar,
+  .till-section {
+    grid-template-columns: 1fr;
+  }
 
-    .kontakt-sidebar, .formular, .till-section{
-        grid-template-columns: 1fr 1fr;
-    }
-    
+  .skicka-div,
+  .info,
+  .samarbete {
+    padding: 24px;
+    border-radius: 16px;
+  }
 
-    .skicka-div, .info, .samarbete{
-        padding: 22px;
-    }
-    
-    .kontakt-div h1, .skicka-div h1{
-        font-size: 36px;
-    } 
+  .kontakt-div h1,
+  .skicka-div h1 {
+    font-size: 36px;
+  }
 
-    .kontakt-sidebar h3{
-        max-width: none;
-    }
+  .ikon {
+    width: 74px;
+    height: 74px;
+  }
 
-    footer{
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
+  .ikon img {
+    width: 44px;
+    height: 44px;
+  }
 
-    .ikon{
-        width: 75px;
-        height: 75px;
-    }
-
-    .ikon img{
-        width: 45px;
-        height: 45px;
-    }
-    
+  footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
 }
