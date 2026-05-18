@@ -4,10 +4,13 @@ body {
 
 .intro {
     min-height: 390px;
-    background:
+
+    background-image:
         linear-gradient(rgba(18, 28, 18, 0.42), rgba(18, 28, 18, 0.42)),
-        
-        center/cover no-repeat;
+        url("../images/Placeholder1.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     padding: 0 8%;
@@ -182,11 +185,20 @@ color:#ffffff;
     margin-bottom: 22px;
 }
 
+.karta {
+    width: 600px;
+    height: 500px;
+}
+
+.karta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 .om-oss img,
 .om-oss-sektion img,
-.kort img,
-.karta {
+.kort img{
     border: 3px solid #e4dbc9;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
     transition: 0.3s ease;
@@ -380,93 +392,6 @@ color:#ffffff;
     font-size: 14px;
     word-spacing: 2px;
 }
-.footer {
-    background: #f4f0e8;
-    padding: 55px 8% 35px;
-
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr;
-    gap: 60px;
-
-    border-top: 1px solid #ddd3c1;
-}
-
-
-.footer-logo h2 {
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 34px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    color: #5f6857;
-
-    margin-bottom: 10px;
-}
-
-.footer-logo p {
-    color: #5f6857;
-    font-size: 14px;
-    line-height: 1.7;
-}
-
-
-.footer-links h4,
-.footer-kontakt h4 {
-    font-size: 15px;
-    letter-spacing: 2px;
-    color: #7b8268;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-}
-
-
-
-.footer-links {
-    font-family: "Playfair Display", Georgia, serif;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.footer-links a {
-    text-decoration: none;
-    color: #25301f;
-    font-size: 14px;
-    transition: 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #68714b;
-}
-
-
-.footer-kontakt {
-    font-family: "Playfair Display", Georgia, serif;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-}
-
-.footer-kontakt p {
-    font-family: "Playfair Display", Georgia, serif;
-    color: #4e5748;
-    font-size: 14px;
-}
-
-.footer-bottom {
-    background: #f4f0e8;
-    border-top: 1px solid #ddd3c1;
-
-    text-align: center;
-
-    padding: 18px 8%;
-}
-
-.footer-bottom p {
-    font-size: 12px;
-    color: #7b8268;
-}
-
 
 @media (max-width: 850px) {
 
