@@ -14,9 +14,13 @@ const priceInput = document.getElementById("price");
 const priceValue = document.getElementById("price-value");
 const playersInput = document.getElementById("players");
 const checkboxes = document.querySelectorAll(".check-option input");
+const resultat = document.getElementById("resultat");
 
 let golfbanor = [];
 let golfData = [];
+
+
+
 
 
 function uppdateraPris (){
@@ -51,7 +55,7 @@ function filtreraGolfbanor () {
   const sokText = startInput.value.toLowerCase ();
   const maxPris = Number(priceInput.value);
 
-  const filtreraGolfbanor = golfbanor.filter(function (golfbana){
+  const filtreradeGolfbanor = golfbanor.filter(function (golfbana){
     
     const matcharNamn =
      golfbana.name.toLowerCase().includes(sokText);
@@ -78,12 +82,46 @@ function filtreraGolfbanor () {
 
   console.log("Sökning:", sokText);
   console.log("Maxpris:", maxPris);
-  console.log("Filtrerade golfbanor:", filtreraGolfbanor);
+  console.log("Filtrerade golfbanor:", filtreradeGolfbanor);
+  
+  visaGolfbanor(filtreraGolfbanor);
 
   
 
  
 }
+
+function visaGolfbanor (lista){
+  resultat.innerHTML = "";
+
+  if (lista.length === 0) {
+    resultat.innerHTML = "<p>Inga golfbanor hittades!<p>";
+    return;
+  }
+
+  for (let i = 0; i < lista.length; i ++){
+    const golfbana = lista[i];
+
+    const kort = document.createElement ("article");
+
+    kort.innerHTML = `
+    <h3>${golfbana.name}</h3>
+    <p>Pris: ${golfbana.extraData ? golfbana.extraData.greenfee_weekday_18: "Pris saknas"} kr</p>`;
+
+    resultat.append(kort);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 function start (){
 
