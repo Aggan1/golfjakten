@@ -265,53 +265,63 @@ color:#ffffff;
 .korts {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 12px;
 }
 
 .kort {
-    background: #e8dfcf;
-    color: #25301f;
-    text-align: left;
+    position: relative;
+    background: #e9e2d4;
+    border-radius: 4px;
     overflow: hidden;
+    border: 1px solid #d5cdbd;
     cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.kort:hover {
-    transform: translateY(-4px);
+    height: 243px;
 }
 
 .kort img {
     width: 100%;
-    height: 125px;
+    height: 141px;
     object-fit: cover;
     display: block;
 }
 
 .kort div {
-    padding: 14px;
+    height: 102px;
+    padding: 16px 20px 18px;
+    background: #e9e2d4;
+    text-align: left;
+    box-sizing: border-box;
 }
 
 .kort h3 {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 12px;
-    line-height: 1.25;
+    font-size: 15px;
     text-transform: uppercase;
     color: #25301f;
-    margin-bottom: 8px;
+    margin: 0 0 4px;
+    font-weight: 600;
 }
 
-.kort p,
+.kort p {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    color: #4f5748;
+    margin: 0 0 18px;
+}
+
 .kort span {
-    font-size: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
     text-transform: uppercase;
-    color: #56604b;
+    color: #25301f;
 }
 
-.kort span {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 14px;
+.kort-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    display: block;
+    text-decoration: none;
 }
 
 
