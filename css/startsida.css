@@ -4,10 +4,13 @@ body {
 
 .intro {
     min-height: 390px;
-    background:
+
+    background-image:
         linear-gradient(rgba(18, 28, 18, 0.42), rgba(18, 28, 18, 0.42)),
-        
-        center/cover no-repeat;
+        url("../images/Placeholder1.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     padding: 0 8%;
@@ -117,32 +120,33 @@ transform:translateY(-2px);
 box-shadow:0 10px 24px rgba(0,0,0,0.08);
 }
 
-.btn-om:visited,
-.btn-kontakt:visited{
+.btn-om:visited{
 color:#ffffff;
 }
 
+.btn-kontakt:visited{
+color:#4a4a4a;
+}
 
 .btn-kontakt {
-    background: transparent;
-    color: #68714b;
+    background: #ffffff;
+    color: #4a4a4a;
     border: 1px solid #d8cebc;
     padding: 14px 28px;
-    text-transform: uppercase;
-    letter-spacing: 0;
     font-size: 12px;
-    transition: 0.3s ease;
-    margin-top: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 20px;
 }
 
 .btn-kontakt:hover {
-    background: #68714b;
-    border: 1px solid #e4dac8;
-    color: #f4f0e8;
-}
-
-.btn-kontakt:visited {
-    color: #f4f0e8;
+    background: #7a8460;
+    color: #ffffff;
+    border-color: #7a8460;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.10);
 }
 
 .om-oss {
@@ -159,7 +163,6 @@ color:#ffffff;
 .text-omoss span {
     text-transform: uppercase;
     font-size: 10px;
-    letter-spacing: 1.6px;
     color: #5f684f;
     font-weight: bold;
 }
@@ -182,11 +185,20 @@ color:#ffffff;
     margin-bottom: 22px;
 }
 
+.karta {
+    width: 600px;
+    height: 500px;
+}
+
+.karta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 .om-oss img,
 .om-oss-sektion img,
-.kort img,
-.karta {
+.kort img{
     border: 3px solid #e4dbc9;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
     transition: 0.3s ease;
@@ -253,53 +265,63 @@ color:#ffffff;
 .korts {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    gap: 12px;
 }
 
 .kort {
-    background: #e8dfcf;
-    color: #25301f;
-    text-align: left;
+    position: relative;
+    background: #e9e2d4;
+    border-radius: 4px;
     overflow: hidden;
+    border: 1px solid #d5cdbd;
     cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.kort:hover {
-    transform: translateY(-4px);
+    height: 243px;
 }
 
 .kort img {
     width: 100%;
-    height: 125px;
+    height: 141px;
     object-fit: cover;
     display: block;
 }
 
 .kort div {
-    padding: 14px;
+    height: 102px;
+    padding: 16px 20px 18px;
+    background: #e9e2d4;
+    text-align: left;
+    box-sizing: border-box;
 }
 
 .kort h3 {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 12px;
-    line-height: 1.25;
+    font-size: 15px;
     text-transform: uppercase;
     color: #25301f;
-    margin-bottom: 8px;
+    margin: 0 0 4px;
+    font-weight: 600;
 }
 
-.kort p,
+.kort p {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    color: #4f5748;
+    margin: 0 0 18px;
+}
+
 .kort span {
-    font-size: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
     text-transform: uppercase;
-    color: #56604b;
+    color: #25301f;
 }
 
-.kort span {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 14px;
+.kort-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    display: block;
+    text-decoration: none;
 }
 
 
@@ -380,93 +402,6 @@ color:#ffffff;
     font-size: 14px;
     word-spacing: 2px;
 }
-.footer {
-    background: #f4f0e8;
-    padding: 55px 8% 35px;
-
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr;
-    gap: 60px;
-
-    border-top: 1px solid #ddd3c1;
-}
-
-
-.footer-logo h2 {
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 34px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    color: #5f6857;
-
-    margin-bottom: 10px;
-}
-
-.footer-logo p {
-    color: #5f6857;
-    font-size: 14px;
-    line-height: 1.7;
-}
-
-
-.footer-links h4,
-.footer-kontakt h4 {
-    font-size: 15px;
-    letter-spacing: 2px;
-    color: #7b8268;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-}
-
-
-
-.footer-links {
-    font-family: "Playfair Display", Georgia, serif;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.footer-links a {
-    text-decoration: none;
-    color: #25301f;
-    font-size: 14px;
-    transition: 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #68714b;
-}
-
-
-.footer-kontakt {
-    font-family: "Playfair Display", Georgia, serif;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-}
-
-.footer-kontakt p {
-    font-family: "Playfair Display", Georgia, serif;
-    color: #4e5748;
-    font-size: 14px;
-}
-
-.footer-bottom {
-    background: #f4f0e8;
-    border-top: 1px solid #ddd3c1;
-
-    text-align: center;
-
-    padding: 18px 8%;
-}
-
-.footer-bottom p {
-    font-size: 12px;
-    color: #7b8268;
-}
-
 
 @media (max-width: 850px) {
 
