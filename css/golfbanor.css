@@ -27,13 +27,13 @@
     display: grid;
     grid-template-columns: 280px 1fr 42%;
     gap: 28px;
-    padding: 28px 42px 40px;
+    padding: 10px 42px 40px;
 }
 
 /* Sortering och antal */
 .golfbanor-top {
     display: grid;
-    grid-template-columns: 280px 1fr 580px;
+    grid-template-columns: 280px 1fr 575px;
     gap: 28px;
     padding: 0px 48px 0;
     align-items: center;
@@ -42,7 +42,7 @@
 .golfbanor-top p {
     font-size: 0.85rem;
     text-transform: uppercase;
-    color: #68714b;
+    color: #504d43;
 }
 
 .sortering {
@@ -68,28 +68,45 @@
 
 /* Filter delen */
 .filter {
-    min-height: 640px;
+    height: 720px;
     padding: 28px 24px;
     border: 1px solid #c8bfaf;
     display: flex;
     flex-direction: column;
 }
 
-.filter h2 {
-    font-size: 1rem;
-    text-transform: uppercase;
+.filter-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 28px;
 }
 
-.filter label {
-    font-size: 0.8rem;
+.filter h2 {
+    font-size: 1rem;
+    font-weight: 400;
     text-transform: uppercase;
-    margin-top: 18px;
-    margin-bottom: 6px;
+}
+
+.reset-filter {
+    background-color: transparent;
+    border: none;
+    color: #504d43;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.filter label,
+.filter h3 {
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 22px;
+    margin-bottom: 8px;
     color: #4f4d43;
 }
 
-.filter input,
+.filter input[type="text"],
 .filter select {
     background-color: transparent;
     border: none;
@@ -99,33 +116,75 @@
     color: #2f332b;
 }
 
-.filter input:focus,
+.filter input[type="text"]:focus,
 .filter select:focus {
     outline: none;
     border-bottom-color: #68714b;
 }
 
-.filter button {
-    margin-top: 32px;
-    padding: 16px;
-    background-color: #68714b;
-    color: white;
-    border: none;
-    text-transform: uppercase;
-    cursor: pointer;
+.filter input[type="range"] {
+    width: 100%;
+    margin-top: 6px;
+    accent-color: #68714b;
+}
+
+.pris-rad {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #504d43;
+    margin-top: 8px;
+}
+
+.check-rad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: none;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+.check-rad input {
+    width: 14px;
+    height: 14px;
+    accent-color: #68714b;
 }
 
 /* Lista */
 #golf-list {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid #c8bfaf;
+    border-top: none;
+}
+
+.lista-section {
+    height: 720px;
+    border: 1px solid #c8bfaf;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #bdb4a5 #f3efe7;
+}
+
+.lista-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lista-section::-webkit-scrollbar-track {
+    background-color: #f3efe7;
+}
+
+.lista-section::-webkit-scrollbar-thumb {
+    background-color: #bdb4a5;
 }
 
 .golf-card {
     min-height: 124px;
     padding: 12px;
-    border: 1px solid #c8bfaf;
+    border-bottom: 1px solid #c8bfaf;
+    border-left: none;
+    border-right: none;
     border-top: none;
     display: grid;
     grid-template-columns: 180px 1fr 30px;
@@ -170,40 +229,6 @@
 .course-arrow {
     font-size: 2rem;
     color: #68714b;
-}
-
-/* Knappar */
-.knappar {
-    display: flex;
-    gap: 12px;
-    margin-top: 18px;
-}
-
-.visa-fler,
-.hide {
-    width: 100%;
-    padding: 16px;
-    border: 1px solid #68714b;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
-.visa-fler {
-    background-color: #68714b;
-    color: white;
-}
-
-.visa-fler:hover {
-    background-color: #55603e;
-}
-
-.hide {
-    background-color: transparent;
-    color: #68714b;
-}
-
-.hide:hover {
-    background-color: #ebe5da;
 }
 
 /* Karta */

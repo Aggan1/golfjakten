@@ -1,7 +1,7 @@
-export function showCourses(golfbanor, visibleCount, golfList, showButton, hideButton, showDetails) {
+export function showCourses(golfbanor, golfList, showDetails) {
     golfList.innerHTML = "";
 
-    for (let i = 0; i < visibleCount && i < golfbanor.length; i++) {
+    for (let i = 0; i < golfbanor.length; i++) {
         const bana = golfbanor[i];
 
         const kort = document.createElement("article");
@@ -30,7 +30,7 @@ export function showCourses(golfbanor, visibleCount, golfList, showButton, hideB
                 <p>${bana.price_range || "Pris saknas"} · ${bantyp}</p>
             </div>
 
-            <span class="course-arrow">›</span>
+            <span class="course-arrow"></span>
         `;
 
         kort.addEventListener("click", function () {
@@ -46,19 +46,6 @@ export function showCourses(golfbanor, visibleCount, golfList, showButton, hideB
         });
 
         golfList.appendChild(kort);
-    }
-
-    if (golfbanor.length <= 6) {
-        showButton.style.display = "none";
-        hideButton.style.display = "none";
-    } else {
-        showButton.style.display = "block";
-
-        if (visibleCount > 6) {
-            hideButton.style.display = "block";
-        } else {
-            hideButton.style.display = "none";
-        }
     }
 }
 
