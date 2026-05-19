@@ -240,6 +240,41 @@
     color: #68714b;
 }
 
+.favorite-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.45;
+}
+
+.favorite-button img {
+    width: 22px;
+    height: 22px;
+}
+
+.favorite-button.saved {
+    opacity: 1;
+}
+
+.popup-save {
+    margin-top: 12px;
+}
+
+.popup-favorite-button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #68714b;
+    background-color: transparent;
+    color: #2f332b;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.popup-favorite-button:hover {
+    background-color: #ebe5da;
+}
+
 /* Karta */
 .karta-section {
     position: relative;
