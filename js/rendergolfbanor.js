@@ -129,8 +129,8 @@ export function showDetails(bana, golfDetails) {
                 Besök hemsida
              </a>
 
-            <a href="#" class="primary">
-                 Läs mer
+            <a href="golfdetaljer.html?id=${bana.id}&from=golfbanor" class="primary">
+               Läs mer
             </a>
         </div>
 

@@ -1,0 +1,103 @@
+.detalj-sida {
+    background-color: #f3efe7;
+    color: #2f332b;
+    padding: 34px 42px 40px;
+}
+
+.tillbaka {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #504d43;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.detalj-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 42px;
+    margin-bottom: 32px;
+}
+
+.detalj-bild {
+    height: 330px;
+    background: linear-gradient(135deg, #68714b, #d8d0bd);
+    position: relative;
+}
+
+.detalj-favorit {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    padding: 10px 16px;
+    border: none;
+    background-color: #f4f0e8;
+    color: #2f332b;
+    cursor: pointer;
+}
+
+.detalj-info h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.detalj-info p {
+    font-size: 0.9rem;
+    color: #504d43;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.detalj-snabbinfo {
+    display: flex;
+    gap: 22px;
+    margin: 24px 0;
+    font-size: 0.9rem;
+}
+
+.detalj-knappar {
+    display: flex;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.detalj-knappar a {
+    padding: 12px 22px;
+    border: 1px solid #68714b;
+    text-decoration: none;
+    color: #2f332b;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.detalj-knappar .primary {
+    background-color: #68714b;
+    color: #f4f0e8;
+}
+
+.detalj-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.detalj-box {
+    border: 1px solid #c8bfaf;
+    padding: 24px;
+}
+
+.detalj-box h2 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.detalj-box p {
+    font-size: 0.9rem;
+    color: #504d43;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}

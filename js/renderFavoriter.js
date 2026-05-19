@@ -45,8 +45,8 @@ export function renderFavoriter(favoriter, container, updatePage) {
                 <img src="images/ikoner/heart.svg" alt="Ta bort favorit">
             </button>
 
-            <a href="golfbana.html?id=${bana.id}&from=favoriter" class="favorit-btn">
-                Visa detaljer
+            <a href="golfdetaljer.html?id=${bana.id}&from=favoriter" class="favorit-btn">
+                Läs mer
             </a>
         `;
 
