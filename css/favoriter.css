@@ -120,3 +120,14 @@
     text-align: center;
     color: #504d43;
 }
+
+.favorit-heart {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.favorit-heart img {
+    width: 32px;
+    height: 32px;
+}
