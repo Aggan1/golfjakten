@@ -3,9 +3,9 @@
     color: #2f332b;
 }
 
-/* Hero sektion */
+/* Hero sektion alltså text och under text */
 .favoriter-hero {
-    padding: 34px 42px 18px;
+    padding: 24px 42px 18px;
 }
 
 .favoriter-hero h1 {
@@ -21,7 +21,7 @@
     color: #555348;
 }
 
-/* Sortering och antal */
+/* Sortering och antal ovanför listan */
 .favoriter-top {
     display: flex;
     justify-content: space-between;
@@ -54,9 +54,9 @@
     cursor: pointer;
 }
 
-/* Lista */
+/* Listan med de favoriter man sparar om man gör det */
 .favoriter-layout {
-    padding: 0 42px 36px;
+    padding: 0 42px 24px;
 }
 
 #favorit-list {
@@ -128,6 +128,62 @@
 }
 
 .favorit-heart img {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+}
+
+/* Tips rutan under listan med favoriter */
+.favorit-tips {
+    width: 82%;
+    margin: 2px auto 26px;
+    padding: 18px 26px;
+
+    border: 1px solid #d4cab8;
+    background-color: #f4f0e8;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.favorit-tips-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.favorit-tips img {
+    width: 38px;
+    height: 38px;
+}
+
+.favorit-tips-text h3 {
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+}
+
+.favorit-tips-text p {
+    font-size: 0.85rem;
+    color: #5a574d;
+    line-height: 1.4;
+}
+
+.favorit-tips a {
+    min-width: 150px;
+    padding: 12px 18px;
+    background-color: #68714b;
+    border: 1px solid #68714b;
+    color: #f4f0e8;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    transition: 0.3s ease;
+}
+
+.favorit-tips a:hover {
+    background-color: #374332;
 }
