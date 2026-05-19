@@ -1,0 +1,122 @@
+.favoriter-sida {
+    background-color: #f3efe7;
+    color: #2f332b;
+}
+
+/* Hero sektion */
+.favoriter-hero {
+    padding: 34px 42px 18px;
+}
+
+.favoriter-hero h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+}
+
+.favoriter-hero p {
+    font-size: 0.9rem;
+    color: #555348;
+}
+
+/* Sortering och antal */
+.favoriter-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 42px 14px;
+}
+
+.favoriter-top p {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #504d43;
+}
+
+.sortering {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.sortering label,
+.sortering select {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #504d43;
+}
+
+.sortering select {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Lista */
+.favoriter-layout {
+    padding: 0 42px 36px;
+}
+
+#favorit-list {
+    border: 1px solid #c8bfaf;
+}
+
+.favorit-card {
+    min-height: 120px;
+    padding: 14px;
+    border-bottom: 1px solid #c8bfaf;
+    display: grid;
+    grid-template-columns: 220px 1fr 80px 140px;
+    gap: 24px;
+    align-items: center;
+}
+
+.favorit-card:last-child {
+    border-bottom: none;
+}
+
+.favorit-img {
+    height: 90px;
+    background: linear-gradient(135deg, #68714b, #d8d0bd);
+}
+
+.favorit-info h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+}
+
+.favorit-info p {
+    font-size: 0.85rem;
+    color: #504d43;
+    margin: 3px 0;
+}
+
+.favorit-heart {
+    font-size: 1.7rem;
+    color: #68714b;
+    text-align: center;
+    cursor: pointer;
+}
+
+.favorit-btn {
+    padding: 12px;
+    border: 1px solid #68714b;
+    background-color: transparent;
+    color: #2f332b;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.favorit-tom {
+    padding: 42px;
+    text-align: center;
+    color: #504d43;
+}
