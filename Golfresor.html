@@ -28,91 +28,72 @@
   <section class="hero">
     <div class="hero-content">
       <h1>Planera din golfresa</h1>
-      <p>Skapa din egen golfrunda - hitta banor längst vägen baserat på pris, avstånd och upplevelse.</p>
-      <a href="#planner" class="hero-btn">Planera runda</a>
+      <p>Låt Golfjakten skapa en färdig golfdag baserat på budget och upplevelse och antal banor.</p>
+      <a href="#planner" class="hero-btn">Slumpa golfresa</a>
     </div>
   </section>
 
   <main id="planner" class="planner-layout">
 
     <aside class="filter-box">
-      <h2>Planera din runda</h2>
+      <h2>Planera golfresa</h2>
 
-      <label for="start">Startplats eller hemmaklubb</label>
-      <input id="start" type="text" value="Växjö GK">
+      <p>Välj vilken typ av golfdag du vill ha.</p>
 
-      <label for="price">Max pris green fee</label>
+      <label>Typ av resa</label>
+
+      <label class="check-option">
+        <input type="checkbox" value="budget">
+        Billigare golfdag
+      </label>
+      
+      <label class="check-option">
+        <input type="checkbox" value="training">
+        Träning
+      </label>
+      
+      <label class="check-option">
+        <input type="checkbox" value="food">
+        Mat & golf
+      </label>
+
+      <label for="price">Maxpris per bana</label>
 
       <div class="price-wrapper">
         <div class="price-current">
-          <span id="price-value">0 kr</span>
+          <span id="price-value">1000 kr</span>
         </div>
 
-        <input id="price" type="range" min="0" max="1500" value="0" step="50">
+        <input id="price" type="range" min="0" max="1500" value="1000" step="50">
 
         <div class="price-labels">
           <span>0 kr</span>
-          <span>1500 kr</span>
+          <span>1500kr</span>
         </div>
       </div>
 
-      <label for="time">Max avstånd max restid</label>
-      <select id="time">
-        <option value="1" selected>1 timme</option>
-        <option value="2">2 timmar</option>
-        <option value="3">3 timmar</option>
-        <option value="4">4 timmar</option>
-        <option value="5">5 timmar</option>
+      <label for="courseCount">Antal banor</label>
+      <select id="courseCount">
+        <option value="2">2 banor</option>
+        <option value="3" selected>3 banor</option>
+        <option value="4">4 banor</option>
       </select>
 
-      <label for="players">Antal spelare</label>
-      <select id="players">
-        <option value="1" selected>1 spelare</option>
-        <option value="2">2 spelare</option>
-        <option value="3">3 spelare</option>
-        <option value="4">4 spelare</option>
-        <option value="5">5 spelare</option>
-        <option value="6">6 spelare</option>
-        <option value="7">7 spelare</option>
-        <option value="8">8 spelare</option>
-        <option value="9">9 spelare</option>
-        <option value="10">10 spelare</option>
-      </select>
+      <button class="generate-btn" type="button"> Skapa resa</button>
 
-      <label>Tillgång</label>
+      </aside>
 
-      <label class="check-option">
-        <input type="checkbox" value="restaurang">Restaurang</label>
+      <section class="route-section">
+        <div class="map-box">
+          <h2>Din golfresa</h2>
+          <p id="trip-summary">
+            Välj typ av resa och klicka på knappen.
+          </p>
 
-      <label class="check-option">
-        <input type="checkbox" value="Kiosk"> Kiosk
-      </label>
-
-      <label class="check-option">
-        <input type="checkbox" value="Driving_range"> Driving range </label>
-
-      <label class="check-option">
-        <input type="checkbox" value="Putting_green"> Putting green
-      </label>
-
-      <label class="check-option">
-        <input type="checkbox" value="Laddplats"> Laddplats</label>
-
-      <label for="date">Önskat datum</label>
-      <input id="date" type="date">
-
-      <button class="generate-btn" type="button">Generera golfutflykt</button>
-    </aside>
-
-    <section class="route-section">
-      <div class="map-box">
-        <h2>Din planerade rutt baserat på dina krav</h2>
-        <p>Här visas din golfresa när du har valt dina önskemål.</p>
-
-        <div id="map"></div>
-        <div id="resultat"></div>
-      </div>
-    </section>
+          <div id="map"></div>
+          <div id="resultat"></div>
+        </div>
+      </section>
 
   </main>
 
