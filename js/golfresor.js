@@ -7,18 +7,18 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 
-
-
-const startInput = document.getElementById("start");
 const priceInput = document.getElementById("price");
 const priceValue = document.getElementById("price-value");
-const playersInput = document.getElementById("players");
+const courseCountInput = document.getElementById("courseCount");
+const generateBtn = document.querySelector(".generate-btn");
 const checkboxes = document.querySelectorAll(".check-option input");
 const resultat = document.getElementById("resultat");
+const tripSummary = document.getElementById("trip-summary");
 
 let golfbanor = [];
 let golfData = [];
 let markers = [];
+let aktuellResa = [];
 
 function uppdateraPris (){
   priceValue.textContent = priceInput.value + " kr";
@@ -27,17 +27,13 @@ function uppdateraPris (){
 
 function hamtaPris(prisText){
 
-  if(prisText === null){
+  if(!prisText){
     return null;
   }
 
   prisText = String(prisText);
 
-  if (prisText.includes("PERMANENT")){
-    return null;
-  }
-
-  if (prisText.includes("Har ej")){
+  if (prisText.includes("PERMANENT") || prisText.includes("Har ej")){
     return null;
   }
 
@@ -48,85 +44,133 @@ function hamtaPris(prisText){
   return Number(prisText);
 }
 
-function filtreraGolfbanor () {
-  const sokText = startInput.value.toLowerCase ();
-  const maxPris = Number(priceInput.value);
+function hamtaValdaTeman(){
+  const teman = [];
 
-  const valdaTillganger = [];
-
-  for (let i = 0; i < checkboxes.length; i++){
+  for (let i = 0; i < checkboxes.length; i ++){
     if (checkboxes[i].checked){
-      valdaTillganger.push(checkboxes[i].value);
+      teman.push(checkboxes[i].value);
     }
   }
+  return teman;
+}
 
-  const filtreradeGolfbanor = golfbanor.filter(function (golfbana){
-    
-    const matcharNamn =
-     golfbana.name.toLowerCase().includes(sokText);
+function matcharTeman (golfbana, teman){
+  if (!golfbana.extraData){
+    return false;
+  }
 
-     let pris = null; 
-     
-     if (golfbana.extraData) {
-   pris = hamtaPris(golfbana.extraData.greenfee_weekday_18); 
+  for (let i = 0; i < teman.length; i++){
+    const tema = teman[i];
 
-   }
-   
-   let matcharPris = true;
+    if (tema === "budget"){
+      const pris = hamtaPris(golfbana.extraData.greenfee_weekday_18);
 
-    if (maxPris > 0) {
-      matcharPris = pris !== null && pris <= maxPris;
-    }
-
-    let matcharTillgangar = true;
-    
-    for (let i = 0; i < valdaTillganger.length; i++){
-      const tillgang = valdaTillganger[i];
-
-     
-  if (!golfbana.extraData || golfbana.extraData[tillgang] !== true){
-    matcharTillgangar = false;
+      if(pris === null || pris > 600){
+        return false;
       }
     }
 
+    if (tema === "training"){
+      if (golfbana.extraData.driving_range !== true && golfbana.extraData.putting_green !== true){
+        return false;
+      }
+    }
+    if (tema === "food"){
+      if (golfbana.extraData.restaurant !== true){
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+function blandaLista (Lista){
+  const blandadLista = [...Lista];
+
+  for (let i = blandadLista.length - 1; i > 0; i --){
+    const slumpIndex = Math.floor (Math.random () * (i + 1));
+    const tillfallig = blandadLista[i];
+
+    blandadLista[i] = blandadLista[slumpIndex];
+    blandadLista[slumpIndex] = tillfallig;
+  }
+  return blandadLista;
+}
 
 
-  console.log(golfbana.name, pris);
+function skapaGolfresa(){
+  const maxPris = Number(priceInput.value);
+  const antalBanor = Number(courseCountInput.value);
+  const teman = hamtaValdaTeman();
 
-  return matcharNamn && matcharPris && matcharTillgangar;
+  let Filtrerade = golfbanor.filter(function(golfbana){
+    if (!golfbana.extraData){
+      return false
+    }
 
+    const pris = hamtaPris(golfbana.extraData.greenfee_weekday_18);
+
+    if (pris === null || pris > maxPris){
+      return false 
+    }
+    if (teman.length > 0 && ! matcharTeman (golfbana, teman)){
+      return false
+    }
+    return true;
   });
 
-  console.log("Sökning:", sokText);
-  console.log("Maxpris:", maxPris);
-  console.log("Filtrerade golfbanor:", filtreradeGolfbanor);
-  
-  visaGolfbanor(filtreradeGolfbanor);
+  Filtrerade = blandaLista(Filtrerade);
 
-  visaGolfbanorPaKarta(filtreradeGolfbanor)
- 
+  aktuellResa = Filtrerade.slice(0, antalBanor);
+
+  visaGolfresa(aktuellResa);
+  visaGolfbanorPaKarta(aktuellResa);
 }
 
-function visaGolfbanor (lista){
-  resultat.innerHTML = "";
+function raknaTotalPris(lista){
+  let totalPris = 0;
 
-  if (lista.length === 0) {
-    resultat.innerHTML = "<p>Inga golfbanor hittades!</p>";
-    return;
+  for (let i = 0; i < lista.length; i++){
+      const pris = hamtaPris(lista[i].extraData.greenfee_weekday_18);
+
+      if (pris !== null){
+        totalPris += pris;
+      }
+    }
+    return totalPris;
   }
 
-  for (let i = 0; i < lista.length; i ++){
-    const golfbana = lista[i];
+  function visaGolfresa(lista){
+    resultat.innerHTML= "";
 
-    const kort = document.createElement ("article");
+    if (lista.length === 0){
+      tripSummary.textContent = "Inga golfbanor matchade dina val.";
+      resultat.innerHTML = "<p>Ingen golfresa kunde skapas.</p>";
+      return;
+    }
+
+    const totalPris = raknaTotalPris(lista);
+
+    tripSummary.textContent = "Din golfresa innehåller " + lista .length + " banor och kostar ungefär " + totalPris + "kr i greenfee. ";
+
+    for ( let i = 0 ; i < lista.length; i++){
+      const golfbana = lista[i];
+      const pris = golfbana.extraData.greenfee_weekday_18;
+
+      const kort = document.createElement("article");
+      kort.classList.add ("resa-kort");
+   
 
     kort.innerHTML = `
-    <h3>${golfbana.name}</h3>
-    <p>Pris: ${golfbana.extraData ? golfbana.extraData.greenfee_weekday_18: "Pris saknas"} kr</p>`;
+    <h3>Stopp ${i + 1} ${golfbana.name}</h3>
+    <p>Pris: ${pris}</p>
+    <p>${golfbana.city || ""}, ${golfbana.province || ""}</p>
+    <p>${golfbana.extraData.holes || "18"} hål</p> `;
 
-    resultat.append(kort);
+    resultat.append (kort);
   }
-}
+ }
 
 function visaGolfbanorPaKarta(lista) {
 
@@ -156,18 +200,11 @@ function visaGolfbanorPaKarta(lista) {
 
 function start (){
 
-  startInput.addEventListener ("input", filtreraGolfbanor);
-
   priceInput.addEventListener("input", function (){
     uppdateraPris();
-    filtreraGolfbanor();
   });
 
-  playersInput.addEventListener("change", filtreraGolfbanor);
-
-  for(let i = 0; i < checkboxes.length; i ++){
-    checkboxes[i].addEventListener("change", filtreraGolfbanor);
-  }
+  generateBtn.addEventListener("click", skapaGolfresa);
   
 }
 
@@ -179,7 +216,7 @@ function hamtaGolfbanor() {
     console.log("Alla golfbanor:", golfbanor);
 
     kopplaData();
-    filtreraGolfbanor();
+    skapaGolfresa();
    
   });
 }
