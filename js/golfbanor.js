@@ -1,7 +1,7 @@
 import { getData } from "./api.js";
 import { initMap, showMapMarkers, moveToCourse } from "./mapGolfbanor.js";
 import { getExtraData, mergaGolfdata } from "./golfData.js";
-import { showCourses, showDetails } from "./renderGolfbanor.js";
+import { showCourses, showDetails, markActiveCourse } from "./renderGolfbanor.js";
 import { getGolfFilterValues, filterGolfbanor } from "./filterGolfbanor.js";
 
 const golfList = document.getElementById("golf-list");
@@ -40,6 +40,7 @@ function renderCourses() {
 
     showMapMarkers(filteredCourses, function (bana) {
         showDetails(bana, golfDetails);
+        markActiveCourse(bana);
         moveToCourse(bana);
     });
 }
