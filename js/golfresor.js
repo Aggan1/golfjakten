@@ -9,7 +9,6 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 
 const priceInput = document.getElementById("price");
 const priceValue = document.getElementById("price-value");
-const courseCountInput = document.getElementById("courseCount");
 const generateBtn = document.querySelector(".generate-btn");
 const checkboxes = document.querySelectorAll(".check-option input");
 const resultat = document.getElementById("resultat");
@@ -22,7 +21,6 @@ let aktuellResa = [];
 
 function uppdateraPris (){
   priceValue.textContent = priceInput.value + " kr";
-
 }
 
 function hamtaPris(prisText){
@@ -101,7 +99,7 @@ function blandaLista (Lista){
 
 function skapaGolfresa(){
   const maxPris = Number(priceInput.value);
-  const antalBanor = Number(courseCountInput.value);
+  const antalBanor = 1
   const teman = hamtaValdaTeman();
 
   let Filtrerade = golfbanor.filter(function(golfbana){
@@ -163,10 +161,21 @@ function raknaTotalPris(lista){
    
 
     kort.innerHTML = `
-    <h3>Stopp ${i + 1} ${golfbana.name}</h3>
-    <p>Pris: ${pris}</p>
-    <p>${golfbana.city || ""}, ${golfbana.province || ""}</p>
-    <p>${golfbana.extraData.holes || "18"} hål</p> `;
+    <div class ="resa-header">
+    <span>GOLFBANA</span>
+    <h3>${golfbana.name}</h3>
+    </div>
+
+    <div class="resa-info">
+    <p><strong>Start: </strong></p>
+    <p><strong>Stopp: </strong/>Kafé /restauranglängs vägen</p>
+    <p><strong>Pris: </strong/>${pris}</p>
+    <p><strong>Plats: </strong>${golfbana.city || ""}, ${golfbana.province || ""}</p>
+    <p><strong>Antal hål:</strong>${golfbana.extraData.holes || "18"} hål</p> 
+    </div>
+    
+    <button class= "map-btn" type = "button"> Spara resa </button>`;
+
 
     resultat.append (kort);
   }
