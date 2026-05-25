@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="sv">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GOLFJAKTEN</title>
+  <title>Kontakt | GOLFJAKTEN</title>
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="kontakt.css">
-  <script src="js/kontakt.js"></script>
 </head>
 
 <body>
@@ -22,99 +20,96 @@
     <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
   </header>
 
-  <section class="kontakt">
-    <div class="kontakt-div">
-      <p>Kontakta oss</p>
-      <h1>Har du några frågor</h1>
-      <p>Har du några frågor, funderingar eller vill kontakta oss? Fyll i formulär nedan så återkommer vi så snart så möjligt. </p>
-    </div>
-  </section>
+  <main class="kontakt-sida">
 
-  <main class="skicka">
-    <div class="skicka-div">
-      <p>Skicka ett meddelnade</p>
-      <h1>Har du funderingar?</h1>
-      <p>Fyll i formuläret nedan så återkommer vi så snart som möjligt.</p>
-
-      <form class="kontakt-form">
-        <div class="formular">
-          <p>Ditt namn</p>
-          <input type="text" placeholder="Ditt namn">
-          <p>Din E-post</p>
-          <input type="email" placeholder="namn@exempel.se">
-        </div>
-
-        <p>Ämne</p>
-        <input type="text" placeholder=" T.ex. tips på resor, samarbete eller golfbanor">
-        <p>Ditt meddelnade</p>
-        <textarea placeholder="Berätta mer om ditt tips eller bara vill komma i kontakt med oss om...."></textarea>
-
-        <button>Skicka</button>
-        <p class="text-skickat"></p>
-      </form>
-    </div>
+    <section class="kontakt-namn">
+      <h1>Kontakt</h1>
+      <p>Har du frågor, feedback eller vill samarbeta? Vi vill gärna höra från dig!</p>
+      
     </section>
 
-    <div class="kontakt-sidebar">
-      <aside class="info">
-        <h3>Du kan också nå oss här!</h3>
-        <p><strong>Epost</strong><br>info@golfjakten.se</p>
-        <p><strong>Telefon</strong><br>0700 123 456</p>
-      </aside>
+    <section class="kontakt">
 
-      <section class="samarbete">
-        <h3>Samarbte med Golfjakten</h3>
-        <p>Golfjakten är öppen för samarbete med boende, golfbanor och andra aktörer som delar vår passion.</p>
-        <p>Du kan berätta mer om din golfförslag i förmuläret</p>
+      <div class="kontakt-info">
+        <h2>Kontakta oss</h2>
+        <p>
+          Skicka ett meddelande eller använd kontaktuppgifterna nedan.
+          Vi återkommer så snart vi kan.
+        </p>
 
-        <div class="ikon-1">
-          <img src="images/golf-ikon.png" alt="Golfbana-figur">
+        <div class="info-kort">
+          <span>☎</span>
+          <div>
+            <h4>Telefon</h4>
+            <p>070 - 123 45 67</p>
+          </div>
         </div>
 
-    </div>
+        <div class="info-kort">
+          <span>✉</span>
+          <div>
+            <h4>E-post</h4>
+            <p>info@golfjakten.se</p>
+          </div>
+        </div>
+
+        <div class="info-kort">
+          <span>⌂</span>
+          <div>
+            <h4>Adress</h4>
+            <p>Linnéuniversitetet, Växjö</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="kontakt-formular">
+        <h2>Skicka ett meddelande</h2>
+
+        <div class="input-row">
+          <input type="text" placeholder="Namn">
+          <input type="text" placeholder="Ämne">
+        </div>
+
+        <input type="email" placeholder="E-post">
+        <textarea placeholder="Meddelande"></textarea>
+
+        <button type="submit">Skicka meddelande</button>
+      </form>
+
+    </section>
+
+    <section class="fragor-section">
+      <p class="vanliga-fragor">FAQ</p>
+      <h2>Vanliga frågor</h2>
+
+      <div class="fragor">
+
+        <details>
+          <summary>Hur hittar jag golfbanor?</summary>
+          <p>Du kan använda sidan Golfbanor för att filtrera efter område, pris, antal hål och faciliteter.</p>
+        </details>
+
+        <details>
+          <summary>Kan jag spara favoritbanor?</summary>
+          <p>Ja, du kan lägga till golfbanor i dina favoriter och enkelt hitta dem igen senare.</p>
+        </details>
+
+        <details>
+          <summary>Vilka områden finns med?</summary>
+          <p>Golfjakten fokuserar på golfbanor i Småland och på Öland.</p>
+        </details>
+
+        <details>
+          <summary>Kan jag planera en golfresa?</summary>
+          <p>Ja, via sidan Planera golfresa kan du skapa en resa baserad på dina val och önskemål.</p>
+        </details>
+
+      </div>
+    </section>
+
   </main>
 
-  <section class="till-section">
-    <h1>VANLIGA FRÅGOR</h1>
-
-    <div class="till-lag">
-      <div class="ikon">
-        <img src="images/golf-ikon.png" alt="Golfbana-figur">
-      </div>
-
-      <div class="txt">
-        <h3>förslag & feedback</h3>
-        <p>Har du synpunkter, förslag eller idéer på förbättringar? Tveka inte att kontakta oss!</p>
-      </div>
-    </div>
-
-    <div class="till-lag">
-      <div class="ikon">
-        <img src="images/karta-ikon.png" alt="mapp-figur">
-      </div>
-
-      <div class="txt">
-        <h3>Tips på Golfresor</h3>
-        <p>Har du någon tips på bana, destinationer vi borde lyfta? Får jätte gärna skriva förslag här.</p>
-      </div>
-    </div>
-
-    <div class="till-lag">
-      <div class="ikon">
-        <img src="images/ChatGPT Image May 6, 2026 at 03_51_56 PM.png" alt="Säng-figur">
-      </div>
-
-      <div class="txt">
-        <h3>Samanarbete</h3>
-        <p>vill du sammarbeta med golfklubben? skicka ett meddelnade så hör vi av oss.</p>
-      </div>
-    </div>
-  </section>
-
-
-
   <footer class="footer">
-
     <div class="footer-logo">
       <h2>GOLFJAKTEN</h2>
       <p>Golfupplevelser i Småland och på Öland.</p>
@@ -124,24 +119,21 @@
       <h4>NAVIGATION</h4>
       <a href="golfbanor.html">Golfbanor</a>
       <a href="Golfresor.html">Golfresor</a>
-      <a href="">Favoriter</a>
+      <a href="favoriter.html">Favoriter</a>
       <a href="om.html">Om oss</a>
       <a href="kontakt.html">Kontakt</a>
     </div>
 
     <div class="footer-kontakt">
       <h4>KONTAKT</h4>
-
-      <p> Tele: 070 - 123 45 67</p>
-      <p> Mail: info@golfjakten.se</p>
-      <p> Vart: Småland & Öland, Sverige</p>
+      <p>Tele: 070 - 123 45 67</p>
+      <p>Mail: info@golfjakten.se</p>
+      <p>Vart: Småland & Öland, Sverige</p>
     </div>
-
   </footer>
 
   <div class="footer-bottom">
     <p>© 2026 Golfjakten</p>
   </div>
 </body>
-
 </html>
