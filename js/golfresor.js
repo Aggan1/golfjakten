@@ -1,5 +1,5 @@
 import { getData }  from "./api.js";
-
+import { bilRutt, hamtaKoordinater } from "./bilesaKoordinater.js";
 const map = L.map("map").setView([62.0, 15.0], 5);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -13,11 +13,19 @@ const generateBtn = document.querySelector(".generate-btn");
 const checkboxes = document.querySelectorAll(".check-option input");
 const resultat = document.getElementById("resultat");
 const tripSummary = document.getElementById("trip-summary");
+const distanceInput = document.getElementById("distance");
+const distanceValue = document.getElementById("distance-value");
+const startInput = document.getElementById("start");
+const playersInput = document.getElementById("players");
+
 
 let golfbanor = [];
 let golfData = [];
 let markers = [];
 let aktuellResa = [];
+let userLatitude = null;
+let userLongitude = null;
+let startKoordinater = null;
 
 function uppdateraPris (){
   priceValue.textContent = priceInput.value + " kr";
@@ -61,127 +69,131 @@ function matcharTeman (golfbana, teman){
   for (let i = 0; i < teman.length; i++){
     const tema = teman[i];
 
-    if (tema === "budget"){
-      const pris = hamtaPris(golfbana.extraData.greenfee_weekday_18);
-
-      if(pris === null || pris > 600){
+    if (tema === "Restaurang" && golfbana.extraData.restaurant !== true) {
         return false;
       }
+
+    if (tema === "Kiosk" && golfbana.extraData.kiosk !== true) {
+        return false;
+      }
+    
+    if (tema === "Driving_range" && golfbana.extraData.driving_range !== true){
+        return false;
     }
 
-    if (tema === "training"){
-      if (golfbana.extraData.driving_range !== true && golfbana.extraData.putting_green !== true){
-        return false;
-      }
+    if (tema === "Putting_green" && golfbana.extraData.putting_green !==true){
+      return false;
     }
-    if (tema === "food"){
-      if (golfbana.extraData.restaurant !== true){
-        return false;
-      }
+
+    if (tema === "Laddplats" && golfbana.extraData.charging_station !== true) {
+      return false
     }
   }
   return true;
 }
 
-function blandaLista (Lista){
-  const blandadLista = [...Lista];
-
-  for (let i = blandadLista.length - 1; i > 0; i --){
-    const slumpIndex = Math.floor (Math.random () * (i + 1));
-    const tillfallig = blandadLista[i];
-
-    blandadLista[i] = blandadLista[slumpIndex];
-    blandadLista[slumpIndex] = tillfallig;
-  }
-  return blandadLista;
-}
-
-
-function skapaGolfresa(){
+function filtreraGolfbanor(){
   const maxPris = Number(priceInput.value);
-  const antalBanor = 1
   const teman = hamtaValdaTeman();
 
-  let Filtrerade = golfbanor.filter(function(golfbana){
+  const filtrerade = golfbanor.filter(function (golfbana){
     if (!golfbana.extraData){
-      return false
+      return false;
     }
 
     const pris = hamtaPris(golfbana.extraData.greenfee_weekday_18);
 
     if (pris === null || pris > maxPris){
-      return false 
+      return false;
     }
-    if (teman.length > 0 && ! matcharTeman (golfbana, teman)){
-      return false
+
+    if (teman.length > 0 && !matcharTeman(golfbana, teman)){
+      return false;
     }
+
     return true;
   });
 
-  Filtrerade = blandaLista(Filtrerade);
-
-  aktuellResa = Filtrerade.slice(0, antalBanor);
-
-  visaGolfresa(aktuellResa);
-  visaGolfbanorPaKarta(aktuellResa);
+  return filtrerade;
 }
 
 function raknaTotalPris(lista){
   let totalPris = 0;
 
   for (let i = 0; i < lista.length; i++){
-      const pris = hamtaPris(lista[i].extraData.greenfee_weekday_18);
+    const pris = hamtaPris(lista[i].extraData.greenfee_weekday_18);
 
-      if (pris !== null){
-        totalPris += pris;
-      }
+    if (pris !== null){
+      totalPris += pris;
     }
-    return totalPris;
   }
 
-  function visaGolfresa(lista){
-    resultat.innerHTML= "";
+  return totalPris;
+}
 
-    if (lista.length === 0){
-      tripSummary.textContent = "Inga golfbanor matchade dina val.";
-      resultat.innerHTML = "<p>Ingen golfresa kunde skapas.</p>";
-      return;
+function visaGolfresa(lista){
+  resultat.innerHTML = "";
+
+  if (lista.length === 0){
+    tripSummary.textContent = "Inga golfbanor matchade dina val.";
+    resultat.innerHTML = "<p>Ingen golfbana kunde visas.</p>";
+    return;
+  }
+
+  const totalPris = raknaTotalPris(lista);
+  const antalSpelare = Number(playersInput.value);
+  const totalPrisSpelare = totalPris * antalSpelare;
+
+  tripSummary.textContent = lista.length + " golfbanor matchade dina val. Total greenfee blir ungefär " + totalPrisSpelare + " kr för " + antalSpelare + " spelare.";
+
+  for (let i = 0; i < lista.length; i++){
+    const golfbana = lista[i];
+    const pris = golfbana.extraData.greenfee_weekday_18;
+    const prisNummer = hamtaPris(golfbana.extraData.greenfee_weekday_18);
+    const antalSpelare = Number(playersInput.value);
+    const totalprisGolfbana = prisNummer * antalSpelare;
+
+    let matText = "Mat saknas";
+
+    if (golfbana.extraData.restaurant === true){
+      matText = "Restaurang finns";
+    } else if (golfbana.extraData.kiosk === true){
+      matText = "Kiosk finns";
     }
 
-    const totalPris = raknaTotalPris(lista);
-
-    tripSummary.textContent = "Din golfresa innehåller " + lista .length + " banor och kostar ungefär " + totalPris + "kr i greenfee. ";
-
-    for ( let i = 0 ; i < lista.length; i++){
-      const golfbana = lista[i];
-      const pris = golfbana.extraData.greenfee_weekday_18;
-
-      const kort = document.createElement("article");
-      kort.classList.add ("resa-kort");
-   
+    const kort = document.createElement("article");
+    kort.classList.add("resa-kort");
 
     kort.innerHTML = `
-    <div class ="resa-header">
-    <span>GOLFBANA</span>
-    <h3>${golfbana.name}</h3>
+    <div class="resa-header">
+      <span>GOLFBANA</span>
+      <h3>${golfbana.name}</h3>
     </div>
 
     <div class="resa-info">
-    <p><strong>Start: </strong></p>
-    <p><strong>Stopp: </strong/>Kafé /restauranglängs vägen</p>
-    <p><strong>Pris: </strong/>${pris}</p>
-    <p><strong>Plats: </strong>${golfbana.city || ""}, ${golfbana.province || ""}</p>
-    <p><strong>Antal hål:</strong>${golfbana.extraData.holes || "18"} hål</p> 
+      <p><strong>Pris per person: </strong>${pris}</p>
+      <p><strong>Totalpris: </strong>${totalprisGolfbana} kr för ${antalSpelare} spelare</p>
+      <p><strong>Mat: </strong>${matText}</p>
+      <p><strong>Plats: </strong>${golfbana.city || ""}, ${golfbana.province || ""}</p>
+      <p><strong>Antal hål: </strong>${golfbana.extraData.holes || "18"} hål</p>
+      <p class="restid">Restid: välj startplats för att beräkna.</p>
     </div>
-    
-    <button class= "map-btn" type = "button"> Spara resa </button>`;
+    `;
 
+    resultat.append(kort);
 
-    resultat.append (kort);
+    hamtaTid(golfbana, kort);
   }
- }
+}
 
-function visaGolfbanorPaKarta(lista) {
+function uppdateraVisning(){
+  const filtrerade = filtreraGolfbanor();
+
+  visaGolfresa(filtrerade);
+  visaGolfbanorPaKarta(filtrerade);
+}
+
+function visaGolfbanorPaKarta(lista, rutt) {
 
   for (let i = 0; i < markers.length; i++) {
     map.removeLayer(markers[i]);
@@ -211,21 +223,75 @@ function start (){
 
   priceInput.addEventListener("input", function (){
     uppdateraPris();
+    uppdateraVisning();
   });
 
-  generateBtn.addEventListener("click", skapaGolfresa);
-  
+  playersInput.addEventListener("change", uppdateraVisning);
+
+  for (let i = 0; i < checkboxes.length; i++){
+    checkboxes[i].addEventListener("change", uppdateraVisning);
+  }
+
+  distanceInput.addEventListener("change", function(){
+    const distance = distanceInput.value;
+
+    if (distance === distanceInput.max){
+      distanceValue.textContent = "Alla avstånd";
+
+      userLatitude = null;
+      userLongitude = null;
+      startKoordinater = null;
+
+      hamtaGolfbanor();
+      return
+    }
+
+    distanceValue.textContent = "<=" + distance + " km";
+
+    if (startInput.value !== ""){
+      hamtaStartplats();
+    } else if (userLatitude === null || userLongitude === null){
+      hamtaPosition();
+    }else{
+      hamtaGolfbanor();
+    }
+
+   
+  });
+   generateBtn.addEventListener("click", function(){
+    if (startInput.value !== ""){
+      hamtaStartplats();
+    }else if (userLatitude === null || userLongitude === null){
+      hamtaPosition();
+    }else{
+      hamtaGolfbanor();
+    }
+   });
 }
 
 function hamtaGolfbanor() {
-  getData ("establishment", { descriptions: "golfbana" })
+  const  filters = {
+    descriptions: "golfbana"
+  };
+
+  if (startKoordinater !== null && distanceInput.value !== distanceInput.max){
+    filters.lat = startKoordinater.lat;
+    filters.lng = startKoordinater.lng;
+    filters.radius = distanceInput.value;
+  } else if (userLatitude !== null && userLongitude !== null && distanceInput.value !== distanceInput.max){
+    filters.lat = userLatitude;
+    filters.lng = userLongitude;
+    filters.radius = distanceInput.value;
+  }
+
+  getData ("establishment", filters)
   .then (function (data){
     golfbanor = data;
 
     console.log("Alla golfbanor:", golfbanor);
 
     kopplaData();
-    skapaGolfresa();
+    uppdateraVisning();
    
   });
 }
@@ -257,11 +323,98 @@ function kopplaData (){
 }
 
 
+function hamtaPosition(){
+  navigator.geolocation.getCurrentPosition(sparaMinPosition, visaPostionFel);
+}
+
+function sparaMinPosition (position){
+  userLatitude = position.coords.latitude;
+  userLongitude = position.coords.longitude;
+
+  console.log("Latitud:", userLatitude);
+  console.log ("Longitud:", userLongitude);
+
+  hamtaGolfbanor()
+}
+
+function visaPostionFel (error){
+  console.log ("Kunde inte hämta plats:", error.message);
+}
+
+
+function hamtaStartplats(){
+  const startplats = startInput.value;
+
+  if (startplats === ""){
+    startKoordinater = null;
+    hamtaGolfbanor();
+    return;
+  }
+
+  hamtaKoordinater(startplats)
+  .then (function (koordinater){
+    if (koordinater === null){
+      tripSummary.textContent = "Kunde inte hitta platsen.";
+      return;
+    }
+    startKoordinater = koordinater;
+    hamtaGolfbanor();
+  })
+}
+
+function hamtaTid( golfbana, kort){
+  let startPunkt = null;
+
+  if (startKoordinater !== null){
+    startPunkt = startKoordinater;
+  } else if (userLatitude !== null && userLongitude !== null){
+    startPunkt = {
+      lat: userLatitude,
+      lng: userLongitude
+    };
+  }
+
+  if (startPunkt === null){
+    return;
+  }
+
+  const punkter = [
+    startPunkt,
+    {
+      lat: Number(golfbana.lat),
+      lng: Number(golfbana.lng)
+    }
+  ];
+
+  bilRutt(punkter)
+  .then(function(rutt){
+    const restidText = kort.querySelector(".restid");
+
+    if (rutt === null){
+      restidText.textContent = "Kunde inte beräkna restid.";
+      return;
+    }
+    restidText.textContent = "Restid med bil: ca " + Tid(rutt.tidMinuter) + ".";
+  });
+}
+
+function Tid(minuter){
+  if (minuter < 60){
+    return minuter + " minuter";
+  }
+
+  const timmar = Math.floor(minuter / 60);
+  const resterandeMinuter = minuter % 60;
+
+  if (resterandeMinuter === 0){
+    return timmar + " timme";
+  }
+  return timmar + " tim " + resterandeMinuter + " min";
+}
+
 uppdateraPris();
 start();
 
 getGolfData().then(function (){
   hamtaGolfbanor();
 });
-
-

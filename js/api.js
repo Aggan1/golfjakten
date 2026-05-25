@@ -11,6 +11,13 @@ export function getData(controller, filters = {}) {
         ...filters
     });
 
+    if (filters.lat != null && filters.lng != null && filters.radius){
+        params.set ("method", "getfromlatlng");
+        params.set ("lat", filters.lat);
+        params.set("lng", filters.lng);
+        params.set("radius", filters.radius);
+    }
+
     const url = `${BASE_URL}?${params}`;
 
     return fetch(url)
