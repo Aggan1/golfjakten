@@ -10,6 +10,16 @@ function updateFavoriteButton(button, id) {
     }
 }
 
+function updatePopupFavoriteButton(button, id) {
+    if (isFavorite(id)) {
+        button.textContent = "Sparad";
+        button.classList.add("saved");
+    } else {
+        button.textContent = "Spara som favorit";
+        button.classList.remove("saved");
+    }
+}
+
 export function showCourses(golfbanor, golfList, showDetails) {
     golfList.innerHTML = "";
 
@@ -53,8 +63,15 @@ export function showCourses(golfbanor, golfList, showDetails) {
 
         favoriteButton.addEventListener("click", function (event) {
             event.stopPropagation();
+
             toggleFavorite(bana.id);
             updateFavoriteButton(favoriteButton, bana.id);
+
+            const popupButton = document.querySelector(`.popup-favorite-button[data-id="${bana.id}"]`);
+
+            if (popupButton) {
+                updatePopupFavoriteButton(popupButton, bana.id);
+            }
         });
 
         kort.addEventListener("click", function () {
@@ -129,13 +146,13 @@ export function showDetails(bana, golfDetails) {
                 Besök hemsida
              </a>
 
-            <a href="#" class="primary">
-                 Läs mer
+            <a href="golfdetaljer.html?id=${bana.id}&from=golfbanor" class="primary">
+               Läs mer
             </a>
         </div>
 
         <div class="popup-save">
-            <button class="popup-favorite-button" type="button">
+            <button class="popup-favorite-button" type="button" data-id="${bana.id}">
                 Spara som favorit
             </button>
         </div>
@@ -144,20 +161,15 @@ export function showDetails(bana, golfDetails) {
     const closeButton = golfDetails.querySelector(".close-popup");
     const popupFavoriteButton = golfDetails.querySelector(".popup-favorite-button");
 
-    if (isFavorite(bana.id)) {
-        popupFavoriteButton.textContent = "Sparad";
-    }
+    updatePopupFavoriteButton(popupFavoriteButton, bana.id);
 
     popupFavoriteButton.addEventListener("click", function () {
         toggleFavorite(bana.id);
 
-        if (isFavorite(bana.id)) {
-            popupFavoriteButton.textContent = "Sparad";
-        } else {
-            popupFavoriteButton.textContent = "Spara som favorit";
-        }
+        updatePopupFavoriteButton(popupFavoriteButton, bana.id);
 
         const kort = document.querySelector(`.golf-card[data-id="${bana.id}"]`);
+
         if (kort) {
             const favoriteButton = kort.querySelector(".favorite-button");
             updateFavoriteButton(favoriteButton, bana.id);
@@ -166,6 +178,7 @@ export function showDetails(bana, golfDetails) {
 
     closeButton.addEventListener("click", function () {
         golfDetails.classList.remove("visible");
+        sessionStorage.removeItem("golfjakten_open_golfbana");
 
         const allaKort = document.querySelectorAll(".golf-card");
 
