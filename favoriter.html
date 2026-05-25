@@ -12,11 +12,19 @@
 
 <body>
     <header class="toppbar">
+        <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle">
+
         <a href="index.html" class="logo">GOLFJAKTEN</a>
+
+        <label for="mobile-menu-toggle" class="mobile-menu-button">
+            <img src="images/ikoner/meny.svg" class="menu-icon" alt="Öppna meny">
+            <img src="images/ikoner/x.svg" class="close-icon" alt="Stäng meny">
+        </label>
 
         <nav class="nav">
             <a href="golfbanor.html">Golfbanor</a>
             <a href="favoriter.html" class="active">Favoriter</a>
+            <a href="Golfresor.html" class="mobile-nav-button">Planera golfresa</a>
         </nav>
 
         <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
@@ -42,8 +50,19 @@
         </section>
 
         <section class="favoriter-layout">
-            <div id="favorit-list"></div>
+            <div class="favoriter-list-box">
+                <div class="favoriter-mobile-list-top">
+                    <p><span id="antal-favoriter-mobile">0</span> sparade golfbanor</p>
+
+                    <button id="openSort" class="mobile-sort-button" type="button">
+                        Sortera
+                    </button>
+                </div>
+
+                <div id="favorit-list"></div>
+            </div>
         </section>
+        <div id="mobileSortOverlay" class="mobile-sort-overlay"></div>
     </main>
 
     <section class="favorit-tips">
