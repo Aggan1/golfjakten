@@ -47,7 +47,16 @@
       <h2>Planera din runda</h2>
 
       <label for="start">Startplats eller hemmaklubb</label>
-      <input id="start" type="text" value="Växjö GK">
+      <input id="start" type="text">
+      
+      <label for="time">Max restid</label>
+      <select id="time">
+        <option value="1" selected>1 timme</option>
+        <option value="2">2 timmar</option>
+        <option value="3">3 timmar</option>
+        <option value="4">4 timmar</option>
+        <option value="5">5 timmar</option>
+      </select>
 
       <label for="price">Max pris green fee</label>
 
@@ -64,14 +73,7 @@
         </div>
       </div>
 
-      <label for="time">Max avstånd max restid</label>
-      <select id="time">
-        <option value="1" selected>1 timme</option>
-        <option value="2">2 timmar</option>
-        <option value="3">3 timmar</option>
-        <option value="4">4 timmar</option>
-        <option value="5">5 timmar</option>
-      </select>
+     
 
       <label for="players">Antal spelare</label>
       <select id="players">
@@ -106,9 +108,6 @@
       <label class="check-option">
         <input type="checkbox" value="Laddplats"> Laddplats</label>
 
-      <label for="date">Önskat datum</label>
-      <input id="date" type="date">
-
       <button class="generate-btn" type="button">Generera golfutflykt</button>
     </aside>
 
@@ -116,10 +115,18 @@
       <div class="map-box">
         <h2>Din planerade rutt baserat på dina krav</h2>
         <p>Här visas din golfresa när du har valt dina önskemål.</p>
-
+        
         <div id="map"></div>
-        <div id="resultat"></div>
-      </div>
+        <div class="map-info">
+          <span>Start</span>
+          <span>Golfbana</span>
+          <span>Stopp</span>
+          <span>Rutt</span>
+        </div>
+
+      <p id="trip-summary"></p>
+      <div id="resultat"></div>
+      
     </section>
 
   </main>

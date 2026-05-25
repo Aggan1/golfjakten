@@ -5,6 +5,7 @@ import { renderFavoriter } from "./renderFavoriter.js";
 
 const favoritList = document.getElementById("favorit-list");
 const antalFavoriter = document.getElementById("antal-favoriter");
+const antalFavoriterMobile = document.getElementById("antal-favoriter-mobile");
 const sortering = document.getElementById("sortering");
 
 let allCourses = [];
@@ -38,8 +39,32 @@ function updatePage() {
     savedCourses = sortCourses(savedCourses);
 
     antalFavoriter.textContent = savedCourses.length;
+    antalFavoriterMobile.textContent = savedCourses.length;
 
     renderFavoriter(savedCourses, favoritList, updatePage);
+}
+
+function setupMobileSortering() {
+    const sortButton = document.getElementById("openSort");
+    const overlay = document.getElementById("mobileSortOverlay");
+    const sorteringBox = document.querySelector(".sortering");
+
+    if (!sortButton || !overlay || !sorteringBox) {
+        return;
+    }
+
+    function closeSortering() {
+        sorteringBox.classList.remove("visible");
+        overlay.classList.remove("visible");
+    }
+
+    sortButton.addEventListener("click", function () {
+        sorteringBox.classList.add("visible");
+        overlay.classList.add("visible");
+    });
+
+    overlay.addEventListener("click", closeSortering);
+    sortering.addEventListener("change", closeSortering);
 }
 
 function init() {
@@ -53,6 +78,7 @@ function init() {
         });
 
     sortering.addEventListener("change", updatePage);
+    setupMobileSortering();
 }
 
 init();

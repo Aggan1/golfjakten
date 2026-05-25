@@ -56,7 +56,9 @@ export function renderGolfdetaljer(bana, container) {
 
     const backLink = getBackLink();
     const backText = getBackText();
-    const favoriteText = isFavorite(bana.id) ? "Sparad" : "Spara favorit";
+    const favoriteText = isFavorite(bana.id)
+        ? "Sparad"
+        : "Spara favorit";
 
     container.innerHTML = `
         <a href="${backLink}" class="tillbaka">${backText}</a>
@@ -107,13 +109,20 @@ export function renderGolfdetaljer(bana, container) {
 
     const favoriteButton = document.getElementById("favoriteButton");
 
-    favoriteButton.addEventListener("click", function () {
-        toggleFavorite(bana.id);
-
+    function updateFavoriteButton() {
         if (isFavorite(bana.id)) {
             favoriteButton.textContent = "Sparad";
+            favoriteButton.classList.add("saved");
         } else {
             favoriteButton.textContent = "Spara favorit";
+            favoriteButton.classList.remove("saved");
         }
+    }
+
+    updateFavoriteButton();
+
+    favoriteButton.addEventListener("click", function () {
+        toggleFavorite(bana.id);
+        updateFavoriteButton();
     });
 }
