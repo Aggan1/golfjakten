@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoriter | Golfjakten</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/favoriter.css">
+</head>
+
+<body>
+    <header class="toppbar">
+        <a href="index.html" class="logo">GOLFJAKTEN</a>
+
+        <nav class="nav">
+            <a href="golfbanor.html">Golfbanor</a>
+            <a href="favoriter.html" class="active">Favoriter</a>
+        </nav>
+
+        <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
+    </header>
+
+    <main class="favoriter-sida">
+        <section class="favoriter-hero">
+            <h1>Favoriter</h1>
+            <p>Här hittar du golfbanor du har sparat som favoriter.</p>
+        </section>
+
+        <section class="favoriter-top">
+            <p><span id="antal-favoriter">0</span> sparade golfbanor</p>
+
+            <div class="sortering">
+                <label for="sortering">Sortera</label>
+
+                <select id="sortering">
+                    <option value="az">A–Ö</option>
+                    <option value="za">Ö–A</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="favoriter-layout">
+            <div id="favorit-list"></div>
+        </section>
+    </main>
+
+    <section class="favorit-tips">
+
+        <div class="favorit-tips-left">
+            <img src="images/ikoner/i.svg" alt="Info ikon">
+
+            <div class="favorit-tips-text">
+                <h3>Tips! Planera din nästa golfresa</h3>
+
+                <p>
+                    Osäker på vilken golfbana du ska åka till använd vår planerare och hitta ditt perfekta golfäventyr.
+                </p>
+            </div>
+        </div>
+
+        <a href="Golfresor.html">
+            Planera ny resa
+        </a>
+
+    </section>
+
+    <footer class="footer">
+        <div class="footer-logo">
+            <h2>GOLFJAKTEN</h2>
+            <p>Golfupplevelser i Småland och på Öland.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4>NAVIGATION</h4>
+            <a href="golfbanor.html">Golfbanor</a>
+            <a href="Golfresor.html">Golfresor</a>
+            <a href="favoriter.html">Favoriter</a>
+            <a href="om.html">Om oss</a>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+
+        <div class="footer-kontakt">
+            <h4>KONTAKT</h4>
+            <p>Tele: 070 - 123 45 67</p>
+            <p>Mail: info@golfjakten.se</p>
+            <p>Vart: Småland & Öland, Sverige</p>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+        <p>© 2026 Golfjakten</p>
+    </div>
+
+    <script type="module" src="js/favoriter.js"></script>
+</body>
+
+</html>
