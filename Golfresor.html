@@ -46,16 +46,16 @@
     <aside class="filter-box">
       <h2>Planera din runda</h2>
 
-      <label for="start">Startplats eller hemmaklubb</label>
-      <input id="start" type="text">
+      <label for="start">Startplats</label>
+      <input id="start" type="text" placeholder="Ex. Växjö">
       
-      <label for="time">Max restid</label>
+      <label for="time">Max restid med bil</label>
       <select id="time">
-        <option value="1" selected>1 timme</option>
-        <option value="2">2 timmar</option>
-        <option value="3">3 timmar</option>
-        <option value="4">4 timmar</option>
-        <option value="5">5 timmar</option>
+        <option value="60" selected>1 timme</option>
+        <option value="120">2 timmar</option>
+        <option value="180">3 timmar</option>
+        <option value="240">4 timmar</option>
+        <option value="300">5 timmar</option>
       </select>
 
       <label for="price">Max pris green fee</label>
@@ -70,6 +70,21 @@
         <div class="price-labels">
           <span>0 kr</span>
           <span>1500 kr</span>
+        </div>
+      </div>
+
+      <label for="distance">Max avstånd</label>
+
+      <div class="price-wrapper">
+        <div class="price-current">
+          <span id="distance-value">Alla avstånd</span>
+        </div>
+
+        <input id="distance" type="range" min="0" max="100" value="100" step="5">
+
+        <div class="price-labels">
+          <span> 0 km </span>
+          <span>Alla</span>
         </div>
       </div>
 
@@ -92,7 +107,7 @@
       <label>Tillgång</label>
 
       <label class="check-option">
-        <input type="checkbox" value="restaurang">Restaurang</label>
+        <input type="checkbox" value="Restaurang">Restaurang</label>
 
       <label class="check-option">
         <input type="checkbox" value="Kiosk"> Kiosk
