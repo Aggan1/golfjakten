@@ -1,108 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GOLFJAKTEN</title>
+
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/om.css">
+    <script src="js/omoss.js" defer></script>
 </head>
 
 <body>
+
     <header class="toppbar">
+        <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle">
+
         <a href="index.html" class="logo">GOLFJAKTEN</a>
+
+        <label for="mobile-menu-toggle" class="mobile-menu-button">
+            <img src="images/ikoner/meny.svg" class="menu-icon" alt="Öppna meny">
+            <img src="images/ikoner/x.svg" class="close-icon" alt="Stäng meny">
+        </label>
 
         <nav class="nav">
             <a href="golfbanor.html">Golfbanor</a>
             <a href="favoriter.html">Favoriter</a>
+            <a href="Golfresor.html" class="mobile-nav-button">Planera golfresa</a>
         </nav>
 
         <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
     </header>
 
-    <section class="intro">
-        <nav class="intro-inne">
-            <p>OM OSS</p>
-            <h1>
-                Golfjakten, en minnesvärd upplevelser golfresor i Småland och Öland!
-            </h1>
-            <p>
-                Här samlas alla bästa golfbanor, boende och upplevelser på en och samma plats! detta blir en smidig planering, då ditt fokus kan ligga på att golfa, gemenskap och naturen.
-            </p>
-        </nav>
-    </section>
+    <section class="om-oss-sektion">
 
-    <section class="om-info">
-        <div>
+        <div class="om-oss-rubrik">
+            <h1>OM OSS</h1>
+
             <p>
-                VÅR START
-            </p>
-            <h1>
-                Från en idé till verklighet
-            </h1>
-            <p>
-                Golfjakten skapades av 3 studenter på Linneuniversitet för att ge alla golfälskare att hitta de bestämde bortgömda golfbanor.
-            </p>
-            <p>
-                Unik natur, fantatiska banor, boende i närheten, här finns allt du behöver veta på en och samma plats i Golfjakten.
-            </p>
-            <p>
-                Golfjakten ville skapa en plats för att föra det enkelt för dig att planera och upptäcka nya golfresor i Småland och Öland.
+                Vi är tre studenter från Linnéuniversitetet som bygger Golfjakten för att göra det enklare
+                att hitta golfbanor i Småland och planera golfresor som passar just dina önskemål.
             </p>
         </div>
-    </section>
 
+        <div class="bildspel-wrapper">
 
-    <section class="till-section">
-        <h1>Allt som behöves för en golfresa finns här</h1>
+            <div class="bildspel-vänster">
 
-        <div class="till-lag">
-            <div class="ikon">
-                <img src="images/golf-ikon.png" alt="Golfbana-figur">
+                <div class="bildruta">
+
+                    <img src="images/Placeholder1.png" alt="" class="aktiv-bild">
+                    <img src="images/Placeholder2.png" alt="">
+                    <img src="images/Placeholder3.png" alt="">
+                    <img src="images/Placeholder4.png" alt="">
+
+                </div>
+
+                <div class="textyta">
+
+                    <h2 id="rubrik-text">Vår idé</h2>
+
+                    <p id="beskrivning-text">
+                     Vi startade Golfjakten för att göra det enklare  för golfare att hitta golfbanor samt planera golfresor som matchar deras förväntningar och krav.</p>
+
+                </div>
+
             </div>
 
+            <div class="bildspel-höger">
 
+                <button class="slide-knapp aktiv-slide">
+                    <span class="slide-nummer">01</span>
+                    <span class="slide-titel">Vår idé</span>
+                </button>
 
-            <div class="txt">
-                <h3>Banor</h3>
-                <p>Här samlas alla banor i småland och öland med aktuell infomation, där du kan själv jämföra golfbanor.</p>
+                <button class="slide-knapp">
+                    <span class="slide-nummer">02</span>
+                    <span class="slide-titel">Vårt mål</span>
+                </button>
+
+                <button class="slide-knapp">
+                    <span class="slide-nummer">03</span>
+                    <span class="slide-titel">Golfresor</span>
+                </button>
+
+                <button class="slide-knapp">
+                    <span class="slide-nummer">04</span>
+                    <span class="slide-titel">Framtiden</span>
+                </button>
+
             </div>
+
         </div>
 
-        <div class="till-lag">
-            <div class="ikon">
-                <img src="images/karta-ikon.png" alt="mapp-figur">
-
-            </div>
-
-
-            <div class="txt">
-                <h3>Planera</h3>
-                <p>Här kan du skapa en golfresa, där du kan få alla möjliga rekomendationer för att få den golfresan som passar dig bäst.</p>
-            </div>
-        </div>
-
-        <div class="till-lag">
-            <div class="ikon">
-                <img src="images/säng-ikon.png" alt="Säng-figur">
-            </div>
-
-
-            <div class="txt">
-                <h3>Vi tipsar om boende</h3>
-                <p>Här kan du hitta rekomendationer till boende i närheten för en mer smidigt och bekvämt golfupplevelse.</p>
-            </div>
-        </div>
-
-
-    </section>
-
-    <section>
-        <div class="om-info">
-            <h1>Varför golf?</h1>
-            <p>Golf är mer än bara en sport, det är en upplevelse. Oavsett om du spelar för utmaningen eller gemenskapen vet vi hur viktigt det är med rätt förutsättningar. Därför har vi skapat en tjänst som gör det enklare att hitta, jämföra och planera en minnesvärd golfupplevelse.</p>
-        </div>
     </section>
 
     <footer class="footer">
@@ -124,9 +115,9 @@
         <div class="footer-kontakt">
             <h4>KONTAKT</h4>
 
-            <p> Tele: 070 - 123 45 67</p>
-            <p> Mail: info@golfjakten.se</p>
-            <p> Vart: Småland & Öland, Sverige</p>
+            <p>Tele: 070 - 123 45 67</p>
+            <p>Mail: info@golfjakten.se</p>
+            <p>Vart: Småland & Öland, Sverige</p>
         </div>
 
     </footer>
@@ -134,6 +125,7 @@
     <div class="footer-bottom">
         <p>© 2026 Golfjakten</p>
     </div>
+
 </body>
 
 </html>
