@@ -228,7 +228,7 @@ h3 {
     color: #68714b;
 }
 
-/* Mobil */
+/* Mobilanpassning */
 @media (max-width: 700px) {
     .toppbar {
         height: 76px;

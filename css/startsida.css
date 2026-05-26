@@ -335,7 +335,7 @@ body {
     }
 }
 
-/* Mobil skärmar */
+/* Mobilanpassning */
 @media (max-width: 700px) {
     .startsida-hero {
         min-height: 470px;
