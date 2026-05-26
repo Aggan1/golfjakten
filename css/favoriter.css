@@ -56,7 +56,7 @@
     cursor: pointer;
 }
 
-/* Lista däer favoriter visas */
+/* Lista där favoriter visas */
 .favoriter-layout {
     padding: 0 42px 24px;
 }
@@ -191,7 +191,7 @@
     background-color: #374332;
 }
 
-/* Mobil */
+/* Mobilanpassning */
 @media (max-width: 700px) {
     .favoriter-hero {
         padding: 26px 24px 18px;
