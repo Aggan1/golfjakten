@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
 
+/* Sidan (Inställningar) */
 * {
     margin: 0;
     padding: 0;
@@ -10,9 +11,16 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f3efe7;
     color: #2f332b;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+main {
+    flex: 1;
+}
 
+/* Font */
 h1,
 h2,
 h3 {
@@ -21,7 +29,7 @@ h3 {
     letter-spacing: 0.02em;
 }
 
-/* navigation */
+/* Header och navigation */
 .toppbar {
     width: 100%;
     height: 78px;
@@ -52,21 +60,19 @@ h3 {
 }
 
 .nav a {
-    text-decoration: none;
-    color: #25301f;
+    position: relative;
+
     font-family: Georgia, "Times New Roman", serif;
     font-size: 15px;
     font-weight: 400;
-    text-transform: none;
     letter-spacing: 0.01em;
+    color: #25301f;
+    text-decoration: none;
+
     transition: 0.3s ease;
-    position: relative;
 }
 
-.nav a:hover {
-    color: #68714b;
-}
-
+.nav a:hover,
 .nav a.active {
     color: #68714b;
 }
@@ -76,24 +82,28 @@ h3 {
     position: absolute;
     left: 0;
     bottom: -8px;
+
     width: 100%;
     height: 1px;
     background: #68714b;
 }
 
 .header-btn {
-    background: #25301f;
-    color: #f4f0e8;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border: 1px solid #25301f;
-    margin-left: 36px;
     position: relative;
+
+    margin-left: 36px;
+    padding: 10px 20px;
+
+    background: #68714b;
+    border: 1px solid #68714b;
+    color: #f4f0e8;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+
     transition: 0.3s ease;
 }
 
@@ -103,6 +113,7 @@ h3 {
     left: -22px;
     top: 50%;
     transform: translateY(-50%);
+
     width: 1px;
     height: 32px;
     background: #bab5af;
@@ -112,35 +123,56 @@ h3 {
     background: #374332;
 }
 
+/* Mobilmeny - gömd på desktop */
+.mobile-menu-toggle,
+.mobile-menu-button,
+.mobile-nav-button {
+    display: none;
+}
+
+/* Footer */
 .footer {
     background: #f4f0e8;
-    padding: 55px 8% 35px;
+    padding: 26px 8% 20px;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* lika stora kolumner */
-    gap: 60px;
-    border-top: 1px solid #ddd3c1;
+    gap: 40px;
     align-items: start;
+
+    border-top: 1px solid #ddd3c1;
     text-align: center;
 }
 
 .footer-logo {
-    text-align: left;
+    text-align: center;
 }
 
 .footer-logo h2 {
     font-family: "Playfair Display", Georgia, serif;
-    font-size: 34px;
+    font-size: 28px;
     letter-spacing: 2px;
     font-weight: 500;
     color: #5f6857;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .footer-logo p {
     color: #5f6857;
     font-size: 14px;
     line-height: 1.7;
+}
+
+.footer-links,
+.footer-kontakt {
+    font-family: "Playfair Display", Georgia, serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    text-align: center;
 }
 
 .footer-links h4,
@@ -152,17 +184,10 @@ h3 {
     text-transform: uppercase;
 }
 
-.footer-links {
-    font-family: "Playfair Display", Georgia, serif;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
 .footer-links a {
-    text-decoration: none;
     color: #25301f;
     font-size: 14px;
+    text-decoration: none;
     transition: 0.3s ease;
 }
 
@@ -170,15 +195,7 @@ h3 {
     color: #68714b;
 }
 
-.footer-kontakt {
-    font-family: "Playfair Display", Georgia, serif;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
 .footer-kontakt p {
-    font-family: "Playfair Display", Georgia, serif;
     color: #4e5748;
     font-size: 14px;
 }
@@ -187,7 +204,7 @@ h3 {
     background: #f4f0e8;
     border-top: 1px solid #ddd3c1;
     text-align: center;
-    padding: 18px 8%;
+    padding: 8px 8%;
 }
 
 .footer-bottom p {
@@ -195,12 +212,126 @@ h3 {
     color: #7b8268;
 }
 
-.footer-links,
-.footer-kontakt {
+.footer-kontakt-del {
+    display: flex;
     align-items: center;
-    text-align: center;
+    gap: 10px;
 }
 
-.footer {
-    align-items: start;
+.footer-kontakt-del img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+/* Mobil */
+@media (max-width: 700px) {
+    .toppbar {
+        height: 76px;
+        padding: 0 22px;
+        position: relative;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        letter-spacing: 0.16em;
+    }
+
+    .header-btn {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        width: 28px;
+        height: 28px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+    }
+
+    .mobile-menu-button img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .close-icon {
+        display: none;
+    }
+
+    .mobile-menu-toggle:checked ~ .mobile-menu-button .menu-icon {
+        display: none;
+    }
+
+    .mobile-menu-toggle:checked ~ .mobile-menu-button .close-icon {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 76px;
+        right: 0;
+        z-index: 4000;
+
+        width: min(72vw, 280px);
+        padding: 24px;
+
+        background-color: #f4f0e8;
+        border-left: 1px solid #d8cebc;
+        border-bottom: 1px solid #d8cebc;
+        box-shadow: -8px 10px 24px rgba(47, 51, 43, 0.12);
+
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .mobile-menu-toggle:checked ~ .nav {
+        display: flex;
+    }
+
+    .nav a {
+        font-size: 1.08rem;
+        text-align: center;
+    }
+
+    .mobile-nav-button {
+        display: block;
+        width: auto;
+        min-width: 190px;
+        margin-top: 2px;
+        padding: 10px 16px;
+
+        background-color: #68714b;
+        color: #f4f0e8 !important;
+
+        font-size: 0.96rem !important;
+        text-align: center;
+    }
+
+    .footer {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 34px 28px 26px;
+        text-align: center;
+    }
+
+    .footer-logo {
+        text-align: center;
+    }
+
+    .footer-links,
+    .footer-kontakt {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links h4,
+    .footer-kontakt h4 {
+        font-size: 16px;
+    }
 }

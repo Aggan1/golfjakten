@@ -1,3 +1,25 @@
+import { isFavorite, toggleFavorite } from "./favoriterStorage.js";
+
+function updateFavoriteButton(button, id) {
+    if (isFavorite(id)) {
+        button.classList.add("saved");
+        button.title = "Ta bort från favoriter";
+    } else {
+        button.classList.remove("saved");
+        button.title = "Spara som favorit";
+    }
+}
+
+function updatePopupFavoriteButton(button, id) {
+    if (isFavorite(id)) {
+        button.textContent = "Sparad";
+        button.classList.add("saved");
+    } else {
+        button.textContent = "Spara som favorit";
+        button.classList.remove("saved");
+    }
+}
+
 export function showCourses(golfbanor, golfList, showDetails) {
     golfList.innerHTML = "";
 
@@ -31,8 +53,26 @@ export function showCourses(golfbanor, golfList, showDetails) {
                 <p>${bana.price_range || "Pris saknas"} · ${bantyp}</p>
             </div>
 
-            <span class="course-arrow"></span>
+            <button class="favorite-button" type="button">
+                <img src="images/ikoner/heart.svg" alt="Spara favorit">
+            </button>
         `;
+
+        const favoriteButton = kort.querySelector(".favorite-button");
+        updateFavoriteButton(favoriteButton, bana.id);
+
+        favoriteButton.addEventListener("click", function (event) {
+            event.stopPropagation();
+
+            toggleFavorite(bana.id);
+            updateFavoriteButton(favoriteButton, bana.id);
+
+            const popupButton = document.querySelector(`.popup-favorite-button[data-id="${bana.id}"]`);
+
+            if (popupButton) {
+                updatePopupFavoriteButton(popupButton, bana.id);
+            }
+        });
 
         kort.addEventListener("click", function () {
             showDetails(bana);
@@ -55,7 +95,6 @@ export function showDetails(bana, golfDetails) {
     let courseType = "Golfbana";
     let weekdayPrice = "-";
     let weekendPrice = "-";
-    let bookingUrl = "#";
 
     if (bana.extra !== null) {
         if (bana.extra.holes) {
@@ -72,10 +111,6 @@ export function showDetails(bana, golfDetails) {
 
         if (bana.extra.greenfee_weekend_18) {
             weekendPrice = bana.extra.greenfee_weekend_18;
-        }
-
-        if (bana.extra.booking_url) {
-            bookingUrl = bana.extra.booking_url;
         }
     }
 
@@ -107,16 +142,46 @@ export function showDetails(bana, golfDetails) {
         </div>
 
         <div class="popup-buttons">
-            <a href="${bana.website}" target="_blank">Läs mer</a>
-            <a href="${bookingUrl}" target="_blank" class="primary">Boka</a>
+             <a href="${bana.website}" target="_blank">
+                Besök hemsida
+             </a>
+
+            <a href="golfdetaljer.html?id=${bana.id}&from=golfbanor" class="primary">
+               Läs mer
+            </a>
         </div>
-    `;
+
+        <div class="popup-save">
+            <button class="popup-favorite-button" type="button" data-id="${bana.id}">
+                Spara som favorit
+            </button>
+        </div>
+        `;
 
     const closeButton = golfDetails.querySelector(".close-popup");
+    const popupFavoriteButton = golfDetails.querySelector(".popup-favorite-button");
+
+    updatePopupFavoriteButton(popupFavoriteButton, bana.id);
+
+    popupFavoriteButton.addEventListener("click", function () {
+        toggleFavorite(bana.id);
+
+        updatePopupFavoriteButton(popupFavoriteButton, bana.id);
+
+        const kort = document.querySelector(`.golf-card[data-id="${bana.id}"]`);
+
+        if (kort) {
+            const favoriteButton = kort.querySelector(".favorite-button");
+            updateFavoriteButton(favoriteButton, bana.id);
+        }
+    });
 
     closeButton.addEventListener("click", function () {
         golfDetails.classList.remove("visible");
+        sessionStorage.removeItem("golfjakten_open_golfbana");
+
         const allaKort = document.querySelectorAll(".golf-card");
+
         for (let i = 0; i < allaKort.length; i++) {
             allaKort[i].classList.remove("active");
         }
@@ -125,6 +190,7 @@ export function showDetails(bana, golfDetails) {
 
 export function markActiveCourse(bana) {
     const allaKort = document.querySelectorAll(".golf-card");
+
     for (let i = 0; i < allaKort.length; i++) {
         allaKort[i].classList.remove("active");
 
