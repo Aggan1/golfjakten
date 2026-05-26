@@ -7,7 +7,6 @@ body {
     color: #2f332b;
 }
 
-.hero-bild,
 .bana-bild,
 .planera-bild,
 .om-bild {
@@ -179,7 +178,7 @@ body {
     letter-spacing: 0.08em;
 }
 
-/* Populära banor */
+/* Upptäck golfbanor */
 .upptack {
     padding: 0 0 20px;
 }
@@ -325,8 +324,8 @@ body {
 /* Mellan skärmar */
 @media (max-width: 1000px) {
 
-    .snabbval,
-    .populara-lista {
+    .hero-ikoner,
+    .upptack-lista {
         grid-template-columns: repeat(2, 1fr);
     }
 
