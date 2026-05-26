@@ -1,11 +1,20 @@
 import { getData }  from "./api.js";
 import { bilRutt, hamtaKoordinater } from "./bilesaKoordinater.js";
-const map = L.map("map").setView([62.0, 15.0], 5);
+import{ isFavorite, toggleFavorite } from "./favoriterStorage.js"
+
+const map = L.map("map").setView([57.0, 14.9], 7);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy; OpenStreetMap"
 }).addTo(map);
 
+function createIcon() {
+  return L.divIcon({
+    className: "golf-marker",
+    html: "",
+    iconSize: [18, 18]
+  });
+}
 
 const priceInput = document.getElementById("price");
 const priceValue = document.getElementById("price-value");
@@ -17,12 +26,12 @@ const distanceInput = document.getElementById("distance");
 const distanceValue = document.getElementById("distance-value");
 const startInput = document.getElementById("start");
 const playersInput = document.getElementById("players");
+const holesInput = document.getElementById("holes");
 
 
 let golfbanor = [];
 let golfData = [];
 let markers = [];
-let aktuellResa = [];
 let userLatitude = null;
 let userLongitude = null;
 let startKoordinater = null;
@@ -92,9 +101,22 @@ function matcharTeman (golfbana, teman){
   return true;
 }
 
+function matcharAntalHal(golfbana, valtHal){
+  if (valtHal === "all"){
+    return true;
+  }
+
+  if (!golfbana.extraData || !golfbana.extraData.holes){
+    return false;
+  }
+
+  return String(golfbana.extraData.holes).includes(valtHal);
+}
+
 function filtreraGolfbanor(){
   const maxPris = Number(priceInput.value);
   const teman = hamtaValdaTeman();
+  const valtHal = holesInput.value;
 
   const filtrerade = golfbanor.filter(function (golfbana){
     if (!golfbana.extraData){
@@ -111,40 +133,24 @@ function filtreraGolfbanor(){
       return false;
     }
 
+    if (!matcharAntalHal(golfbana, valtHal)){
+      return false;
+    }
+
     return true;
   });
 
   return filtrerade;
 }
 
-function raknaTotalPris(lista){
-  let totalPris = 0;
-
-  for (let i = 0; i < lista.length; i++){
-    const pris = hamtaPris(lista[i].extraData.greenfee_weekday_18);
-
-    if (pris !== null){
-      totalPris += pris;
-    }
-  }
-
-  return totalPris;
-}
-
 function visaGolfresa(lista){
   resultat.innerHTML = "";
 
   if (lista.length === 0){
-    tripSummary.textContent = "Inga golfbanor matchade dina val.";
-    resultat.innerHTML = "<p>Ingen golfbana kunde visas.</p>";
+    resultat.innerHTML = "<p>Anpassa din golfupplevelse.</p>";
     return;
   }
 
-  const totalPris = raknaTotalPris(lista);
-  const antalSpelare = Number(playersInput.value);
-  const totalPrisSpelare = totalPris * antalSpelare;
-
-  tripSummary.textContent = lista.length + " golfbanor matchade dina val. Total greenfee blir ungefär " + totalPrisSpelare + " kr för " + antalSpelare + " spelare.";
 
   for (let i = 0; i < lista.length; i++){
     const golfbana = lista[i];
@@ -152,6 +158,7 @@ function visaGolfresa(lista){
     const prisNummer = hamtaPris(golfbana.extraData.greenfee_weekday_18);
     const antalSpelare = Number(playersInput.value);
     const totalprisGolfbana = prisNummer * antalSpelare;
+    const mapsUrl = "https://www.google.com/maps/search/?api=1&query=" + golfbana.lat + "," + golfbana.lng;
 
     let matText = "Mat saknas";
 
@@ -165,20 +172,77 @@ function visaGolfresa(lista){
     kort.classList.add("resa-kort");
 
     kort.innerHTML = `
-    <div class="resa-header">
+    <div class ="resa-top">
+    <div class ="resa-bild"></div>
+
+    <div class="resa-title">
       <span>GOLFBANA</span>
       <h3>${golfbana.name}</h3>
-    </div>
+    </div> 
+     <div class="resa-top-actions">
+        <a href="${mapsUrl}" target="_blank" class="maps-knapp">Öppna i kartor</a> 
 
-    <div class="resa-info">
-      <p><strong>Pris per person: </strong>${pris}</p>
-      <p><strong>Totalpris: </strong>${totalprisGolfbana} kr för ${antalSpelare} spelare</p>
-      <p><strong>Mat: </strong>${matText}</p>
-      <p><strong>Plats: </strong>${golfbana.city || ""}, ${golfbana.province || ""}</p>
-      <p><strong>Antal hål: </strong>${golfbana.extraData.holes || "18"} hål</p>
-      <p class="restid">Restid: välj startplats för att beräkna.</p>
-    </div>
+    <button class="resafavorit" type="button">
+  <img src="images/ikoner/heart.svg" alt="Spara favorit">
+</button>
+</div>
+</div>
+
+ <div class="resa-info-rad">
+        <div class="resa-info-item">
+          <p>PRIS PER PERSON</p>
+          <strong>${pris}</strong>
+        </div>
+
+        <div class="resa-info-item">
+          <p>TOTALPRIS</p>
+          <strong>${totalprisGolfbana} kr</strong>
+          <span>för ${antalSpelare} spelare</span>
+        </div>
+
+        <div class="resa-info-item">
+          <p>PLATS</p>
+          <strong>${golfbana.city || ""}, ${golfbana.province || ""}</strong>
+        </div>
+
+        <div class="resa-info-item">
+          <p>RESTID MED BIL</p>
+          <strong class="restid"></strong>
+        </div>
+      </div>
+
+      <div class="resa-extra-rad">
+        <div class="resa-info-item">
+          <p>MAT</p>
+          <strong>${matText}</strong>
+        </div>
+
+        <div class="resa-info-item">
+          <p>ANTAL HÅL</p>
+        <strong>${String(golfbana.extraData.holes || "18").trim().split("/").pop()} hål</strong>
+        </div>
+      </div>
+
+    
     `;
+
+
+    const favoritKnapp = kort.querySelector(".resafavorit");
+
+    if (isFavorite(golfbana.id)){
+      favoritKnapp.classList.add("saved");
+    }
+
+    favoritKnapp.addEventListener("click", function(){
+     toggleFavorite(golfbana.id);
+   
+    
+    if (isFavorite(golfbana.id)){
+      favoritKnapp.classList.add("saved");
+    }else{
+      favoritKnapp.classList.remove("saved");
+    } 
+  });
 
     resultat.append(kort);
 
@@ -193,7 +257,7 @@ function uppdateraVisning(){
   visaGolfbanorPaKarta(filtrerade);
 }
 
-function visaGolfbanorPaKarta(lista, rutt) {
+function visaGolfbanorPaKarta(lista) {
 
   for (let i = 0; i < markers.length; i++) {
     map.removeLayer(markers[i]);
@@ -207,9 +271,11 @@ function visaGolfbanorPaKarta(lista, rutt) {
     if (golfbana.lat && golfbana.lng){
 
       const marker = L.marker([
-        golfbana.lat, 
-        golfbana.lng
-      ]).addTo(map);
+        Number(golfbana.lat), 
+        Number(golfbana.lng)
+      ],{
+        icon: createIcon()
+      }).addTo(map);
 
       marker.bindPopup(` 
         <h3> ${golfbana.name}</h3>`);
@@ -227,6 +293,7 @@ function start (){
   });
 
   playersInput.addEventListener("change", uppdateraVisning);
+  holesInput.addEventListener("change", uppdateraVisning);
 
   for (let i = 0; i < checkboxes.length; i++){
     checkboxes[i].addEventListener("change", uppdateraVisning);
@@ -246,7 +313,7 @@ function start (){
       return
     }
 
-    distanceValue.textContent = "<=" + distance + " km";
+    distanceValue.textContent = distance + " km";
 
     if (startInput.value !== ""){
       hamtaStartplats();
@@ -394,7 +461,7 @@ function hamtaTid( golfbana, kort){
       restidText.textContent = "Kunde inte beräkna restid.";
       return;
     }
-    restidText.textContent = "Restid med bil: ca " + Tid(rutt.tidMinuter) + ".";
+    restidText.textContent = "ca " + Tid(rutt.tidMinuter);
   });
 }
 

@@ -33,12 +33,9 @@
     <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Planera din golfresa</h1>
-      <p>Skapa din egen golfrunda - hitta banor längst vägen baserat på pris, avstånd och upplevelse.</p>
-      <a href="#planner" class="hero-btn">Planera runda</a>
-    </div>
+  <section class="golfresor-hero">
+    <h1>Golfresa</h1>
+    <p>En lista och karta över golfbanor i Småland och på Öland för att lätt hitta den som passar dig.</p>
   </section>
 
   <main id="planner" class="planner-layout">
@@ -47,16 +44,9 @@
       <h2>Planera din runda</h2>
 
       <label for="start">Startplats</label>
-      <input id="start" type="text" placeholder="Ex. Växjö">
+      <input id="start" type="text" placeholder="Valfritt">
 
-      <label for="time">Max restid med bil</label>
-      <select id="time">
-        <option value="60" selected>1 timme</option>
-        <option value="120">2 timmar</option>
-        <option value="180">3 timmar</option>
-        <option value="240">4 timmar</option>
-        <option value="300">5 timmar</option>
-      </select>
+
 
       <label for="price">Max pris green fee</label>
 
@@ -104,6 +94,14 @@
         <option value="10">10 spelare</option>
       </select>
 
+      <label for="holes">Antal hål</label>
+      <select id="holes">
+        <option value="all" selected>Alla</option>
+        <option value="9">9 hål</option>
+        <option value="12">12 hål</option>
+        <option value="18">18 hål</option>
+      </select>
+
       <label>Tillgång</label>
 
       <label class="check-option">
@@ -128,15 +126,12 @@
 
     <section class="route-section">
       <div class="map-box">
-        <h2>Din planerade rutt baserat på dina krav</h2>
+        <h2>Din Golfjakt</h2>
         <p>Här visas din golfresa när du har valt dina önskemål.</p>
 
         <div id="map"></div>
         <div class="map-info">
-          <span>Start</span>
-          <span>Golfbana</span>
-          <span>Stopp</span>
-          <span>Rutt</span>
+          <span>Golfbanor som passar dig</span>
         </div>
 
         <p id="trip-summary"></p>
