@@ -1,5 +1,8 @@
 const bilder = document.querySelectorAll(".bildruta img");
 const knappar = document.querySelectorAll(".slide-knapp");
+const prevPil = document.querySelector(".slide-prev, .slide-foregaende");
+const nextPil = document.querySelector(".slide-next, .slide-nasta");
+const bildrutaElement = document.querySelector(".bildruta");
 
 const rubrikText = document.getElementById("rubrik-text");
 const beskrivningText = document.getElementById("beskrivning-text");
@@ -63,6 +66,20 @@ knappar.forEach((knapp, index) => {
   });
 });
 
+if (prevPil) {
+  prevPil.addEventListener("click", () => {
+    const prevIndex = aktivIndex > 0 ? aktivIndex - 1 : slideInformation.length - 1;
+    visaSlide(prevIndex);
+  });
+}
+
+if (nextPil) {
+  nextPil.addEventListener("click", () => {
+    const nextIndex = aktivIndex < slideInformation.length - 1 ? aktivIndex + 1 : 0;
+    visaSlide(nextIndex);
+  });
+}
+
 window.addEventListener("wheel", (event) => {
   if (!desktopLäge.matches) return;
 
@@ -96,3 +113,33 @@ window.addEventListener("wheel", (event) => {
   }, 900);
 
 }, { passive: false });
+
+let touchStartX = 0;
+let touchEndX = 0;
+const touchThreshold = 40;
+
+if (bildrutaElement) {
+  bildrutaElement.addEventListener("touchstart", (event) => {
+    if (event.target.closest(".slide-navigering")) return;
+    touchStartX = event.changedTouches[0].clientX;
+    touchEndX = touchStartX;
+  });
+
+  bildrutaElement.addEventListener("touchmove", (event) => {
+    touchEndX = event.changedTouches[0].clientX;
+  }, { passive: true });
+
+  bildrutaElement.addEventListener("touchend", () => {
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) < touchThreshold) return;
+
+    if (swipeDistance > 0) {
+      const prevIndex = aktivIndex > 0 ? aktivIndex - 1 : slideInformation.length - 1;
+      visaSlide(prevIndex);
+    } else {
+      const nextIndex = aktivIndex < slideInformation.length - 1 ? aktivIndex + 1 : 0;
+      visaSlide(nextIndex);
+    }
+  });
+}
