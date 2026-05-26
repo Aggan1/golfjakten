@@ -247,8 +247,7 @@ body {
 }
 
 .planera-text h2::after,
-.om-golfjakten h2::after,
-.kontakt-box h2::after {
+.om-golfjakten h2::after {
     content: "";
     display: block;
     width: 50px;
@@ -310,42 +309,6 @@ body {
     min-height: 300px;
     height: 100%;
     border-right: 1px solid #d4cab8;
-}
-
-/* Kontaktbox */
-.kontakt-box {
-    width: fit-content;
-    max-width: 740px;
-    margin: 0 auto 34px;
-    padding: 24px 42px;
-    border: 1px solid #68714b;
-    border-radius: 10px;
-    background-color: #68714b;
-    color: #f4f0e8;
-    text-align: center;
-}
-
-.kontakt-box h2 {
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-}
-
-.kontakt-box h2::after {
-    background-color: #f4f0e8;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.kontakt-box p {
-    max-width: 560px;
-    margin: 8px auto;
-    font-size: 0.9rem;
-    line-height: 1.55;
-}
-
-.kontakt-box a {
-    margin-top: 16px;
 }
 
 /* Mellan skärmar */
@@ -610,21 +573,5 @@ body {
         border-radius: 0;
         border-right: none;
         border-bottom: 1px solid #d4cab8;
-    }
-
-    .kontakt-box {
-        width: fit-content;
-        max-width: calc(100% - 36px);
-        margin: 0 18px 24px;
-        padding: 28px 22px;
-    }
-
-    .kontakt-box h2 {
-        font-size: 1.25rem;
-    }
-
-    .kontakt-box p {
-        font-size: 0.82rem;
-        line-height: 1.5;
     }
 }

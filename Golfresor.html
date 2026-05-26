@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Golfresor | Golfjakten</title>
+  <title>Planera Golfresa | Golfjakten</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
   <link rel="stylesheet" href="css/global.css">
@@ -48,7 +48,7 @@
 
       <label for="start">Startplats</label>
       <input id="start" type="text" placeholder="Ex. Växjö">
-      
+
       <label for="time">Max restid med bil</label>
       <select id="time">
         <option value="60" selected>1 timme</option>
@@ -88,7 +88,7 @@
         </div>
       </div>
 
-     
+
 
       <label for="players">Antal spelare</label>
       <select id="players">
@@ -130,7 +130,7 @@
       <div class="map-box">
         <h2>Din planerade rutt baserat på dina krav</h2>
         <p>Här visas din golfresa när du har valt dina önskemål.</p>
-        
+
         <div id="map"></div>
         <div class="map-info">
           <span>Start</span>
@@ -139,39 +139,46 @@
           <span>Rutt</span>
         </div>
 
-      <p id="trip-summary"></p>
-      <div id="resultat"></div>
-      
+        <p id="trip-summary"></p>
+        <div id="resultat"></div>
+
     </section>
 
   </main>
 
   <footer class="footer">
-
     <div class="footer-logo">
       <h2>GOLFJAKTEN</h2>
       <p>Golfupplevelser i Småland och på Öland.</p>
     </div>
 
-    <div class="footer-links">
-      <h4>NAVIGATION</h4>
-      <a href="golfbanor.html">Golfbanor</a>
-      <a href="Golfresor.html">Golfresor</a>
-      <a href="">Favoriter</a>
-      <a href="om.html">Om oss</a>
-      <a href="kontakt.html">Kontakt</a>
-    </div>
+    <div class="footer-social">
+      <h4>FÖLJ OSS</h4>
+
+      <div class="footer-social-icons">
+        <a href="#" aria-label="Instagram">
+                    <img src="images/ikoner/instagram.svg" alt="Instagram ikon">
+                </a>
+
+                <a href="#" aria-label="Facebook">
+                    <img src="images/ikoner/facebook.svg" alt="Facebook ikon">
+                </a>
+            </div>
+        </div>
 
         <div class="footer-kontakt">
             <h4>KONTAKT</h4>
+
             <div class="footer-kontakt-del">
                 <img src="images/ikoner/phone.svg" alt="Telefon ikon">
                 <p>070 - 123 45 67</p>
             </div>
+
             <div class="footer-kontakt-del">
-                <img src="images/ikoner/mail.svg" alt="Mail ikon">
+                <img src="images/ikoner/mail.svg" alt="Mejl ikon">
                 <p>info@golfjakten.se</p>
             </div>
+
             <div class="footer-kontakt-del">
                 <img src="images/ikoner/gps.svg" alt="Gps pin ikon">
                 <p>Linnéuniversitetet i Växjö, Sverige</p>
@@ -180,9 +187,8 @@
     </footer>
 
   <div class="footer-bottom">
-    <p>© 2026 Golfjakten</p>
+    <p>© 2026 Golfjakten · <a href="om.html">Om oss</a></p>
   </div>
-
 </body>
 
 </html>
