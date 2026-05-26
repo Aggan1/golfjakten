@@ -15,85 +15,129 @@
 
 <body>
   <header class="toppbar">
+    <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle">
+
     <a href="index.html" class="logo">GOLFJAKTEN</a>
+
+    <label for="mobile-menu-toggle" class="mobile-menu-button">
+      <img src="images/ikoner/meny.svg" class="menu-icon" alt="Öppna meny">
+      <img src="images/ikoner/x.svg" class="close-icon" alt="Stäng meny">
+    </label>
 
     <nav class="nav">
       <a href="golfbanor.html">Golfbanor</a>
       <a href="favoriter.html">Favoriter</a>
+      <a href="Golfresor.html" class="mobile-nav-button">Planera golfresa</a>
     </nav>
 
     <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Planera din golfresa</h1>
-      <p>Låt Golfjakten skapa en färdig golfdag baserat på budget och upplevelse och antal banor.</p>
-      <a href="#planner" class="hero-btn">Slumpa golfresa</a>
-    </div>
+  <section class="golfresor-hero">
+    <h1>Golfresa</h1>
+    <p>En lista och karta över golfbanor i Småland och på Öland för att lätt hitta den som passar dig.</p>
   </section>
 
   <main id="planner" class="planner-layout">
 
     <aside class="filter-box">
-      <h2>Planera golfresa</h2>
+      <h2>Planera din runda</h2>
 
-      <p>Välj vilken typ av golfdag du vill ha.</p>
+      <label for="start">Startplats</label>
+      <input id="start" type="text" placeholder="Valfritt">
 
-      <label>Typ av resa</label>
 
-      <label class="check-option">
-        <input type="checkbox" value="budget">
-        Billigare golfdag
-      </label>
-      
-      <label class="check-option">
-        <input type="checkbox" value="training">
-        Träning
-      </label>
-      
-      <label class="check-option">
-        <input type="checkbox" value="food">
-        Mat & golf
-      </label>
 
-      <label for="price">Maxpris per bana</label>
+      <label for="price">Max pris green fee</label>
 
       <div class="price-wrapper">
         <div class="price-current">
-          <span id="price-value">1000 kr</span>
+          <span id="price-value">0 kr</span>
         </div>
 
-        <input id="price" type="range" min="0" max="1500" value="1000" step="50">
+        <input id="price" type="range" min="0" max="1500" value="0" step="50">
 
         <div class="price-labels">
           <span>0 kr</span>
-          <span>1500kr</span>
+          <span>1500 kr</span>
         </div>
       </div>
 
-      <label for="courseCount">Antal banor</label>
-      <select id="courseCount">
-        <option value="2">2 banor</option>
-        <option value="3" selected>3 banor</option>
-        <option value="4">4 banor</option>
+      <label for="distance">Max avstånd</label>
+
+      <div class="price-wrapper">
+        <div class="price-current">
+          <span id="distance-value">Alla avstånd</span>
+        </div>
+
+        <input id="distance" type="range" min="0" max="100" value="100" step="5">
+
+        <div class="price-labels">
+          <span> 0 km </span>
+          <span>Alla</span>
+        </div>
+      </div>
+
+
+
+      <label for="players">Antal spelare</label>
+      <select id="players">
+        <option value="1" selected>1 spelare</option>
+        <option value="2">2 spelare</option>
+        <option value="3">3 spelare</option>
+        <option value="4">4 spelare</option>
+        <option value="5">5 spelare</option>
+        <option value="6">6 spelare</option>
+        <option value="7">7 spelare</option>
+        <option value="8">8 spelare</option>
+        <option value="9">9 spelare</option>
+        <option value="10">10 spelare</option>
       </select>
 
-      <button class="generate-btn" type="button"> Skapa resa</button>
+      <label for="holes">Antal hål</label>
+      <select id="holes">
+        <option value="all" selected>Alla</option>
+        <option value="9">9 hål</option>
+        <option value="12">12 hål</option>
+        <option value="18">18 hål</option>
+      </select>
 
-      </aside>
+      <label>Tillgång</label>
 
-      <section class="route-section">
-        <div class="map-box">
-          <h2>Din golfresa</h2>
-          <p id="trip-summary">
-            Välj typ av resa och klicka på knappen.
-          </p>
+      <label class="check-option">
+        <input type="checkbox" value="Restaurang">Restaurang</label>
 
-          <div id="map"></div>
-          <div id="resultat"></div>
+      <label class="check-option">
+        <input type="checkbox" value="Kiosk"> Kiosk
+      </label>
+
+      <label class="check-option">
+        <input type="checkbox" value="Driving_range"> Driving range </label>
+
+      <label class="check-option">
+        <input type="checkbox" value="Putting_green"> Putting green
+      </label>
+
+      <label class="check-option">
+        <input type="checkbox" value="Laddplats"> Laddplats</label>
+
+      <button class="generate-btn" type="button">Generera golfutflykt</button>
+    </aside>
+
+    <section class="route-section">
+      <div class="map-box">
+        <h2>Din Golfjakt</h2>
+        <p>Här visas din golfresa när du har valt dina önskemål.</p>
+
+        <div id="map"></div>
+        <div class="map-info">
+          <span>Golfbanor som passar dig</span>
         </div>
-      </section>
+
+        <p id="trip-summary"></p>
+        <div id="resultat"></div>
+
+    </section>
 
   </main>
 

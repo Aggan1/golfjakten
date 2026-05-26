@@ -13,11 +13,19 @@
 
 <body>
     <header class="toppbar">
+        <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle">
+
         <a href="index.html" class="logo">GOLFJAKTEN</a>
+
+        <label for="mobile-menu-toggle" class="mobile-menu-button">
+            <img src="images/ikoner/meny.svg" class="menu-icon" alt="Öppna meny">
+            <img src="images/ikoner/x.svg" class="close-icon" alt="Stäng meny">
+        </label>
 
         <nav class="nav">
             <a href="golfbanor.html" class="active">Golfbanor</a>
             <a href="favoriter.html">Favoriter</a>
+            <a href="Golfresor.html" class="mobile-nav-button">Planera golfresa</a>
         </nav>
 
         <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
@@ -26,7 +34,7 @@
     <main class="golfbanor-sida">
         <section class="golfbanor-hero">
             <h1>Golfbanor</h1>
-            <p>En lista och karta för alla golfbanor i småland och öland för att lätt hitta den som passar dig </p>
+            <p>En lista och karta över golfbanor i Småland och på Öland för att lätt hitta den som passar dig.</p>
         </section>
 
         <section class="golfbanor-top">
@@ -76,45 +84,77 @@
 
                 <h3>Faciliteter</h3>
 
-                <label class="check-rad">
-                    <input type="checkbox" id="drivingRange">
-                    Driving range
-                </label>
+                <div class="filter-checks">
+                    <label class="check-rad">
+                        <input type="checkbox" id="drivingRange">
+                        Driving range
+                    </label>
 
-                <label class="check-rad">
-                    <input type="checkbox" id="restaurant">
-                    Restaurang
-                </label>
+                    <label class="check-rad">
+                        <input type="checkbox" id="restaurant">
+                        Restaurang
+                    </label>
 
-                <label class="check-rad">
-                    <input type="checkbox" id="kiosk">
-                    Kiosk
-                </label>
+                    <label class="check-rad">
+                        <input type="checkbox" id="kiosk">
+                        Kiosk
+                    </label>
 
-                <label class="check-rad">
-                    <input type="checkbox" id="chargingStation">
-                    Laddplats
-                </label>
+                    <label class="check-rad">
+                        <input type="checkbox" id="chargingStation">
+                        Laddplats
+                    </label>
 
-                <label class="check-rad">
-                    <input type="checkbox" id="puttingGreen">
-                    Putting green
-                </label>
+                    <label class="check-rad">
+                        <input type="checkbox" id="puttingGreen">
+                        Putting green
+                    </label>
+                </div>
+
+                <button id="showResultsButton" class="results-button" type="button">Visa resultat</button>
             </aside>
 
             <section class="lista-section">
+                <p class="mobile-list-title">Golfbanor (<span id="antal-golfbanor-mobile">0</span>)</p>
                 <div id="golf-list"></div>
             </section>
 
             <section class="karta-section">
                 <div id="map"></div>
+
+                <div class="mobile-actions">
+                    <div class="mobile-actions-buttons">
+                        <button id="openFilter" class="mobile-action-btn" type="button">
+                            Filtrera
+                        </button>
+
+                        <button id="openSort" class="mobile-action-btn" type="button">
+                            Sortera
+                        </button>
+                    </div>
+                </div>
+
                 <div id="golf-detaljer" class="golf-popup"></div>
             </section>
+        </section>
+
+        <div id="mobileOverlay" class="mobile-overlay"></div>
+
+        <section class="golfbanor-tips">
+            <div class="golfbanor-tips-left">
+                <img src="images/ikoner/i.svg" alt="Info ikon">
+
+                <div class="golfbanor-tips-text">
+                    <h3>Tips! Planera din nästa golfresa</h3>
+                    <p>Spara dina favoritbanor och skapa en golfutflykt som passar dina önskemål.</p>
+                </div>
+            </div>
+
+            <a href="Golfresor.html">Planera resa</a>
         </section>
     </main>
 
     <footer class="footer">
-
         <div class="footer-logo">
             <h2>GOLFJAKTEN</h2>
             <p>Golfupplevelser i Småland och på Öland.</p>
@@ -124,7 +164,7 @@
             <h4>NAVIGATION</h4>
             <a href="golfbanor.html">Golfbanor</a>
             <a href="Golfresor.html">Golfresor</a>
-            <a href="">Favoriter</a>
+            <a href="favoriter.html">Favoriter</a>
             <a href="om.html">Om oss</a>
             <a href="kontakt.html">Kontakt</a>
         </div>
@@ -132,11 +172,10 @@
         <div class="footer-kontakt">
             <h4>KONTAKT</h4>
 
-            <p> Tele: 070 - 123 45 67</p>
-            <p> Mail: info@golfjakten.se</p>
-            <p> Vart: Småland & Öland, Sverige</p>
+            <p>Tele: 070 - 123 45 67</p>
+            <p>Mail: info@golfjakten.se</p>
+            <p>Vart: Småland & Öland, Sverige</p>
         </div>
-
     </footer>
 
     <div class="footer-bottom">
