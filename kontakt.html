@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt | GOLFJAKTEN</title>
+
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="kontakt.css">
+  <script src="js/kontakt.js" defer></script>
 </head>
 
 <body>
@@ -21,15 +23,12 @@
   </header>
 
   <main class="kontakt-sida">
-
     <section class="kontakt-namn">
       <h1>Kontakt</h1>
-      <p></p>
-      
+      <p>Vi hjälper dig ifall du har frågor, hör av dig via formuläret nedan.</p>
     </section>
 
     <section class="kontakt">
-
       <div class="kontakt-info">
         <h2>Kontakta oss</h2>
         <p>
@@ -66,24 +65,28 @@
         <h2>Skicka ett meddelande</h2>
 
         <div class="input-row">
-          <input type="text" placeholder="Namn">
-          <input type="text" placeholder="Ämne">
+          <input type="text" placeholder="Namn" required>
+          <input type="text" placeholder="Ämne" required>
         </div>
 
-        <input type="email" placeholder="E-post">
-        <textarea placeholder="Meddelande"></textarea>
+        <input type="email" placeholder="E-post" required>
+        <textarea placeholder="Meddelande" required></textarea>
 
-        <button type="submit">Skicka meddelande</button>
+        <div class="button-rad">
+          <button type="submit">Skicka meddelande</button>
+          <span class="popup-meddelande" id="popupMeddelande">Ditt meddelande har skickats!</span>
+        </div>
+
       </form>
 
     </section>
 
     <section class="fragor-section">
-      <p class="vanliga-fragor">FAQ</p>
-      <h2>Vanliga frågor</h2>
+      <div class="fragor-header">
+        <p class="vanliga-fragor">Vanliga frågor</p>
+      </div>
 
       <div class="fragor">
-
         <details>
           <summary>Hur hittar jag golfbanor?</summary>
           <p>Du kan använda sidan Golfbanor för att filtrera efter område, pris, antal hål och faciliteter.</p>
@@ -103,10 +106,8 @@
           <summary>Kan jag planera en golfresa?</summary>
           <p>Ja, via sidan Planera golfresa kan du skapa en resa baserad på dina val och önskemål.</p>
         </details>
-
       </div>
     </section>
-
   </main>
 
   <footer class="footer">
