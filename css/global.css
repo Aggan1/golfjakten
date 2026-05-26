@@ -145,7 +145,7 @@ h3 {
 }
 
 .footer-logo {
-    text-align: left;
+    text-align: center;
 }
 
 .footer-logo h2 {
@@ -210,6 +210,18 @@ h3 {
 .footer-bottom p {
     font-size: 12px;
     color: #7b8268;
+}
+
+.footer-kontakt-del {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-kontakt-del img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
 }
 
 /* Mobil */
