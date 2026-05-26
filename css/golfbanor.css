@@ -402,7 +402,7 @@
     justify-content: space-between;
 }
 
-.golfbanor-tips-left {
+.golfbanor-tips-gap {
     display: flex;
     align-items: center;
     gap: 18px;
@@ -867,7 +867,7 @@
         border-radius: 14px;
     }
 
-    .golfbanor-tips-left {
+    .golfbanor-tips-gap {
         gap: 14px;
     }
 

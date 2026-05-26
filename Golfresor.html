@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GOLFJAKTEN</title>
+  <title>Planera Golfresa | Golfjakten</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
   <link rel="stylesheet" href="css/global.css">
@@ -15,7 +15,7 @@
 
 <body>
   <header class="toppbar">
-    <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle">
+    <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Öppna meny">
 
     <a href="index.html" class="logo">GOLFJAKTEN</a>
 
@@ -142,35 +142,48 @@
   </main>
 
   <footer class="footer">
-
     <div class="footer-logo">
       <h2>GOLFJAKTEN</h2>
       <p>Golfupplevelser i Småland och på Öland.</p>
     </div>
 
-    <div class="footer-links">
-      <h4>NAVIGATION</h4>
-      <a href="golfbanor.html">Golfbanor</a>
-      <a href="Golfresor.html">Golfresor</a>
-      <a href="">Favoriter</a>
-      <a href="om.html">Om oss</a>
-      <a href="kontakt.html">Kontakt</a>
-    </div>
+    <div class="footer-social">
+      <h4>FÖLJ OSS</h4>
 
-    <div class="footer-kontakt">
-      <h4>KONTAKT</h4>
+      <div class="footer-social-icons">
+        <a href="#" aria-label="Instagram">
+                    <img src="images/ikoner/instagram.svg" alt="Instagram ikon">
+                </a>
 
-      <p> Tele: 070 - 123 45 67</p>
-      <p> Mail: info@golfjakten.se</p>
-      <p> Vart: Småland & Öland, Sverige</p>
-    </div>
+                <a href="#" aria-label="Facebook">
+                    <img src="images/ikoner/facebook.svg" alt="Facebook ikon">
+                </a>
+            </div>
+        </div>
 
-  </footer>
+        <div class="footer-kontakt">
+            <h4>KONTAKT</h4>
+
+            <div class="footer-kontakt-del">
+                <img src="images/ikoner/phone.svg" alt="Telefon ikon">
+                <p>070 - 123 45 67</p>
+            </div>
+
+            <div class="footer-kontakt-del">
+                <img src="images/ikoner/mail.svg" alt="Mejl ikon">
+                <p>info@golfjakten.se</p>
+            </div>
+
+            <div class="footer-kontakt-del">
+                <img src="images/ikoner/gps.svg" alt="Gps pin ikon">
+                <p>Linnéuniversitetet i Växjö, Sverige</p>
+            </div>
+        </div>
+    </footer>
 
   <div class="footer-bottom">
-    <p>© 2026 Golfjakten</p>
+    <p>© 2026 Golfjakten · <a href="om.html">Om oss</a></p>
   </div>
-
 </body>
 
 </html>
