@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GOLFJAKTEN</title>
+  <title>Golfresor | Golfjakten</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
   <link rel="stylesheet" href="css/global.css">
@@ -15,11 +15,19 @@
 
 <body>
   <header class="toppbar">
+    <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Öppna meny">
+
     <a href="index.html" class="logo">GOLFJAKTEN</a>
+
+    <label for="mobile-menu-toggle" class="mobile-menu-button">
+      <img src="images/ikoner/meny.svg" class="menu-icon" alt="Öppna meny">
+      <img src="images/ikoner/x.svg" class="close-icon" alt="Stäng meny">
+    </label>
 
     <nav class="nav">
       <a href="golfbanor.html">Golfbanor</a>
       <a href="favoriter.html">Favoriter</a>
+      <a href="Golfresor.html" class="mobile-nav-button">Planera golfresa</a>
     </nav>
 
     <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
@@ -38,8 +46,17 @@
     <aside class="filter-box">
       <h2>Planera din runda</h2>
 
-      <label for="start">Startplats eller hemmaklubb</label>
-      <input id="start" type="text" value="Växjö GK">
+      <label for="start">Startplats</label>
+      <input id="start" type="text" placeholder="Ex. Växjö">
+      
+      <label for="time">Max restid med bil</label>
+      <select id="time">
+        <option value="60" selected>1 timme</option>
+        <option value="120">2 timmar</option>
+        <option value="180">3 timmar</option>
+        <option value="240">4 timmar</option>
+        <option value="300">5 timmar</option>
+      </select>
 
       <label for="price">Max pris green fee</label>
 
@@ -56,14 +73,22 @@
         </div>
       </div>
 
-      <label for="time">Max avstånd max restid</label>
-      <select id="time">
-        <option value="1" selected>1 timme</option>
-        <option value="2">2 timmar</option>
-        <option value="3">3 timmar</option>
-        <option value="4">4 timmar</option>
-        <option value="5">5 timmar</option>
-      </select>
+      <label for="distance">Max avstånd</label>
+
+      <div class="price-wrapper">
+        <div class="price-current">
+          <span id="distance-value">Alla avstånd</span>
+        </div>
+
+        <input id="distance" type="range" min="0" max="100" value="100" step="5">
+
+        <div class="price-labels">
+          <span> 0 km </span>
+          <span>Alla</span>
+        </div>
+      </div>
+
+     
 
       <label for="players">Antal spelare</label>
       <select id="players">
@@ -82,7 +107,7 @@
       <label>Tillgång</label>
 
       <label class="check-option">
-        <input type="checkbox" value="restaurang">Restaurang</label>
+        <input type="checkbox" value="Restaurang">Restaurang</label>
 
       <label class="check-option">
         <input type="checkbox" value="Kiosk"> Kiosk
@@ -98,9 +123,6 @@
       <label class="check-option">
         <input type="checkbox" value="Laddplats"> Laddplats</label>
 
-      <label for="date">Önskat datum</label>
-      <input id="date" type="date">
-
       <button class="generate-btn" type="button">Generera golfutflykt</button>
     </aside>
 
@@ -108,10 +130,18 @@
       <div class="map-box">
         <h2>Din planerade rutt baserat på dina krav</h2>
         <p>Här visas din golfresa när du har valt dina önskemål.</p>
-
+        
         <div id="map"></div>
-        <div id="resultat"></div>
-      </div>
+        <div class="map-info">
+          <span>Start</span>
+          <span>Golfbana</span>
+          <span>Stopp</span>
+          <span>Rutt</span>
+        </div>
+
+      <p id="trip-summary"></p>
+      <div id="resultat"></div>
+      
     </section>
 
   </main>
@@ -132,15 +162,22 @@
       <a href="kontakt.html">Kontakt</a>
     </div>
 
-    <div class="footer-kontakt">
-      <h4>KONTAKT</h4>
-
-      <p> Tele: 070 - 123 45 67</p>
-      <p> Mail: info@golfjakten.se</p>
-      <p> Vart: Småland & Öland, Sverige</p>
-    </div>
-
-  </footer>
+        <div class="footer-kontakt">
+            <h4>KONTAKT</h4>
+            <div class="footer-kontakt-del">
+                <img src="images/ikoner/phone.svg" alt="Telefon ikon">
+                <p>070 - 123 45 67</p>
+            </div>
+            <div class="footer-kontakt-del">
+                <img src="images/ikoner/mail.svg" alt="Mail ikon">
+                <p>info@golfjakten.se</p>
+            </div>
+            <div class="footer-kontakt-del">
+                <img src="images/ikoner/gps.svg" alt="Gps pin ikon">
+                <p>Linnéuniversitetet i Växjö, Sverige</p>
+            </div>
+        </div>
+    </footer>
 
   <div class="footer-bottom">
     <p>© 2026 Golfjakten</p>

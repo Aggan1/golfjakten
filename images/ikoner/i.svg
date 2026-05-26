@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Lager_3" data-name="Lager 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #68714b;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="8.99" y="19.65" width="6.02" height=".81" rx=".24" ry=".24"/>
+  <rect class="cls-1" x="10.14" y="21.33" width="3.72" height=".81" rx=".24" ry=".24"/>
+  <rect class="cls-1" x="2.74" y="10.79" width="2.53" height=".81" rx=".24" ry=".24"/>
+  <rect class="cls-1" x="3.81" y="6.78" width="2.53" height=".81" rx=".24" ry=".24" transform="translate(4.76 -1.61) rotate(33.19)"/>
+  <rect class="cls-1" x="6.73" y="3.84" width="2.53" height=".81" rx=".24" ry=".24" transform="translate(7.31 -4.78) rotate(57.76)"/>
+  <rect class="cls-1" x="10.73" y="2.78" width="2.53" height=".81" rx=".24" ry=".24" transform="translate(15.17 -8.81) rotate(90)"/>
+  <rect class="cls-1" x="14.74" y="3.84" width="2.53" height=".81" rx=".24" ry=".24" transform="translate(27.68 -7.51) rotate(120)"/>
+  <rect class="cls-1" x="17.67" y="6.78" width="2.53" height=".81" rx=".24" ry=".24" transform="translate(38.92 3.94) rotate(150)"/>
+  <rect class="cls-1" x="18.74" y="10.79" width="2.53" height=".81" rx=".24" ry=".24" transform="translate(40 22.39) rotate(-180)"/>
+  <rect class="cls-1" x="17.63" y="14.8" width="2.53" height=".81" rx=".24" ry=".24" transform="translate(26.39 38.27) rotate(-146.81)"/>
+  <path class="cls-1" d="M14.2,18.73l-4.37.03c-.21,0-.37-.17-.38-.38-.06-1.47-.62-2.61-1.58-3.7-1.96-2.21-1.64-5.55.43-7.49,2.11-1.97,5.39-1.91,7.46.09,2.1,2.03,2.23,5.43.18,7.62-.87.93-1.36,1.95-1.36,3.42,0,.21-.16.4-.38.4ZM13.83,17.98c.12-1.52.59-2.45,1.38-3.42,1.92-1.82,1.91-4.8.12-6.64s-4.73-1.9-6.57-.1-1.91,4.74-.09,6.65c.92.96,1.37,2.12,1.54,3.53l3.63-.02Z"/>
+  <rect class="cls-1" x="3.84" y="14.8" width="2.49" height=".81" rx=".24" ry=".24" transform="translate(-6.96 4.63) rotate(-30.23)"/>
+</svg>
