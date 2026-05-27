@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24">
+  <!-- Generator: Adobe Illustrator 30.4.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 226)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+        stroke: #68714b;
+        stroke-miterlimit: 10;
+        stroke-width: 1.77px;
+      }
+
+      .st1 {
+        fill: #68714b;
+      }
+    </style>
+  </defs>
+  <g id="Lager_1">
+    <path class="st0" d="M21.29,10.79V3.68c0-.54-.43-.97-.97-.97h-7.11c-.26,0-.51.1-.69.29L3.39,12.2c-.38.38-.38.99,0,1.37l7.03,7.03c.38.38.99.38,1.37,0l9.21-9.13c.18-.18.29-.43.29-.69Z"/>
+    <circle class="st1" cx="18.37" cy="5.53" r=".88"/>
+  </g>
+  <g id="Lager_2">
+    <rect class="st1" x="11.07" y="6.47" width="11.32" height="1.76" rx=".88" ry=".88" transform="translate(10.09 -9.67) rotate(45)"/>
+  </g>
+</svg>

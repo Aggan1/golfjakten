@@ -178,6 +178,17 @@ body {
     letter-spacing: 0.08em;
 }
 
+.se-alla {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.se-alla img {
+    width: 14px;
+    height: 14px;
+}
+
 /* Upptäck golfbanor */
 .upptack {
     padding: 0 0 20px;
