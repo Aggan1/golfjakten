@@ -42,12 +42,15 @@ h3 {
 }
 
 .logo {
-    font-family: "Playfair Display", Georgia, serif;
-    font-weight: 400;
-    font-size: 1.65rem;
-    letter-spacing: 0.14em;
-    color: #68714b;
+    display: flex;
+    align-items: center;
     text-decoration: none;
+}
+
+.logo img {
+    height: 52px;
+    width: auto;
+    display: block;
 }
 
 .nav {
@@ -136,13 +139,9 @@ h3 {
     text-align: center;
 }
 
-.footer-logo h2 {
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 28px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    color: #5f6857;
-    margin-bottom: 6px;
+.footer-logo img {
+    height: 64px;
+    width: auto;
 }
 
 .footer-logo p {
@@ -237,9 +236,12 @@ h3 {
         justify-content: space-between;
     }
 
-    .logo {
-        font-size: 1.2rem;
-        letter-spacing: 0.16em;
+    .logo img {
+        height: 42px;
+    }
+
+    .footer-logo img {
+        height: 46px;
     }
 
     .header-btn {
@@ -311,25 +313,25 @@ h3 {
     }
 
     .footer {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 34px 28px 26px;
-    text-align: center;
-}
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 34px 28px 26px;
+        text-align: center;
+    }
 
-.footer-logo,
-.footer-social,
-.footer-kontakt {
-    align-items: center;
-    text-align: center;
-}
+    .footer-logo,
+    .footer-social,
+    .footer-kontakt {
+        align-items: center;
+        text-align: center;
+    }
 
-.footer-social h4,
-.footer-kontakt h4 {
-    font-size: 16px;
-}
+    .footer-social h4,
+    .footer-kontakt h4 {
+        font-size: 16px;
+    }
 
-.footer-kontakt-del {
-    justify-content: center;
-}
+    .footer-kontakt-del {
+        justify-content: center;
+    }
 }
