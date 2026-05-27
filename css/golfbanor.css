@@ -214,7 +214,9 @@
 
 .course-img {
     height: 76px;
-    background: linear-gradient(135deg, #68714b, #d8d0bd);
+    background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.919), rgba(216, 208, 189, 0.125)),
+        url("../images/Golfbanesidan.jpg") center/cover no-repeat;
 }
 
 .course-info {

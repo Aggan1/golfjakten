@@ -57,7 +57,9 @@
 .detalj-bild {
     height: 330px;
     margin-top: -8px;
-    background: linear-gradient(135deg, #68714b, #d8d0bd);
+    background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.436), rgba(216, 208, 189, 0.123)),
+        url("../images/Golfbanesidan.jpg") center/cover no-repeat;
     border: 1px solid #d4cab8;
     border-radius: 10px;
 }

@@ -51,8 +51,8 @@ body {
     margin: 0;
     padding: 68px 8%;
     background:
-        linear-gradient(rgba(18, 28, 18, 0.45), rgba(18, 28, 18, 0.45)),
-        linear-gradient(135deg, #68714b, #d8d0bd);
+        linear-gradient(135deg, rgba(40, 43, 32, 0.919), rgba(216, 208, 189, 0.125)),
+        url("../images/header.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
 }
@@ -182,6 +182,7 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
+    
 }
 
 .se-alla img {
@@ -211,6 +212,7 @@ body {
     color: #2f332b;
     text-decoration: none;
     transition: 0.3s ease;
+    
 }
 
 .bana-kort:hover {
@@ -221,6 +223,34 @@ body {
     width: 100%;
     height: 112px;
     margin-bottom: 14px;
+    border-radius: 12px;
+    background-color: #d4cab8;
+    background-size: cover;
+    background-position: center;
+}
+
+.upptack-lista .bana-kort:nth-child(1) .bana-bild {
+      background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/StartsidaBanakort.jpg") center/cover no-repeat;
+}
+
+.upptack-lista .bana-kort:nth-child(2) .bana-bild {
+      background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/StartsidaBanakort2.jpg") center/cover no-repeat;
+}
+
+.upptack-lista .bana-kort:nth-child(3) .bana-bild {
+      background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/StartsidaBanakort3.jpg") center/cover no-repeat;
+}
+
+.upptack-lista .bana-kort:nth-child(4) .bana-bild {
+      background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/StartsidaBanakort4.jpg") center/cover no-repeat;
 }
 
 .bana-kort h3 {
@@ -291,6 +321,9 @@ body {
 .planera-bild {
     min-height: 310px;
     border-left: 1px solid rgba(244, 240, 232, 0.35);
+        background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/OmOss.jpg") center/cover no-repeat;
 }
 
 /* Om Golfjakten sektion */
@@ -330,6 +363,9 @@ body {
     min-height: 300px;
     height: 100%;
     border-right: 1px solid #d4cab8;
+    background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/GolfresaStartsida.jpg") center/cover no-repeat;
 }
 
 /* Mellan skärmar */
