@@ -1,0 +1,341 @@
+.detalj-sida {
+    background-color: #f3efe7;
+    color: #2f332b;
+    padding: 28px 42px 40px;
+}
+
+/* Tillbaka länk */
+.tillbaka {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+    color: #504d43;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+}
+
+.tillbaka img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Hero */
+.detalj-hero {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 42px;
+    align-items: start;
+    margin-bottom: 34px;
+}
+
+.detalj-info {
+    padding-top: 44px;
+}
+
+.detalj-info h1 {
+    font-size: 2.6rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.detalj-plats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #504d43;
+    margin-bottom: 28px;
+}
+
+.detalj-plats img {
+    width: 18px;
+    height: 18px;
+}
+
+.detalj-bild {
+    height: 330px;
+    margin-top: -8px;
+    background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.436), rgba(216, 208, 189, 0.123)),
+        url("../images/Golfbanesidan.jpg") center/cover no-repeat;
+    border: 1px solid #d4cab8;
+    border-radius: 10px;
+}
+
+/* Knappar */
+.detalj-knappar,
+.detalj-knappar-mobile {
+    display: flex;
+    gap: 14px;
+}
+
+.detalj-knappar-mobile {
+    display: none;
+}
+
+.detalj-knappar a,
+.detalj-knappar button,
+.detalj-knappar-mobile a,
+.detalj-knappar-mobile button {
+    padding: 15px 28px;
+    border: 1px solid #68714b;
+    background-color: transparent;
+    color: #2f332b;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.detalj-knappar .primary,
+.detalj-knappar-mobile .primary {
+    background-color: #68714b;
+    color: #f4f0e8;
+}
+
+.detalj-knappar a:hover,
+.detalj-knappar button:hover,
+.detalj-knappar-mobile a:hover,
+.detalj-knappar-mobile button:hover {
+    background-color: #ebe5da;
+}
+
+.detalj-knappar .primary:hover,
+.detalj-knappar-mobile .primary:hover {
+    background-color: #374332;
+}
+
+.detalj-favorit.saved {
+    background-color: #68714b;
+    color: #f4f0e8;
+}
+
+/* Snabb info rutor */
+.detalj-info-rutor {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 34px;
+}
+
+.info-ruta {
+    padding: 20px;
+    border: 1px solid #d4cab8;
+    background-color: #f4f0e8;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.info-ruta img {
+    width: 30px;
+    height: 30px;
+}
+
+.info-ruta h3 {
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #68714b;
+    margin-bottom: 6px;
+}
+
+.info-ruta p {
+    font-size: 0.9rem;
+}
+
+/* Om banan och faciliteter */
+.detalj-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 34px;
+    border-top: 1px solid #d4cab8;
+    padding-top: 28px;
+    margin-bottom: 28px;
+}
+
+.detalj-box h2 {
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.detalj-box h2::after {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 1px;
+    background-color: #68714b;
+    margin-top: 10px;
+}
+
+.detalj-box p {
+    font-size: 0.9rem;
+    color: #504d43;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.faciliteter-lista {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 18px;
+    max-width: 520px;
+}
+
+.facilitet {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.facilitet img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Tillgänglighet */
+.tillbaka:focus-visible,
+.detalj-knappar a:focus-visible,
+.detalj-knappar button:focus-visible,
+.detalj-knappar-mobile a:focus-visible,
+.detalj-knappar-mobile button:focus-visible {
+    outline: 2px solid #68714b;
+    outline-offset: 3px;
+}
+
+/* Mobil */
+@media (max-width: 700px) {
+    .detalj-sida {
+        padding: 22px 18px 28px;
+    }
+
+    .tillbaka {
+        margin-bottom: 20px;
+        font-size: 0.8rem;
+    }
+
+    .tillbaka img {
+        width: 13px;
+        height: 13px;
+    }
+
+    .detalj-hero {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        align-items: stretch;
+        margin-bottom: 14px;
+    }
+
+    .detalj-info {
+        padding-top: 0;
+    }
+
+    .detalj-info h1 {
+        font-size: 1.45rem;
+        margin-bottom: 10px;
+    }
+
+    .detalj-plats {
+        margin-bottom: 0;
+        font-size: 0.85rem;
+    }
+
+    .detalj-plats img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .detalj-bild {
+        order: 2;
+        height: 190px;
+        margin-top: 0;
+    }
+
+    .detalj-knappar {
+        display: none;
+    }
+
+    .detalj-info-rutor {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        border: 1px solid #d4cab8;
+        background-color: #f4f0e8;
+        margin-bottom: 12px;
+    }
+
+    .info-ruta {
+        padding: 14px 8px;
+        border: none;
+        border-right: 1px solid #d4cab8;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .info-ruta:nth-child(3) {
+        border-right: none;
+    }
+
+    .info-ruta:nth-child(4) {
+        display: none;
+    }
+
+    .info-ruta img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .info-ruta h3 {
+        display: none;
+    }
+
+    .info-ruta p {
+        font-size: 0.75rem;
+    }
+
+    .detalj-knappar-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+
+    .detalj-knappar-mobile a,
+    .detalj-knappar-mobile button {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        font-size: 0.72rem;
+    }
+
+    .detalj-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-top: 24px;
+    }
+
+    .detalj-box h2 {
+        font-size: 1.15rem;
+    }
+
+    .detalj-box p {
+        font-size: 0.85rem;
+    }
+
+    .faciliteter-lista {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 14px;
+    }
+
+    .facilitet {
+        font-size: 0.8rem;
+    }
+}

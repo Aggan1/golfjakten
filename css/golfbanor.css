@@ -1,9 +1,11 @@
 .golfbanor-sida {
     background-color: #f3efe7;
     color: #2f332b;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Hero sektion */
+/* Herodelen överst rubrik och underrubrik */
 .golfbanor-hero {
     padding: 24px 42px 18px;
 }
@@ -21,19 +23,11 @@
     color: #555348;
 }
 
-/* Layout */
-.golfbanor-layout {
-    display: grid;
-    grid-template-columns: 285px 1.15fr 38%;
-    gap: 18px;
-    padding: 0 42px 28px;
-}
-
-/* Sortering och antal */
+/* Antal och sortering under hero */
 .golfbanor-top {
     display: grid;
     grid-template-columns: 315px 1.15fr 38%;
-    gap: 18px;
+    gap: 8px;
     padding: 0 42px 14px;
     align-items: center;
 }
@@ -52,7 +46,8 @@
     padding-right: 12px;
 }
 
-.sortering label {
+.sortering label,
+.sortering select {
     font-size: 0.75rem;
     text-transform: uppercase;
     color: #504d43;
@@ -61,13 +56,19 @@
 .sortering select {
     background-color: transparent;
     border: none;
-    color: #504d43;
-    font-size: 0.75rem;
-    text-transform: uppercase;
     cursor: pointer;
 }
 
-/* Filter delen */
+/* Layout */
+.golfbanor-layout {
+    display: grid;
+    grid-template-columns: 285px 1.15fr 38%;
+    column-gap: 14px;
+    row-gap: 0;
+    padding: 0 42px 22px;
+}
+
+/* Filter */
 .filter {
     height: 470px;
     padding: 18px 20px;
@@ -142,6 +143,10 @@
     margin-top: 8px;
 }
 
+.filter-checks {
+    display: contents;
+}
+
 .check-rad {
     display: flex;
     align-items: center;
@@ -161,12 +166,6 @@
 }
 
 /* Lista */
-#golf-list {
-    display: flex;
-    flex-direction: column;
-    border-top: none;
-}
-
 .lista-section {
     height: 470px;
     border: 1px solid #c8bfaf;
@@ -187,13 +186,16 @@
     background-color: #bdb4a5;
 }
 
+#golf-list {
+    display: flex;
+    flex-direction: column;
+    border-top: none;
+}
+
 .golf-card {
     min-height: 104px;
     padding: 10px;
     border-bottom: 1px solid #c8bfaf;
-    border-left: none;
-    border-right: none;
-    border-top: none;
     display: grid;
     grid-template-columns: 145px 1fr 30px;
     gap: 18px;
@@ -212,7 +214,9 @@
 
 .course-img {
     height: 76px;
-    background: linear-gradient(135deg, #68714b, #d8d0bd);
+    background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.919), rgba(216, 208, 189, 0.125)),
+        url("../images/Golfbanesidan.jpg") center/cover no-repeat;
 }
 
 .course-info {
@@ -235,16 +239,27 @@
     margin: 2px 0;
 }
 
-.course-arrow {
-    font-size: 1.8rem;
-    color: #68714b;
+.favorite-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.45;
+}
+
+.favorite-button img {
+    width: 22px;
+    height: 22px;
+}
+
+.favorite-button.saved {
+    opacity: 1;
 }
 
 /* Karta */
 .karta-section {
     position: relative;
     border-left: 1px solid #c8bfaf;
-    padding-left: 28px;
+    padding-left: 14px;
     margin-top: -130px;
 }
 
@@ -254,6 +269,16 @@
     background-color: #e6e1d6;
 }
 
+.golf-marker {
+    width: 18px;
+    height: 18px;
+    background-color: #68714b;
+    border: 2px solid #f3efe7;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Popup */
 .golf-popup {
     display: none;
     position: absolute;
@@ -284,19 +309,19 @@
     margin-bottom: 6px;
 }
 
+.golf-popup p {
+    font-size: 0.9rem;
+    color: #504d43;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
 .close-popup {
     background: none;
     border: none;
     font-size: 1.5rem;
     color: #504d43;
     cursor: pointer;
-}
-
-.golf-popup p {
-    font-size: 0.9rem;
-    color: #504d43;
-    line-height: 1.5;
-    margin-bottom: 8px;
 }
 
 .popup-info {
@@ -342,17 +367,87 @@
     color: white;
 }
 
-/* Kartmarkörer */
-.golf-marker {
-    width: 18px;
-    height: 18px;
-    background-color: #68714b;
-    border: 2px solid #f3efe7;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+.popup-save {
+    margin-top: 12px;
 }
 
-/* Responsiv */
+.popup-favorite-button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #68714b;
+    background-color: transparent;
+    color: #2f332b;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.popup-favorite-button:hover {
+    background-color: #ebe5da;
+}
+
+.popup-favorite-button.saved {
+    background-color: #68714b;
+    color: #f4f0e8;
+}
+
+/* Tipsruta */
+.golfbanor-tips {
+    width: 82%;
+    margin: 2px auto 26px;
+    padding: 18px 26px;
+    border: 1px solid #d4cab8;
+    background-color: #f4f0e8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.golfbanor-tips-gap {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.golfbanor-tips img {
+    width: 38px;
+    height: 38px;
+}
+
+.golfbanor-tips-text h3 {
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.golfbanor-tips-text p {
+    font-size: 0.85rem;
+    color: #5a574d;
+}
+
+.golfbanor-tips a {
+    min-width: 150px;
+    padding: 12px 18px;
+    background-color: #68714b;
+    border: 1px solid #68714b;
+    color: #f4f0e8;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+}
+
+/* Saker som bara används på mobil */
+.mobile-actions,
+.mobile-list-title,
+.mobile-overlay,
+.results-button {
+    display: none;
+}
+
+/* Skärmanpassning (medelstora) */
 @media (max-width: 1100px) {
     .golfbanor-layout {
         grid-template-columns: 1fr;
@@ -385,5 +480,414 @@
         position: static;
         width: auto;
         margin-top: 16px;
+    }
+}
+
+/* Mobilanpassning */
+@media (max-width: 700px) {
+    .golfbanor-hero {
+        padding: 26px 24px 18px;
+        text-align: center;
+    }
+
+    .golfbanor-hero h1 {
+        font-size: 1.9rem;
+        margin-bottom: 12px;
+    }
+
+    .golfbanor-hero p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        max-width: 330px;
+        margin: 0 auto;
+    }
+
+    .golfbanor-top {
+        height: 0;
+        padding: 0;
+    }
+
+    .golfbanor-top p {
+        display: none;
+    }
+
+    .golfbanor-layout {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .karta-section {
+        order: 1;
+        margin-top: 0;
+        padding-left: 0;
+        border-left: none;
+    }
+
+    #map {
+        height: 330px;
+        border: none;
+        margin: 0 10px;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .mobile-actions {
+        display: block;
+        position: relative;
+        z-index: 600;
+        margin: 0 10px;
+        padding: 10px;
+        background-color: #f4f0e8;
+        border: 1px solid #d8cfbe;
+        border-top: none;
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 6px 16px rgba(47, 51, 43, 0.12);
+    }
+
+    .mobile-actions-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .mobile-action-btn {
+        height: 36px;
+        border: 1px solid #68714b;
+        background-color: transparent;
+        color: #25301f;
+        font-size: 0.64rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        border-radius: 7px;
+    }
+
+    .filter {
+        display: none;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 5000;
+        height: auto;
+        max-height: 92vh;
+        margin: 0;
+        padding: 34px 24px 24px;
+        overflow-y: auto;
+        background-color: #f4f0e8;
+        border-radius: 24px 24px 0 0;
+        box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .filter.visible {
+        display: flex;
+    }
+
+    .filter-top {
+        margin-bottom: 18px;
+    }
+
+    .filter h2 {
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+    }
+
+    .reset-filter {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+    }
+
+    .filter::before,
+    .sortering::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        width: 48px;
+        height: 5px;
+        background-color: #c8bfaf;
+        border-radius: 10px;
+        transform: translateX(-50%);
+    }
+
+    .filter label,
+    .filter h3 {
+        margin-top: 14px;
+        margin-bottom: 8px;
+        font-size: 0.76rem;
+    }
+
+    .filter h3 {
+        margin-top: 22px;
+    }
+
+    .filter input[type="text"],
+    .filter select {
+        min-height: 48px;
+        padding: 12px 14px;
+        border: 1px solid #d3cab9;
+        border-radius: 8px;
+        background-color: #f7f3eb;
+        font-size: 0.92rem;
+    }
+
+    .filter input[type="range"] {
+        margin-top: 12px;
+        height: 5px;
+    }
+
+    .pris-rad {
+        margin-bottom: 4px;
+        font-size: 0.9rem;
+    }
+
+    .filter-checks {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px 14px;
+    }
+
+    .filter .check-rad {
+        margin: 0;
+        font-size: 0.9rem;
+        text-transform: none;
+    }
+
+    .filter .check-rad input {
+        width: 20px;
+        height: 20px;
+    }
+
+    .results-button {
+        display: block;
+        flex: none;
+        width: 100%;
+        min-height: 58px;
+        margin-top: 24px;
+        border: none;
+        border-radius: 8px;
+        background-color: #68714b;
+        color: #f4f0e8;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    .sortering {
+        display: none;
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        left: 18px;
+        z-index: 5000;
+        padding: 34px 22px 22px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        background-color: #f4f0e8;
+        border: 1px solid #d8cfbe;
+        border-radius: 24px;
+        box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .sortering.visible {
+        display: flex;
+    }
+
+    .sortering label {
+        font-size: 0.78rem;
+    }
+
+    .sortering select {
+        min-height: 48px;
+        padding: 0 12px;
+        border: 1px solid #d3cab9;
+        border-radius: 8px;
+        background-color: #f4f0e8;
+        font-size: 0.9rem;
+    }
+
+    .mobile-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 4900;
+        background-color: rgba(20, 23, 18, 0.48);
+    }
+
+    .mobile-overlay.visible {
+        display: block;
+    }
+
+    .golf-popup {
+        position: static;
+        width: auto;
+        max-height: none;
+        overflow: visible;
+        margin: 16px 18px 0;
+        padding: 18px;
+        z-index: 1;
+        background-color: #f4f0e8;
+        border-radius: 16px;
+        box-shadow: 0 3px 10px rgba(47, 51, 43, 0.1);
+    }
+
+    .golf-popup h3 {
+        font-size: 1rem;
+        margin-bottom: 4px;
+    }
+
+    .golf-popup p {
+        font-size: 0.76rem;
+        line-height: 1.4;
+    }
+
+    .popup-info {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0;
+        font-size: 0.75rem;
+        margin: 12px 0;
+    }
+
+    .popup-info span {
+        padding-right: 8px;
+        border-right: 1px solid #d8cfbe;
+    }
+
+    .popup-info span + span {
+        padding-left: 12px;
+    }
+
+    .popup-info span:last-child {
+        border-right: none;
+    }
+
+    .popup-facilities {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px 10px;
+        font-size: 0.75rem;
+    }
+
+    .popup-buttons {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .popup-buttons a,
+    .popup-buttons button,
+    .popup-favorite-button {
+        padding: 10px;
+        font-size: 0.68rem;
+    }
+
+    .lista-section {
+        order: 2;
+        height: 430px;
+        margin: 16px 10px 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid #d8cfbe;
+        border-radius: 16px;
+        background-color: #f4f0e8;
+    }
+
+    .mobile-list-title {
+        display: block;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        padding: 12px 14px 8px;
+        background-color: #f4f0e8;
+        color: #504d43;
+        font-family: Arial, sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+
+    #golf-list {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;
+        border: none;
+        background-color: #f4f0e8;
+    }
+
+    .golf-card {
+        min-height: 98px;
+        padding: 10px 14px;
+        grid-template-columns: 74px minmax(0, 1fr) 28px;
+        gap: 12px;
+        background-color: #f4f0e8;
+    }
+
+    .course-img {
+        height: 74px;
+        border-radius: 7px;
+        background: linear-gradient(135deg, #bec3aa, #6f7954);
+    }
+
+    .course-info {
+        min-width: 0;
+    }
+
+    .golf-card h3 {
+        font-size: 0.9rem;
+        line-height: 1.1;
+        margin-bottom: 3px;
+        letter-spacing: 0;
+    }
+
+    .golf-card p {
+        font-size: 0.72rem;
+        line-height: 1.22;
+        margin: 1px 0;
+    }
+
+    .favorite-button {
+        align-self: center;
+        justify-self: end;
+    }
+
+    .favorite-button img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .golfbanor-tips {
+        width: auto;
+        margin: 20px 18px 28px;
+        padding: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        border-radius: 14px;
+    }
+
+    .golfbanor-tips-gap {
+        gap: 14px;
+    }
+
+    .golfbanor-tips img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .golfbanor-tips-text h3 {
+        font-size: 0.95rem;
+    }
+
+    .golfbanor-tips-text p {
+        font-size: 0.78rem;
+        line-height: 1.4;
+    }
+
+    .golfbanor-tips a {
+        width: 100%;
     }
 }

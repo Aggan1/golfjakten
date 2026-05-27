@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoriter | Golfjakten</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/favoriter.css">
+</head>
+
+<body>
+    <header class="toppbar">
+        <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Öppna meny">
+
+        <a href="index.html" class="logo">GOLFJAKTEN</a>
+
+        <label for="mobile-menu-toggle" class="mobile-menu-button">
+            <img src="images/ikoner/meny.svg" class="menu-icon" alt="Öppna meny">
+            <img src="images/ikoner/x.svg" class="close-icon" alt="Stäng meny">
+        </label>
+
+        <nav class="nav">
+            <a href="golfbanor.html">Golfbanor</a>
+            <a href="favoriter.html" class="active">Favoriter</a>
+            <a href="Golfresor.html" class="mobile-nav-button">Planera golfresa</a>
+        </nav>
+
+        <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
+    </header>
+
+    <main class="favoriter-sida">
+        <section class="favoriter-hero">
+            <h1>Favoriter</h1>
+            <p>Här hittar du golfbanor du har sparat som favoriter.</p>
+        </section>
+
+        <section class="favoriter-top">
+            <p><span id="antal-favoriter">0</span> sparade golfbanor</p>
+
+            <div class="sortering">
+                <label for="sortering">Sortera</label>
+
+                <select id="sortering">
+                    <option value="az">A–Ö</option>
+                    <option value="za">Ö–A</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="favoriter-layout">
+            <div class="favoriter-list-box">
+                <div class="favoriter-mobile-list-top">
+                    <p><span id="antal-favoriter-mobile">0</span> sparade golfbanor</p>
+
+                    <button id="openSort" class="mobile-sort-button" type="button">
+                        Sortera
+                    </button>
+                </div>
+
+                <div id="favorit-list"></div>
+            </div>
+        </section>
+        <div id="mobileSortOverlay" class="mobile-sort-overlay"></div>
+
+        <section class="favorit-tips">
+
+            <div class="favorit-tips-gap">
+                <img src="images/ikoner/i.svg" alt="Info ikon">
+
+                <div class="favorit-tips-text">
+                    <h3>Tips! Planera din nästa golfresa</h3>
+
+                    <p>
+                        Osäker på vilken golfbana du ska åka till använd vår planerare och hitta ditt perfekta golfäventyr.
+                    </p>
+                </div>
+            </div>
+
+            <a href="Golfresor.html">
+                Planera ny resa
+            </a>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-logo">
+            <h2>GOLFJAKTEN</h2>
+            <p>Golfupplevelser i Småland och på Öland.</p>
+        </div>
+
+        <div class="footer-social">
+            <h4>FÖLJ OSS</h4>
+
+            <div class="footer-social-icons">
+                <a href="#" aria-label="Instagram">
+                    <img src="images/ikoner/instagram.svg" alt="Instagram ikon">
+                </a>
+
+                <a href="#" aria-label="Facebook">
+                    <img src="images/ikoner/facebook.svg" alt="Facebook ikon">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-kontakt">
+            <h4>KONTAKT</h4>
+
+            <div class="footer-kontakt-del">
+                <img src="images/ikoner/phone.svg" alt="Telefon ikon">
+                <p>070 - 123 45 67</p>
+            </div>
+
+            <div class="footer-kontakt-del">
+                <img src="images/ikoner/mail.svg" alt="Mejl ikon">
+                <p>info@golfjakten.se</p>
+            </div>
+
+            <div class="footer-kontakt-del">
+                <img src="images/ikoner/gps.svg" alt="Gps pin ikon">
+                <p>Linnéuniversitetet i Växjö, Sverige</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+        <p>© 2026 Golfjakten · <a href="om.html">Om oss</a></p>
+    </div>
+
+    <script type="module" src="js/favoriter.js"></script>
+</body>
+
+</html>

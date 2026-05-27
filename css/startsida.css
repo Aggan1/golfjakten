@@ -1,488 +1,638 @@
 body {
-    background: #f4f0e8;
+    background-color: #f3efe7;
 }
 
-.intro {
-    min-height: 390px;
+.startsida {
+    background-color: #f3efe7;
+    color: #2f332b;
+}
 
-    background-image:
-        linear-gradient(rgba(18, 28, 18, 0.42), rgba(18, 28, 18, 0.42)),
-        url("../images/Placeholder1.png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+.bana-bild,
+.planera-bild,
+.om-bild {
+    background: linear-gradient(135deg, #68714b, #d8d0bd);
+}
+
+/* Knappar för sektioner beroende på bakgrund*/
+.start-btn {
+    display: inline-block;
+    padding: 13px 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    transition: 0.3s ease;
+}
+
+.start-btn.primary {
+    background-color: #68714b;
+    border: 1px solid #68714b;
+    color: #f4f0e8;
+}
+
+.start-btn.primary:hover {
+    background-color: #374332;
+}
+
+.start-btn.light {
+    background-color: #f4f0e8;
+    border: 1px solid #f4f0e8;
+    color: #2f332b;
+}
+
+.start-btn.light:hover {
+    background-color: transparent;
+    color: #f4f0e8;
+}
+
+/* Hero sektionen högst upp */
+.startsida-hero {
+    min-height: 500px;
+    margin: 0;
+    padding: 68px 8%;
+    background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.919), rgba(216, 208, 189, 0.125)),
+        url("../images/header.jpg") center/cover no-repeat;
     display: flex;
     align-items: center;
-    padding: 0 8%;
-    color: #f7f1e7;
 }
 
-.intro-inne {
-    max-width: 560px;
-}
-
-.intro h1 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 40px;
-    line-height: 1.1;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 500;
-    margin-bottom: 18px;
-}
-
-.intro p {
-    font-size: 15px;
-    line-height: 1.7;
-    color: #eee6d8;
-    margin-bottom: 22px;
-}
-
-.btn-om {
-    display: inline-block;
-    padding: 12px 24px;
-    text-transform: uppercase;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 1.3px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.3s ease;
-    opacity: 1;
-    visibility: visible;
-}
-
-.btn-boka{
-    display:inline-block;
-    background:#68714b;
-    color:#eee6d8;
-    border:1px solid #68714b;
-    padding:14px 30px;
-    border-radius:4px;
-    font-family:Arial,sans-serif;
-    font-size:11px;
-    font-weight:500;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    text-decoration:none;
-    cursor:pointer;
-    transition:0.3s ease;
-}
-
-.btn-boka:hover{
-    background:#7c865a;
-    border-color:#7c865a;
-    color:#ffffff;
-}
-
-.btn-boka,
-.btn-kontakt{
-display:inline-block;
-padding:12px 24px;
-text-transform:uppercase;
-font-size:11px;
-font-weight: 500;
-color:#ffffff;
-letter-spacing:1.3px;
-text-decoration:none;
-cursor:pointer;
-transition:0.3s ease;
-opacity:1;
-visibility:visible;
-}
-
-.btn-om{
-display:inline-block;
-background:#68714b;
-color:#ffffff;
-border:1px solid #68714b;
-padding:14px 30px;
-font-family:Arial,sans-serif;
-font-size:11px;
-font-weight:500;
-text-transform:uppercase;
-letter-spacing:1px;
-text-decoration:none;
-transition:all 0.3s ease;
-cursor:pointer;
-}
-
-.btn-om:hover{
-background:#7a8460;
-border-color:#7a8460;
-color:#ffffff;
-transform:translateY(-2px);
-box-shadow:0 10px 24px rgba(0,0,0,0.08);
-}
-
-.btn-om:visited{
-color:#ffffff;
-}
-
-.btn-kontakt:visited{
-color:#4a4a4a;
-}
-
-.btn-kontakt {
-    background: #f4f0e8;
-    color: #4a4a4a;
-    border: 1px solid #d8cebc;
-    padding: 14px 28px;
-    font-size: 12px;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    margin: 20px;
-}
-
-.btn-kontakt:hover {
-    background: #e1ded9;
-    color: #313527;
-    border-color: #7a8460;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.10);
-}
-
-.om-oss {
-    background: #f4f0e8;
-    color: #3c5238;
-    padding: 52px 8%;
-    display: grid;
-    grid-template-columns: 0.9fr 1.35fr;
-    gap: 55px;
-    align-items: center;
-}
-
-.oss-text span,
-.text-omoss span {
-    text-transform: uppercase;
-    font-size: 10px;
-    color: #5f684f;
-    font-weight: 500;
-}
-
-.oss-text h2,
-.text-omoss h2 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 31px;
-    line-height: 1.15;
-    font-weight: 500;
-    color: #3c5238;
-    margin: 10px 0 18px;
-}
-
-.oss-text p,
-.text-omoss p {
-    font-size: 14px;
-    line-height: 1.8;
-    color: #465040;
-    margin-bottom: 22px;
-}
-
-.karta {
-    width: 600px;
-    height: 500px;
-}
-
-.karta img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.om-oss img,
-.om-oss-sektion img,
-.kort img{
-    border: 3px solid #e4dbc9;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-    transition: 0.3s ease;
-}
-
-.om-oss img:hover,
-.om-oss-sektion img:hover,
-.kort:hover img,
-.karta:hover {
-    border-color: #b9ad98;
-    transform: translateY(-3px);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.13);
-}
-
-.om-oss img,
-.om-oss-sektion img {
-    width: 100%;
-    height: 285px;
-    object-fit: cover;
-}
-
-
-.top-lista {
-    background: #68714b;
+.hero-text {
+    max-width: 620px;
     color: #f4f0e8;
-    padding: 48px 8%;
-    text-align: center;
 }
 
-.top-lista h2 {
-    font-family: playfair display, georgia, serif;
-    font-size: 28px;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 24px;
-    font-size: 32px;
+.startsida-hero h1 {
+    max-width: 620px;
+    font-size: 2.6rem;
+    line-height: 1.08;
+    margin-bottom: 20px;
+    font-family: "Playfair Display", Georgia, serif;
 }
 
-.top-lista-kort {
+.startsida-hero h1::after {
+    content: "";
+    display: block;
+    width: 82px;
+    height: 1px;
+    background-color: #f4f0e8;
+    margin-top: 18px;
+}
+
+.startsida-hero p {
+    max-width: 390px;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 26px;
+}
+
+.hero-knappar {
+    display: flex;
+    gap: 18px;
+}
+
+/* Snabbval */
+.hero-ikoner {
+    width: 88%;
+    margin: -32px auto 38px;
+    padding: 16px 20px;
+    border: 1px solid #d4cab8;
+    border-radius: 14px;
+    background-color: #f4f0e8;
+
     display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 28px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-ikon-kort {
+    padding: 0 20px;
+    text-align: center;
+    border-right: 1px solid #ddd3c1;
+    color: inherit;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.hero-ikon-kort:last-child {
+    border-right: none;
+}
+
+.hero-ikon-kort:hover {
+    transform: translateY(-2px);
+}
+
+.hero-ikon-kort:hover h2 {
+    color: #68714b;
+}
+
+.hero-ikoner img {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 8px;
+}
+
+.hero-ikoner h2 {
+    font-family: Arial, sans-serif;
+    font-size: 0.96rem;
+    margin-bottom: 5px;
+}
+
+.hero-ikoner p {
+    font-size: 0.8rem;
+    line-height: 1.45;
+    color: #504d43;
+}
+
+/* Rubrikrad för golfbanor sektion */
+.section-top {
+    margin: 0 auto 18px;
+    width: 88%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section-top h2 {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.section-top h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 1px;
+    margin-top: 12px;
+    background-color: #68714b;
+}
+
+.section-top a {
+    color: #68714b;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+}
+
+.se-alla {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    
+}
+
+.se-alla img {
+    width: 14px;
+    height: 14px;
+}
+
+/* Upptäck golfbanor */
+.upptack {
+    padding: 0 0 20px;
+}
+
+.upptack-lista {
+    width: 88%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.bana-kort {
+    position: relative;
+    min-height: 250px;
+    padding: 12px;
+    border: 1px solid #d4cab8;
+    background-color: #f4f0e8;
+    color: #2f332b;
+    text-decoration: none;
+    transition: 0.3s ease;
+    
+}
+
+.bana-kort:hover {
+    background-color: #ebe5da;
+}
+
+.bana-bild {
+    width: 100%;
+    height: 112px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    background-color: #d4cab8;
+    background-size: cover;
+    background-position: center;
+}
+
+.upptack-lista .bana-kort:nth-child(1) .bana-bild {
+      background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/StartsidaBanakort.jpg") center/cover no-repeat;
+}
+
+.upptack-lista .bana-kort:nth-child(2) .bana-bild {
+      background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/StartsidaBanakort2.jpg") center/cover no-repeat;
+}
+
+.upptack-lista .bana-kort:nth-child(3) .bana-bild {
+      background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/StartsidaBanakort3.jpg") center/cover no-repeat;
+}
+
+.upptack-lista .bana-kort:nth-child(4) .bana-bild {
+      background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/StartsidaBanakort4.jpg") center/cover no-repeat;
+}
+
+.bana-kort h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.bana-kort p {
+    font-size: 0.8rem;
+    line-height: 1.35;
+    margin-bottom: 4px;
+    color: #2f332b;
+}
+
+.mobile-all-link {
+    display: none;
+}
+
+/* Planera golfresa sektion */
+.planera-box {
+    width: 88%;
+    margin: 14px auto 30px;
+    border: 1px solid #68714b;
+    border-radius: 10px;
+    background-color: #68714b;
+    color: #f4f0e8;
+    overflow: hidden;
+
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
     align-items: stretch;
 }
 
-.top-lista h2 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 50px;
+.planera-text {
+    padding: 42px;
 }
 
+.planera-text h2 {
+    max-width: 360px;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    line-height: 1.15;
+    margin-bottom: 18px;
+}
 
-.top-lista h2::after {
+.planera-text h2::after,
+.om-golfjakten h2::after {
     content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -15px;
-    width: 80px;
+    display: block;
+    width: 50px;
     height: 1px;
-    background: #d8cebc;
+    background-color: #68714b;
+    margin-top: 12px;
 }
 
-.korts {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-
-.kort {
-    position: center;
-    background: #e9e2d4;
-    border-radius: 4px;
-    overflow: hidden;
-    border: 1px solid #d5cdbd;
-    cursor: pointer;
-    height: 243px;
-}
-
-.kort img {
-    width: 100%;
-    height: 141px;
-    object-fit: cover;
-    display: block;
-}
-
-.kort div {
-    height: 102px;
-    padding: 16px 20px 18px;
-    background: #e9e2d4;
-    text-align: left;
-    box-sizing: border-box;
-}
-
-.kort h3 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 15px;
-    text-transform: uppercase;
-    color: #25301f;
-    margin: 0 0 4px;
-    font-weight: 500;
-}
-
-.kort p {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 12px;
-    color: #4f5748;
-    margin: 0 0 18px;
-}
-
-.kort span {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 13px;
-    text-transform: uppercase;
-    color: #25301f;
-}
-
-.kort-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 20;
-    display: block;
-    text-decoration: none;
-}
-
-
-.karta {
-    min-height: 390px;
-    background: #d8d3c3;
-    color: #25301f;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.se-allt {
-    font-family: Arial, Helvetica, sans-serif;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 28px;
-    padding: 10px 20px;
-    background-color: #f4f0e8;
-    color: #1f1f1f;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 0;
-    text-decoration: none;
-    border-radius: 0;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.se-allt:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-}
-
-
-.om-oss-sektion {
-    background: #f4f0e8;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    padding: 52px 8%;
-    align-items: center;
-}
-
-
-.kontakt {
-    background: #68714b;
+.planera-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
     color: #f4f0e8;
-    text-align: center;
-    padding: 42px 8%;
+    margin-bottom: 20px;
 }
 
-.kontakt h2 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 25px;
+.planera-box h2::after {
+    background-color: #f4f0e8;
 }
 
-
-.kontakt h2::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -12px;
-    width: 70px;
-    height: 0.8px;
-    background: #d5d0c780;
+.planera-bild {
+    min-height: 310px;
+    border-left: 1px solid rgba(244, 240, 232, 0.35);
+        background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/OmOss.jpg") center/cover no-repeat;
 }
 
-.kontakt p {
-    margin: 8px 0;
-    font-size: 14px;
-    word-spacing: 2px;
+/* Om Golfjakten sektion */
+.om-golfjakten {
+    width: 88%;
+    margin: 0 auto 30px;
+    border: 1px solid #d4cab8;
+    border-radius: 10px;
+    background-color: #f4f0e8;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    gap: 0;
+    align-items: center;
 }
 
-@media (max-width: 850px) {
-
-    .footer {
-        grid-template-columns: 1fr;
-        gap: 35px;
-        text-align: center;
-    }
-
-    .footer-links,
-    .footer-kontakt {
-        align-items: center;
-    }
-
-    .footer-logo h2 {
-        font-size: 28px;
-    }
+.om-golfjakten>div:not(.om-bild) {
+    padding: 42px;
 }
 
-/* RESPONSIV */
+.om-golfjakten h2 {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
 
+.om-golfjakten p {
+    max-width: 620px;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #504d43;
+    margin-bottom: 18px;
+}
+
+.om-bild {
+    width: 100%;
+    min-height: 300px;
+    height: 100%;
+    border-right: 1px solid #d4cab8;
+    background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/GolfresaStartsida.jpg") center/cover no-repeat;
+}
+
+/* Mellan skärmar */
 @media (max-width: 1000px) {
-    .om-oss,
-    .top-lista-kort,
-    .om-oss-sektion {
+
+    .hero-ikoner,
+    .upptack-lista {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .planera-box,
+    .om-golfjakten {
         grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .oss-text,
-    .text-omoss {
-        text-align: center;
-    }
-
-    .karta {
-        min-height: 300px;
-    }
-
-    .intro h1 {
-        font-size: 34px;
     }
 }
 
+/* Mobilanpassning */
 @media (max-width: 700px) {
-    .intro {
-        min-height: 320px;
-        padding: 40px 6%;
+    .startsida-hero {
+        min-height: 470px;
+        margin: 0;
+        padding: 70px 28px 46px;
+        border-radius: 0;
+        align-items: flex-start;
     }
 
-    .intro h1 {
-        font-size: 28px;
+    .startsida-hero h1 {
+        font-size: 2.1rem;
     }
 
-    .intro p {
-        font-size: 13px;
+    .startsida-hero p {
+        font-size: 0.9rem;
     }
 
-    .om-oss,
-    .top-lista,
-    .om-oss-sektion,
-    .kontakt {
-        padding: 38px 6%;
+    .hero-knappar {
+        flex-direction: column;
+        gap: 12px;
+        max-width: 240px;
     }
 
-    .korts {
-        grid-template-columns: 1fr;
-    }
-
-    .om-oss img,
-    .om-oss-sektion img {
-        height: 220px;
-    }
-
-    .kort img {
-        height: 170px;
-    }
-
-    .top-lista h2,
-    .kontakt h2,
-    .oss-text h2,
-    .text-omoss h2 {
-        font-size: 24px;
-    }
-
-    .btn-boka,
-    .btn-om,
-    .btn-kontakt {
+    .start-btn {
         width: 100%;
-        box-sizing: border-box;
         text-align: center;
-        margin-bottom: 10px;
+        padding: 14px;
+        font-size: 0.72rem;
+    }
+
+    .hero-ikoner {
+        width: auto;
+        margin: -26px 0 28px;
+        padding: 0;
+        grid-template-columns: repeat(2, 1fr);
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    .hero-ikon-kort {
+        display: block;
+        text-align: center;
+        padding: 18px 8px;
+        border-right: 1px solid #ddd3c1;
+        border-bottom: none;
+
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .hero-ikon-kort:nth-child(2) {
+        border-right: none;
+    }
+
+    .hero-ikon-kort:nth-child(3) {
+        grid-column: 1 / 3;
+        width: 100%;
+        justify-self: center;
+        border-right: none;
+        border-top: 1px solid #ddd3c1;
+    }
+
+    .hero-ikon-kort:nth-child(3) div {
+        max-width: 210px;
+        margin: 0 auto;
+    }
+
+    .hero-ikon-kort::after {
+        content: none;
+    }
+
+    .hero-ikoner img {
+        width: 36px;
+        height: 36px;
+        margin-bottom: 8px;
+    }
+
+    .hero-ikoner h2 {
+        font-size: 0.8rem;
+        line-height: 1.2;
+    }
+
+    .hero-ikoner p {
+        font-size: 0.68rem;
+        line-height: 1.35;
+    }
+
+    .section-top {
+        width: auto;
+        margin: 0 18px 14px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .section-top h2 {
+        font-size: 1.25rem;
+        white-space: nowrap;
+    }
+
+    .section-top h2::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section-top a {
+        display: none;
+    }
+
+    .upptack-lista {
+        width: auto;
+        margin: 0 18px;
+        display: flex;
+        overflow-x: auto;
+        gap: 12px;
+        padding-bottom: 10px;
+        scrollbar-width: thin;
+        scrollbar-color: #bdb4a5 #f3efe7;
+    }
+
+    .upptack-lista::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .upptack-lista::-webkit-scrollbar-track {
+        background-color: #f3efe7;
+    }
+
+    .upptack-lista::-webkit-scrollbar-thumb {
+        background-color: #bdb4a5;
+    }
+
+    .bana-kort {
+        min-width: 190px;
+        min-height: 260px;
+    }
+
+    .bana-bild {
+        height: 110px;
+    }
+
+    .bana-kort h3 {
+        font-size: 0.9rem;
+    }
+
+    .bana-kort p {
+        font-size: 0.72rem;
+    }
+
+    .mobile-all-link {
+        display: block;
+        margin: 10px 18px 24px;
+        padding: 14px;
+        background-color: #68714b;
+        color: #f4f0e8;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+    }
+
+    .planera-box {
+        width: auto;
+        margin: 0 18px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        border: 1px solid #68714b;
+        background-color: #68714b;
+        color: #f4f0e8;
+    }
+
+    .planera-text {
+        text-align: center;
+        padding: 22px;
+    }
+
+    .planera-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .planera-text p {
+        color: #f4f0e8;
+        font-size: 0.82rem;
+        line-height: 1.6;
+    }
+
+    .planera-bild {
+        order: -1;
+        min-height: 190px;
+        border-left: none;
+        border-bottom: 1px solid rgba(244, 240, 232, 0.35);
+    }
+
+    .planera-box h2::after {
+        background-color: #f4f0e8;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .planera-box .start-btn.light {
+        background-color: #f4f0e8;
+        border-color: #f4f0e8;
+        color: #2f332b;
+    }
+
+    .planera-box .start-btn.light:hover {
+        background-color: transparent;
+        color: #f4f0e8;
+    }
+
+    .om-golfjakten {
+        width: auto;
+        margin: 0 18px 24px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        border: 1px solid #d4cab8;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #f4f0e8;
+    }
+
+    .om-golfjakten>div:not(.om-bild) {
+        text-align: center;
+        padding: 22px;
+    }
+
+    .om-golfjakten h2 {
+        font-size: 1.25rem;
+    }
+
+    .om-golfjakten h2::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .om-golfjakten p {
+        font-size: 0.82rem;
+        line-height: 1.6;
+    }
+
+    .om-bild {
+        height: 170px;
+        min-height: 170px;
+        border-radius: 0;
+        border-right: none;
+        border-bottom: 1px solid #d4cab8;
     }
 }
