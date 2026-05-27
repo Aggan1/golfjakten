@@ -8,9 +8,9 @@
         stroke: #68714b;
         stroke-linecap: round;
         stroke-linejoin: round;
-        stroke-width: 3.07px;
+        stroke-width: 2.42px;
       }
     </style>
   </defs>
-  <path class="st0" d="M2.28,5.73h19.44M2.28,12h19.44M2.28,18.27h19.44"/>
+  <path class="st0" d="M2.32,12.74l5.95,5.91,13.4-13.31"/>
 </svg>

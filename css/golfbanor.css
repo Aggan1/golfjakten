@@ -402,7 +402,7 @@
     justify-content: space-between;
 }
 
-.golfbanor-tips-left {
+.golfbanor-tips-gap {
     display: flex;
     align-items: center;
     gap: 18px;
@@ -445,7 +445,7 @@
     display: none;
 }
 
-/* Skärma anpassning (medelstora) */
+/* Skärmanpassning (medelstora) */
 @media (max-width: 1100px) {
     .golfbanor-layout {
         grid-template-columns: 1fr;
@@ -481,7 +481,7 @@
     }
 }
 
-/* Mobil */
+/* Mobilanpassning */
 @media (max-width: 700px) {
     .golfbanor-hero {
         padding: 26px 24px 18px;
@@ -867,7 +867,7 @@
         border-radius: 14px;
     }
 
-    .golfbanor-tips-left {
+    .golfbanor-tips-gap {
         gap: 14px;
     }
 

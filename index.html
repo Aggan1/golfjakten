@@ -1,20 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golfjakten</title>
 
-    <title>GOLFJAKTEN</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/startsida.css">
-    <script src="js/startsida-golfbanor.js" defer></script>
-
 </head>
 
 <body>
     <header class="toppbar">
-        <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle">
+        <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Öppna meny">
 
         <a href="index.html" class="logo">GOLFJAKTEN</a>
 
@@ -32,141 +30,162 @@
         <a href="Golfresor.html" class="header-btn">Planera golfresa</a>
     </header>
 
-    <main>
-        <section class="intro">
-            <div class="intro-inne">
-                <h1>SMÅLANDS & ÖLANDS BÄSTA GOLFUPPLEVELSER</h1>
-                <p>Upptäck, jämför och hitta din perfekta golfupplevelse i Småland & på Öland.</p>
-                <a href="Golfresor.html" class="btn-boka">Planera golfresa</a>
-            </div>
-        </section>
+    <main class="startsida">
+        <section class="startsida-hero">
+            <div class="hero-text">
+                <h1>Din nästa golfupplevelse<br>börjar hos oss</h1>
+                <p>Upptäck golfbanor i Småland och på Öland och hitta den golfbana som passar dig.</p>
 
-        <section class="om-oss">
-            <div class="oss-text">
-                <h2>Hitta din nya Golfupplevelse </h2>
-                <p>
-                    Golfjakten samlar golfbanor från hela Småland och Öland på ett och samma ställe.
-                    Utforska enkelt olika banor, jämför miljöer och hitta den golfupplevelse som passar dig bäst - oavsett om du söker
-                    kustnära linksbanor, natursköna skogsbanor eller nya favoriter för nästa golfrunda. Med Golfjakten blir det enklare
-                    att upptäcka fler banor och planera ditt nästa spel.
-                </p>
-
-                <a href="om.html" class="btn-om"> Mer om oss</a>
-            </div>
-
-            <img src="images/Placeholder2.png" alt="bild">
-
-        </section>
-
-        <section class="top-lista">
-            <h2>POPULÄRA GOLFBANOR</h2>
-
-            <div class="top-lista-kort">
-                <div class="korts">
-
-                    <article class="kort">
-                        <a href="golfbanor.html" class="kort-overlay" aria-label="Gå till golfbanor"></a>
-                        <img src="images/Placeholder4.png" alt="bild 2">
-                        <div>
-                            <h3>Grönhögen Golf</h3>
-                            <p>Södra Möckelby</p>
-                            <span>Linksbana</span>
-                        </div>
-                    </article>
-
-                    <article class="kort">
-                        <a href="golfbanor.html" class="kort-overlay" aria-label="Gå till golfbanor"></a>
-                        <img src="images/Placeholder5.png" alt="bild 3">
-                        <div>
-                            <h3>Sand Golf Club</h3>
-                            <p>Bankeryd</p>
-                            <span>Sandbana</span>
-                        </div>
-                    </article>
-
-                    <article class="kort">
-                        <a href="golfbanor.html" class="kort-overlay" aria-label="Gå till golfbanor"></a>
-                        <img src="images/Placeholder6.png" alt="bild 4">
-                        <div>
-                            <h3>Gränna Golfklubb</h3>
-                            <p>Gränna</p>
-                            <span>Skogsbana</span>
-                        </div>
-                    </article>
-
-                    <article class="kort">
-                        <a href="golfbanor.html" class="kort-overlay" aria-label="Gå till golfbanor"></a>
-                        <img src="images/Placeholder7.png" alt="bild 5">
-                        <div>
-                            <h3>Ölands Golfklubb</h3>
-                            <p>Högby</p>
-                            <span>Parkbana</span>
-                        </div>
-                    </article>
-
-                </div>
-
-                <div class="karta">
-                    <img src="images/karta.png" alt="bild 5">
+                <div class="hero-knappar">
+                    <a href="golfbanor.html" class="start-btn primary">Utforska golfbanor</a>
+                    <a href="Golfresor.html" class="start-btn light">Planera golfresa</a>
                 </div>
             </div>
-
-
-            <a href="golfbanor.html" class="se-allt">VISA ALLA GOLFBANOR</a>
         </section>
 
-        <section class="om-oss-sektion">
-            <img src="images/Placeholder3.png" alt="bild 6">
+        <section class="hero-ikoner">
+            <a href="golfbanor.html" class="hero-ikon-kort">
+                <img src="images/ikoner/gps.svg" alt="">
+                <div>
+                    <h2>Golfbanor i Småland & på Öland</h2>
+                    <p>Hitta och jämför banor för att hitta den perfekta.</p>
+                </div>
+            </a>
 
-            <div class="text-omoss">
-                <h2>Vem är Golfjakten</h2>
-                <p>
-                    Vi på Golfjakten gör det enklare för golfspelare att upptäcka nya golfbanor och golfupplevelser i Småland och på Öland.
-                    På ett och samma ställe samlar vi banor med unika miljöer, varierande karaktär och natursköna omgivningar för att hjälpa
-                    dig hitta rätt bana för nästa runda. Oavsett om du söker nya favoriter, planerar en golfresa eller bara vill inspireras av
-                    regionens fantastiska golfutbud, hjälper Golfjakten dig att hitta rätt.
-                </p>
-                <a href="om.html" class="btn-om">Läs mer här</a>
-            </div>
+            <a href="favoriter.html" class="hero-ikon-kort">
+                <img src="images/ikoner/heart.svg" alt="">
+                <div>
+                    <h2>Spara dina favoriter</h2>
+                    <p>Spara dina favoritbanor och hitta dem snabbt nästa gång.</p>
+                </div>
+            </a>
+
+            <a href="Golfresor.html" class="hero-ikon-kort">
+                <img src="images/ikoner/kalender.svg" alt="">
+                <div>
+                    <h2>Planera din golfresa</h2>
+                    <p>Skapa din egen resa utefter dina önskemål och få översikt över allt.</p>
+                </div>
+            </a>
         </section>
 
-        <section class="kontakt">
-            <h2>Har du frågor?</h2>
-            <p>Upptäck golfbanor och golfupplevelser i Småland och på Öland</p>
-            <p>Har du funderingar kring Golfjakten är du välkommen att kontakta oss</p>
-            <a href="kontakt.html" class="btn-kontakt"> Kontakta oss </a>
+        <section class="upptack">
+            <div class="section-top">
+                <h2>Upptäck alla golfbanor</h2>
+                <a href="golfbanor.html" class="se-alla">
+                    Se alla
+                    <img src="images/ikoner/arrow2.svg" alt="">
+                </a>
+            </div>
+
+            <div class="upptack-lista">
+                <a href="golfbanor.html" class="bana-kort">
+                    <div class="bana-bild"></div>
+                    <div>
+                        <h3>A6 Golfklubb</h3>
+                        <p>Jönköping, Småland</p>
+                        <p>18 hål</p>
+                        <p>250–500 kr · Park | Skogsbana</p>
+                    </div>
+                </a>
+
+                <a href="golfbanor.html" class="bana-kort">
+                    <div class="bana-bild"></div>
+                    <div>
+                        <h3>Alvesta Golfklubb</h3>
+                        <p>Moheda, Småland</p>
+                        <p>18 hål</p>
+                        <p>250–500 kr · Park | Skogsbana</p>
+                    </div>
+                </a>
+
+                <a href="golfbanor.html" class="bana-kort">
+                    <div class="bana-bild"></div>
+                    <div>
+                        <h3>Ekerum Golf & Resort</h3>
+                        <p>Borgholm, Öland</p>
+                        <p>18 hål</p>
+                        <p>300–600 kr · Parkbana</p>
+                    </div>
+                </a>
+
+                <a href="golfbanor.html" class="bana-kort">
+                    <div class="bana-bild"></div>
+                    <div>
+                        <h3>Byxelkroks Golfklubb</h3>
+                        <p>Byxelkrok, Öland</p>
+                        <p>12 hål</p>
+                        <p>250–500 kr · Parkbana</p>
+                    </div>
+                </a>
+            </div>
+
+            <a href="golfbanor.html" class="mobile-all-link">Visa alla golfbanor</a>
         </section>
 
-        <footer class="footer">
-
-            <div class="footer-logo">
-                <h2>GOLFJAKTEN</h2>
-                <p>Golfupplevelser i Småland och på Öland.</p>
+        <section class="planera-box">
+            <div class="planera-text">
+                <h2>Dags att planera din nästa golfresa?</h2>
+                <p>Skapa din egen golfresa utifrån dina önskemål för att få en upplevelse att minnas varje gång.</p>
+                <a href="Golfresor.html" class="start-btn light">Planera din golfresa</a>
             </div>
 
-            <div class="footer-links">
-                <h4>NAVIGATION</h4>
-                <a href="golfbanor.html">Golfbanor</a>
-                <a href="Golfresor.html">Golfresor</a>
-                <a href="">Favoriter</a>
-                <a href="om.html">Om oss</a>
-                <a href="kontakt.html">Kontakt</a>
+            <div class="planera-bild"></div>
+        </section>
+
+        <section class="om-golfjakten">
+            <div class="om-bild"></div>
+            <div>
+                <h2>Om oss på Golfjakten</h2>
+                <p>Vill du veta mer om Golfjakten, vår idé och vad visionen är så besök vår om oss sida.</p>
+                <a href="om.html" class="start-btn primary">Läs om oss</a>
             </div>
+        </section>
+    </main>
 
-            <div class="footer-kontakt">
-                <h4>KONTAKT</h4>
-
-                <p> Tele: 070 - 123 45 67</p>
-                <p> Mail: info@golfjakten.se</p>
-                <p> Vart: Småland & Öland, Sverige</p>
-            </div>
-
-        </footer>
-
-        <div class="footer-bottom">
-            <p>© 2026 Golfjakten</p>
+    <footer class="footer">
+        <div class="footer-logo">
+            <h2>GOLFJAKTEN</h2>
+            <p>Golfupplevelser i Småland och på Öland.</p>
         </div>
 
+        <div class="footer-social">
+            <h4>FÖLJ OSS</h4>
+
+            <div class="footer-social-icons">
+                <a href="#" aria-label="Instagram">
+                    <img src="images/ikoner/instagram.svg" alt="Instagram ikon">
+                </a>
+
+                <a href="#" aria-label="Facebook">
+                    <img src="images/ikoner/facebook.svg" alt="Facebook ikon">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-kontakt">
+            <h4>KONTAKT</h4>
+
+            <div class="footer-kontakt-del">
+                <img src="images/ikoner/phone.svg" alt="Telefon ikon">
+                <p>070 - 123 45 67</p>
+            </div>
+
+            <div class="footer-kontakt-del">
+                <img src="images/ikoner/mail.svg" alt="Mejl ikon">
+                <p>info@golfjakten.se</p>
+            </div>
+
+            <div class="footer-kontakt-del">
+                <img src="images/ikoner/gps.svg" alt="Gps pin ikon">
+                <p>Linnéuniversitetet i Växjö, Sverige</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-bottom">
+        <p>© 2026 Golfjakten · <a href="om.html">Om oss</a></p>
+    </div>
 </body>
 
 </html>
