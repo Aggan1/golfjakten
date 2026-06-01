@@ -108,7 +108,9 @@
   margin-bottom: 6px;
 }
 
+
 .price-labels {
+  color: #68714b;
   display: flex;
   justify-content: space-between;
   font-size: 12px;
@@ -117,6 +119,7 @@
 }
 
 .check-option {
+  accent-color: #68714b;
   display: flex !important;
   align-items: center;
   gap: 8px;
@@ -380,6 +383,9 @@ footer h4 {
 .mobile-actions {
   display: none;
 }
+#price, #distance{
+  accent-color: #68714b;
+}
 
 @media (max-width: 700px) {
   .golfresor-hero {
@@ -532,6 +538,7 @@ footer h4 {
     height: 20px;
     accent-color: #68714b;
   }
+  
 
   .generate-btn {
     min-height: 58px;
