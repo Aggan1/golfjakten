@@ -377,3 +377,204 @@ footer h4 {
   margin-top: 24px;
 }
 
+.mobile-actions {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .golfresor-hero {
+    padding: 26px 24px 18px;
+    text-align: center;
+  }
+
+  .golfresor-hero h1 {
+    font-size: 1.9rem;
+    margin-bottom: 12px;
+  }
+
+  .golfresor-hero p {
+    max-width: 330px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .planner-layout {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 28px;
+    gap: 16px;
+  }
+
+  .route-section,
+  .map-box {
+    display: contents;
+  }
+
+  .map-box h2,
+  .map-box > p,
+  .map-info,
+  #trip-summary {
+    order: 1;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  #map {
+    order: 1;
+    height: 330px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .map-info {
+    order: 1;
+    margin: 0 10px;
+    padding: 10px;
+    background-color: #f4f0e8;
+    border: 1px solid #d8cfbe;
+    border-top: none;
+    box-shadow: 0 6px 16px rgba(47, 51, 43, 0.12);
+  }
+
+  .mobile-actions {
+    display: block;
+    order: 2;
+    margin: 0 10px;
+    padding: 10px;
+    background-color: #f4f0e8;
+    border: 1px solid #d8cfbe;
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 6px 16px rgba(47, 51, 43, 0.12);
+  }
+
+  .mobile-action-btn {
+    width: 100%;
+    height: 36px;
+    border: 1px solid #68714b;
+    background-color: transparent;
+    color: #25301f;
+    font-size: 0.64rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    border-radius: 7px;
+  }
+
+  .filter-box {
+    display: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5000;
+    height: auto;
+    max-height: 92vh;
+    margin: 0;
+    padding: 34px 24px 24px;
+    overflow-y: auto;
+    background-color: #f4f0e8;
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -10px 28px rgba(0, 0, 0, 0.18);
+  }
+
+  .filter-box.visible {
+    display: block;
+  }
+
+  .filter-box::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 48px;
+    height: 5px;
+    background-color: #c8bfaf;
+    border-radius: 10px;
+    transform: translateX(-50%);
+  }
+
+  .filter-box h2 {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+  }
+
+  .filter-box label {
+    margin-top: 14px;
+    margin-bottom: 8px;
+    font-size: 0.76rem;
+  }
+
+  .filter-box input,
+  .filter-box select {
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #d3cab9;
+    border-radius: 8px;
+    background-color: #f7f3eb;
+    font-size: 0.92rem;
+  }
+
+  .filter-box input[type="range"] {
+    min-height: auto;
+    padding: 0;
+    accent-color: #68714b;
+  }
+
+  .check-option {
+    font-size: 0.9rem;
+  }
+
+  .check-option input {
+    width: 20px;
+    height: 20px;
+    accent-color: #68714b;
+  }
+
+  .generate-btn {
+    min-height: 58px;
+    margin-top: 24px;
+    border-radius: 8px;
+    background-color: #68714b;
+  }
+
+  #resultat {
+    order: 3;
+    margin: 16px 10px 0;
+    gap: 14px;
+  }
+
+  .resa-kort {
+    padding: 14px;
+    border-color: #d8cfbe;
+    border-radius: 14px;
+    background-color: #f4f0e8;
+  }
+
+  .resa-top {
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .resa-bild {
+    height: 74px;
+  }
+
+  .resa-top-actions {
+    grid-column: 1 / -1;
+  }
+
+  .resa-info-rad,
+  .resa-extra-rad {
+    grid-template-columns: 1fr;
+  }
+
+  .resa-info-item {
+    border-left: none;
+    border-top: 1px solid #d8cfbe;
+    padding-left: 0;
+    padding-top: 10px;
+  }
+}

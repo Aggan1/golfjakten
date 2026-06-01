@@ -27,6 +27,7 @@ const distanceValue = document.getElementById("distance-value");
 const startInput = document.getElementById("start");
 const playersInput = document.getElementById("players");
 const holesInput = document.getElementById("holes");
+const filterButton = document.getElementById("openFilter");
 
 
 let golfbanor = [];
@@ -336,6 +337,30 @@ function start (){
    });
 }
 
+function setupMobileFilter() {
+  if (!filterButton || !generateBtn) {
+    return;
+  }
+
+  function openFilter() {
+    document.querySelector(".filter-box").classList.add("visible");
+  }
+
+  function closeFilter() {
+    document.querySelector(".filter-box").classList.remove("visible");
+  }
+
+  filterButton.addEventListener("click", openFilter);
+
+  generateBtn.addEventListener("click", function () {
+    closeFilter();
+
+    setTimeout(function () {
+      resultat.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  });
+}
+
 function hamtaGolfbanor() {
   const  filters = {
     descriptions: "golfbana"
@@ -481,6 +506,7 @@ function Tid(minuter){
 
 uppdateraPris();
 start();
+setupMobileFilter();
 
 getGolfData().then(function (){
   hamtaGolfbanor();
