@@ -238,7 +238,9 @@ footer h4 {
 .resa-bild{
   height: 150px;
   border-radius: 6px;
-  background: linear-gradient(135deg, #68714b, #d8d0bd);
+      background:
+        linear-gradient(135deg, rgba(40, 43, 32, 0.49), rgba(216, 208, 189, 0.068)),
+        url("../images/StartsidaBanakort.jpg") center/cover no-repeat;
 }
 
 .resa-title{
